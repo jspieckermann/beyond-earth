@@ -1,0 +1,149 @@
+:host {
+  position: relative;
+  display: block;
+  min-height: 100dvh;
+  /* The band layers of the wide layouts extend far beyond the page; clip both axes so they never add scroll space. */
+  overflow: clip;
+}
+
+.home { position: relative; }
+
+.brand {
+  /* Visually hidden on phone and tablet; the visible app name on desktop. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.date,
+.greeting,
+.hint { margin: 0; }
+.date { font-size: 13px; letter-spacing: 0.04em; color: var(--color-ink-muted); }
+.greeting {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.12;
+  color: var(--color-ink-bright);
+}
+.hint { display: none; font-size: 15px; line-height: 1.5; color: var(--color-ink-muted); }
+.veil { display: none; }
+
+.settings {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--color-ink-muted);
+}
+.settings:hover { color: var(--color-ink); }
+.sky-region { position: relative; }
+
+/* ---------- Phone: one column, sky stage of 390 × 600 units ---------- */
+:host([data-layout='phone']) .home {
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+  padding-bottom: 24px;
+  container-type: inline-size;
+  --u: calc(100cqw / 390);
+}
+:host([data-layout='phone']) .intro { display: contents; }
+:host([data-layout='phone']) .date {
+  position: absolute;
+  z-index: 1;
+  left: 24px;
+  top: calc(var(--u) * 30 + 13px);
+}
+:host([data-layout='phone']) .greeting {
+  position: absolute;
+  z-index: 1;
+  left: 24px;
+  right: 40px;
+  top: calc(var(--u) * 88);
+  font-size: max(22px, calc(var(--u) * 29));
+  line-height: 1.18;
+}
+:host([data-layout='phone']) .settings { right: 14px; top: calc(var(--u) * 30); }
+:host([data-layout='phone']) .sky-region { aspect-ratio: 390 / 600; }
+:host([data-layout='phone']) .card { display: block; margin-inline: 16px; }
+:host([data-layout='phone']) .actions { margin: 16px 16px 0; }
+
+/* ---------- Tablet (upright): top block, full-width sky, card and actions side by side ---------- */
+:host([data-layout='tablet']) .home {
+  min-height: 100dvh;
+  box-sizing: border-box;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-rows: auto minmax(480px, 1fr) auto;
+  grid-template-areas:
+    'intro intro'
+    'sky sky'
+    'card actions';
+  column-gap: 16px;
+}
+:host([data-layout='tablet']) .intro { grid-area: intro; position: relative; z-index: 1; }
+:host([data-layout='tablet']) .date { font-size: 14px; line-height: 24px; }
+:host([data-layout='tablet']) .greeting { margin-top: 40px; max-width: 560px; font-size: 44px; }
+:host([data-layout='tablet']) .hint { display: block; margin-top: 14px; }
+:host([data-layout='tablet']) .settings { right: 30px; top: 30px; }
+:host([data-layout='tablet']) .sky-region { grid-area: sky; margin: 12px -40px 20px; }
+:host([data-layout='tablet']) .card { grid-area: card; display: grid; }
+:host([data-layout='tablet']) .actions { grid-area: actions; }
+
+/* ---------- Desktop and landscape tablets: quiet left column, sky filling the rest ---------- */
+:host([data-layout='desktop']) .home {
+  --col: clamp(400px, 34vw, 536px);
+  --pad: clamp(40px, 5vw, 72px);
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: var(--col) minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-areas:
+    'intro sky'
+    '. sky'
+    'card sky'
+    'actions sky';
+}
+:host([data-layout='desktop']) .veil {
+  display: block;
+  grid-area: 1 / 1 / -1 / 2;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgb(3 5 12 / 0.88) 0%, rgb(3 5 12 / 0.6) 70%, rgb(3 5 12 / 0) 100%);
+}
+:host([data-layout='desktop']) .intro,
+:host([data-layout='desktop']) .card,
+:host([data-layout='desktop']) .actions {
+  position: relative;
+  z-index: 2;
+  margin-inline: var(--pad) 24px;
+}
+:host([data-layout='desktop']) .intro { grid-area: intro; padding-top: 56px; }
+:host([data-layout='desktop']) .brand {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip-path: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-starlight);
+}
+:host([data-layout='desktop']) .date { margin-top: 8px; font-size: 14px; letter-spacing: 0.03em; }
+:host([data-layout='desktop']) .greeting { margin-top: clamp(32px, 7vh, 64px); font-size: clamp(40px, 3.5vw, 50px); line-height: 1.1; }
+:host([data-layout='desktop']) .hint { display: block; margin-top: 22px; }
+:host([data-layout='desktop']) .settings { right: 40px; top: 36px; }
+:host([data-layout='desktop']) .sky-region { grid-area: sky; z-index: 0; }
+:host([data-layout='desktop']) .card { grid-area: card; display: block; margin-top: 32px; }
+:host([data-layout='desktop']) .actions { grid-area: actions; margin-top: 14px; margin-bottom: 56px; }
