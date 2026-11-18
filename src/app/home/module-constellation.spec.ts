@@ -37,6 +37,52 @@ describe('ModuleConstellation', () => {
     expect(labels).toHaveLength(7);
   });
 
+  describe('clickable labels', () => {
+    const label = (id: string) => star(id)?.querySelector<HTMLElement>('.label');
+
+    it('puts each label inside its star control, keeping one control per module', async () => {
+      await render();
+      expect(el.querySelectorAll('button.star')).toHaveLength(7);
+      expect(label('B')?.textContent?.trim()).toBe('Sandkorn-Welt');
+      expect(star('B')?.getAttribute('aria-label')).toBe('Die Sandkorn-Welt');
+    });
+
+    it('selects the module when its label is clicked', async () => {
+      await render();
+      label('E')?.click();
+      await fixture.whenStable();
+      expect(fixture.componentInstance.selected()).toBe('E');
+      expect(el.querySelector('app-module-preview')?.textContent).toContain('Sterne zählen');
+    });
+
+    it('closes the preview when the label is clicked again (wide layout)', async () => {
+      await render();
+      fixture.componentRef.setInput('layout', 'desktop');
+      await fixture.whenStable();
+      label('E')?.click();
+      await fixture.whenStable();
+      label('E')?.click();
+      await fixture.whenStable();
+      expect(fixture.componentInstance.selected()).toBeNull();
+    });
+
+    it('anchors left-side labels from the right so the star stays in place', async () => {
+      await render();
+      expect(star('B')?.classList).toContain('left');
+      // B sits at x = 154 of 390: anchored 100 % − 39.49 % from the right.
+      expect(parseFloat((star('B')?.style.right ?? '').replace('calc(', ''))).toBeCloseTo(100 - (154 / 390) * 100, 2);
+      expect(star('B')?.style.left).toBe('');
+      expect(parseFloat(star('A')?.style.left ?? '')).toBeCloseTo((43 / 390) * 100, 2);
+    });
+
+    it('keeps hiding the label of the selected module on the phone layout', async () => {
+      await render();
+      label('B')?.click();
+      await fixture.whenStable();
+      expect(label('B')?.hidden).toBe(true);
+    });
+  });
+
   it('shows explored modules brighter and others faint', async () => {
     await render(['B']);
     expect(star('B')?.classList).toContain('explored');

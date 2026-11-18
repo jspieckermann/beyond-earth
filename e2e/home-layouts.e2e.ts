@@ -82,7 +82,8 @@ test.describe('home screen layouts', () => {
         expect(box.x + box.width).toBeLessThanOrEqual(v.width);
         expect(box.y + box.height).toBeLessThanOrEqual(v.height);
 
-        const covered = (await boxesOf(page, 'button.star')).filter((s) =>
+        // Neither a star's tap area nor any label may lie under the preview.
+        const covered = (await boxesOf(page, 'button.star .cell, button.star .label:not([hidden])')).filter((s) =>
           overlaps({ name: 'preview', x: box.x, y: box.y, w: box.width, h: box.height }, s),
         );
         expect(covered.map((s) => s.name)).toEqual([]);

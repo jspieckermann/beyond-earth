@@ -37,7 +37,7 @@ import { WIDE_PREVIEW_SIZE } from './data/wide-sky';
   styles: `
     :host {
       position: absolute;
-      z-index: 2;
+      z-index: 3;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;

@@ -28,8 +28,8 @@ interface StarView {
   readonly module: SkyModule;
   readonly explored: boolean;
   readonly selected: boolean;
-  readonly left: string;
   readonly top: string;
+  /** Horizontal anchor of the star+label control (left for right-side labels, right for left-side ones). */
   readonly labelLeft: string | null;
   readonly labelRight: string | null;
   readonly labelOnLeft: boolean;
@@ -86,7 +86,9 @@ interface StarView {
         class="star"
         [class.explored]="star.explored"
         [class.selected]="star.selected"
-        [style.left]="star.left"
+        [class.left]="star.labelOnLeft"
+        [style.left]="star.labelLeft"
+        [style.right]="star.labelRight"
         [style.top]="star.top"
         [attr.aria-label]="star.module.title"
         [attr.aria-expanded]="star.selected"
@@ -94,19 +96,14 @@ interface StarView {
         [attr.data-module]="star.module.id"
         (click)="toggle(star.module.id)"
       >
-        <span class="dot"></span>
+        <span class="cell"><span class="dot"></span></span>
+        <span
+          class="label"
+          [class.explored]="star.explored"
+          [class.selected]="star.selected"
+          [hidden]="star.labelHidden"
+        >{{ star.module.short }}</span>
       </button>
-      <span
-        class="label"
-        aria-hidden="true"
-        [class.explored]="star.explored"
-        [class.selected]="star.selected"
-        [class.left]="star.labelOnLeft"
-        [style.left]="star.labelLeft"
-        [style.right]="star.labelRight"
-        [style.top]="star.top"
-        [hidden]="star.labelHidden"
-      >{{ star.module.short }}</span>
       @if (star.selected) {
         @let place = placement();
         <app-module-preview
@@ -149,7 +146,6 @@ export class ModuleConstellation {
         module,
         explored: explored.has(module.id),
         selected: isSelected,
-        left: pct(x),
         top: pct(y),
         labelLeft: onLeft ? null : pct(x),
         labelRight: onLeft ? `calc(100% - ${pct(x)})` : null,

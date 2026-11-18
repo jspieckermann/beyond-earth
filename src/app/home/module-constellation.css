@@ -4,24 +4,43 @@
   pointer-events: none;
 }
 
+/*
+ * One control per module: the star cell plus its label. The star cell stays centred on the star
+ * (left/right anchor minus half a cell); only the cell and the label strip react to the pointer,
+ * so the empty corners of the button never catch taps meant for a neighbouring module.
+ */
 .star {
+  --cell: 44px;
   position: absolute;
-  width: 44px;
-  height: 44px;
-  margin: -22px 0 0 -22px;
+  display: flex;
+  align-items: center;
+  margin-left: calc(var(--cell) / -2);
   padding: 0;
   border: 0;
-  border-radius: 50%;
+  border-radius: calc(var(--cell) / 2);
   background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  /* Vertical centring by margin, not transform: no stacking context, so labels can sit above other stars' cells. */
+  margin-top: calc(var(--cell) / -2);
+  cursor: pointer;
+  pointer-events: none;
+}
+.star.left {
+  flex-direction: row-reverse;
+  margin: calc(var(--cell) / -2) calc(var(--cell) / -2) 0 0;
+}
+:host(.wide) .star { --cell: 48px; }
+.cell {
+  position: relative;
+  flex: none;
+  width: var(--cell);
+  height: var(--cell);
   display: grid;
   place-items: center;
-  cursor: pointer;
+  z-index: 1;
   pointer-events: auto;
-}
-:host(.wide) .star {
-  width: 48px;
-  height: 48px;
-  margin: -24px 0 0 -24px;
 }
 
 .dot {
@@ -43,7 +62,7 @@
 :host(.wide) .explored .dot { width: 8px; height: 8px; box-shadow: 0 0 20px 4px rgb(243 217 164 / 0.7); }
 :host(.wide) .selected .dot { width: 11px; height: 11px; box-shadow: 0 0 20px 4px rgb(243 217 164 / 0.7); }
 
-.star.selected::after {
+.star.selected .cell::after {
   content: '';
   position: absolute;
   width: 30px;
@@ -51,23 +70,37 @@
   border-radius: 50%;
   border: 1px solid rgb(243 217 164 / 0.65);
 }
-:host(.wide) .star.selected::after { width: 36px; height: 36px; }
+:host(.wide) .star.selected .cell::after { width: 36px; height: 36px; }
 
+/*
+ * The label strip: as wide as the text, 18 px tall, 14 px (wide: 20 px) from the star centre.
+ * Neighbouring labels on narrow phones are only ~19.7 px apart, so the strip stays below that;
+ * WCAG 2.5.8 is met through spacing (label centres are far more than 24 px apart).
+ * Labels sit above other stars' cells (z-index), which never overlap a label visually.
+ */
 .label {
-  position: absolute;
-  transform: translate(14px, -50%);
+  --gap: calc(14px - var(--cell) / 2);
+  position: relative;
+  z-index: 2;
+  display: block;
+  min-height: 18px;
+  line-height: 18px;
+  margin-left: var(--gap);
   font-size: 12px;
   letter-spacing: 0.04em;
   white-space: nowrap;
   color: var(--color-ink-dim);
   text-shadow: 0 0 6px #03050c, 0 0 2px #03050c;
+  pointer-events: auto;
+  transition: color 0.2s;
 }
-.label.left { transform: translate(-14px, -50%); }
+.star.left .label { margin: 0 var(--gap) 0 0; }
 .label.explored { color: #d8d3c4; }
 .label.selected { color: var(--color-starlight); }
+.star:hover .label:not(.selected) { color: var(--color-ink); }
 .label[hidden] { display: none; }
 :host(.wide) .label {
-  transform: translate(20px, -50%);
+  --gap: calc(20px - var(--cell) / 2);
   font-size: 14px;
   letter-spacing: 0.03em;
 }
