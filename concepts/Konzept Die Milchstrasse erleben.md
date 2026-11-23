@@ -1,6 +1,6 @@
 # Konzept: Die Milchstrasse erleben
 
-Nov 17, 2026 · @Joerg
+Nov 17, 2026 · @Joerg · aktualisiert am 23. Nov 2026
 
 ## Vision
 
@@ -37,8 +37,7 @@ Die Anwendung fühlt sich an wie eine nächtliche Wanderung, nicht wie eine Schu
 
 - **Sprache:** kurze, bildhafte Sätze, lieber ein starkes Bild als drei Zahlen
 - **Tempo:** Die Nutzer bestimmen selbst, wann es weitergeht. Pausen sind Teil des Erlebnisses.
-- **Atmosphäre:** Dunkelheit, sanfte Klänge, Momente der Stille, etwa beim Sprung ins Leere zwischen den Sternen
-- **Erzählstimme:** optional gesprochen, begleitend statt dozierend
+- **Atmosphäre:** Dunkelheit und Stille, etwa beim Sprung ins Leere zwischen den Sternen. Die Anwendung hat bewusst keinen Ton: keine Klänge und keine Erzählstimme.
 - **Zwei Ebenen:** Die poetische Ebene steht vorne. Eine aufklappbare Faktenebene („Wie genau weiss man das?“) sichert die Genauigkeit.
 - **Leise Spielelemente:** Sie bleiben, sind aber eher meditativ als wettbewerbsorientiert.
 
@@ -74,7 +73,30 @@ Sieben Module tragen das Erlebnis. Jedes macht eine Dimension mit einem eigenen 
 
 ### A) Die Reise nach draussen
 
-Ein Zoom vom eigenen Standort aus: Haus → Erde → Mond → Sonnensystem → nächste Sterne → Orion-Arm → ganze Milchstrasse. An jeder Stufe gibt es einen Haltepunkt mit einem Aha-Vergleich. Das Muster ähnelt *Powers of Ten*, ist aber persönlich und interaktiv.
+Ein einziger, durchgehender Blick ins All, den die Nutzer selbst aufziehen. Es gibt keine einzelnen Bildschirme und keine Seitenwechsel. Die Reise beginnt mit dem Blick auf die Erde, samt den ersten Infos. Mit jedem Auszoomen erweitert sich das Bild, und Neues kommt dazu, ohne dass das Bisherige verschwindet. Es wird nur kleiner. Das Muster ähnelt *Powers of Ten*, ist aber persönlich und interaktiv.
+
+**Die Stufen beim Auszoomen**
+
+| Nr. | Stufe | Was ins Bild kommt | Grössenordnung |
+| --- | --- | --- | --- |
+| 1 | Die Erde | Start: die ganze Erde mit Tag- und Nachtseite, langsam drehend, dazu die ersten Infos | 12.742 km Durchmesser |
+| 2 | Erde und Mond | Erde und Mond als Kugeln, der Mond auf seiner Bahn | 384.400 km |
+| 3 | Sonnensystem | Die Sonne und alle acht Planeten als Kugeln samt Umlaufbahnen | bis Neptun 4,5 Mrd. km |
+| 4 | Benachbarte Sternensysteme | Alpha Centauri mit Proxima Centauri und die Nachbarn bis Sirius. Dazwischen: fast nur Leere. | 4,2 Lichtjahre |
+| 5 | Die ganze Milchstrasse | Die Galaxie als Ganzes, unser Platz im Orion-Arm, im Zentrum das Schwarze Loch Sagittarius A* | ca. 100.000 Lichtjahre |
+| 6 | Die Lokale Gruppe | Unsere Nachbarschaft aus über 80 Galaxien, darunter Andromeda | ca. 10 Millionen Lichtjahre |
+| 7 | Das ganze Universum | Das beobachtbare Universum mit seinem Netz aus Galaxienhaufen und gewaltigen Strukturen wie Laniakea oder dem Boötes-Leerraum | ca. 93 Milliarden Lichtjahre |
+
+Orion-Arm, Zentrum und Andromeda sind keine eigenen Stufen mehr, sondern Ziele zum Antippen innerhalb der Milchstrasse bzw. der Lokalen Gruppe. Details stehen im Konzept zu Modul A.
+
+**Wie es sich anfühlt**
+
+- **Ein Bild, das wächst:** Die Nutzer zoomen stufenlos hinaus und jederzeit wieder hinein. Die Anwendung geht nie von allein weiter.
+- **Infos an den Stufen:** Wo eine Stufe erreicht ist, rastet das Bild sanft ein. Dann erscheinen ein poetischer Satz und ein Aha-Vergleich direkt im Bild. Unterwegs zählt nur die Entfernung mit.
+- **Die Erde bleibt markiert:** Die Erde bleibt bis zum Rand des Universums als kleiner, leuchtender Punkt markiert, auch wenn sie längst unsichtbar wäre. Sie ist der Weg zurück, und sie lässt sich auf jeder Stufe antippen.
+- **Die Leere spüren:** Zwischen dem Sonnensystem und dem nächsten Stern zieht sich der Zoom bewusst lang durch fast nichts.
+- **Antippen und vertiefen:** Planeten, Monde, Sterne, Teile der Milchstrasse, Galaxien und Orte des Universums öffnen beim freien Erkunden eine Nahansicht.
+- **Abzweige:** Die Milchstrasse führt zum Unsichtbaren (G) und zum galaktischen Jahr (F), die Nachbarsterne zur Sandkorn-Welt (B), die Lokale Gruppe zu Licht als Zeitmaschine (D).
 
 ### B) Die Sandkorn-Welt
 
@@ -136,7 +158,8 @@ Die Anwendung ist frei verfügbar. Deshalb zählen eine niedrige Einstiegshürde
 
 **Offene Punkte**
 
-- [ ] Konkrete Haltepunkte und Aha-Vergleiche für die Reise nach draussen (A) festlegen
+- [x] Aha-Vergleiche für die Stufen der Reise nach draussen (A) festlegen (sieben Stufen, siehe Konzept Modul A)
+- [ ] Reicht die Reise in A über die Milchstrasse hinaus bis zum ganzen Universum, oder endet die Hauptreise bei der Milchstrasse und der Rest ist eine Vertiefung?
 - [ ] Dauer der geführten Hauptreise festlegen
-- [ ] Rolle der Erzählstimme klären: Pflicht, optional oder gar nicht
+- [x] Rolle der Erzählstimme klären: gar nicht. Die Anwendung hat keinen Ton.
 - [ ] Fachliche Prüfung aller Zahlen durch eine Astronomin oder einen Astronomen

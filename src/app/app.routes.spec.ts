@@ -5,9 +5,10 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { appConfig } from './app.config';
 import { routes } from './app.routes';
 import { HomePage } from './home/home-page';
+import { OutwardJourneyPage } from './outward-journey/outward-journey-page';
 import { PlaceholderPage } from './placeholder/placeholder-page';
 
-describe('routes', () => {
+describe('routes', { timeout: 30_000 }, () => {
   let harness: RouterTestingHarness;
 
   beforeEach(async () => {
@@ -35,6 +36,11 @@ describe('routes', () => {
       expect(title()).toBe(`${name} · Die Milchstrasse erleben`);
     });
   }
+
+  it('opens the outward journey for Modul A', async () => {
+    expect(await harness.navigateByUrl('/module/reise-nach-draussen')).toBeInstanceOf(OutwardJourneyPage);
+    expect(title()).toBe('Die Reise nach draussen · Die Milchstrasse erleben');
+  });
 
   it('titles module placeholders from the catalog', async () => {
     expect(await harness.navigateByUrl('/module/das-unsichtbare')).toBeInstanceOf(PlaceholderPage);

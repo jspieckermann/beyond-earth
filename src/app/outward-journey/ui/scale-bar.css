@@ -1,0 +1,219 @@
+:host {
+  position: absolute;
+  right: 8px;
+  top: 72px;
+  height: 464px;
+  width: 140px;
+  /* Only the controls take pointer input; the empty box around them lets taps reach the picture. */
+  pointer-events: none;
+}
+
+button,
+.list {
+  pointer-events: auto;
+}
+
+:host-context([data-layout='desktop']),
+:host-context([data-layout='tablet']) {
+  right: 24px;
+  top: 110px;
+  height: min(620px, calc(100% - 200px));
+}
+
+nav {
+  position: absolute;
+  inset: 0;
+}
+
+/* A soft dark backing keeps the stage names readable over bright pictures. */
+nav::before {
+  content: '';
+  position: absolute;
+  inset: -8px -8px -8px 10px;
+  border-radius: 16px;
+  background: linear-gradient(to left, rgb(2 3 10 / 0.72), rgb(2 3 10 / 0.45) 70%, transparent);
+  pointer-events: none;
+}
+
+.line {
+  position: absolute;
+  right: 21px;
+  top: 22px;
+  bottom: 22px;
+  width: 1px;
+  background: rgb(236 232 221 / 0.25);
+}
+
+.stops {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stops button {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: 500 11px var(--font-sans);
+  color: rgb(236 232 221 / 0.8);
+  text-shadow: 0 0 3px #000, 0 0 8px #000;
+  transition: color 0.3s ease;
+}
+
+.stops button i {
+  display: block;
+  width: 14px;
+  height: 1px;
+  margin-right: 15px;
+  background: currentColor;
+}
+
+.stops button.dim {
+  color: rgb(236 232 221 / 0.7);
+}
+
+.stops button.on {
+  color: var(--color-starlight);
+}
+
+.stops button:hover {
+  color: var(--color-star-explored);
+}
+
+.marker {
+  position: absolute;
+  right: 13px;
+  width: 18px;
+  height: 2px;
+  margin-top: -1px;
+  background: var(--color-starlight);
+  box-shadow: 0 0 10px rgb(243 217 164 / 0.9);
+  pointer-events: none;
+}
+
+.slider {
+  position: absolute;
+  right: 6px;
+  top: 22px;
+  bottom: 22px;
+  width: 32px;
+}
+
+.slider input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0.01;
+  cursor: ns-resize;
+  writing-mode: vertical-lr;
+  direction: rtl;
+}
+
+.ticks {
+  position: absolute;
+  right: 0;
+  top: 22px;
+  bottom: 22px;
+  width: 44px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ticks li {
+  align-self: flex-end;
+  width: 14px;
+  height: 1px;
+  margin-right: 15px;
+  background: rgb(236 232 221 / 0.6);
+}
+
+.ticks li.on {
+  background: var(--color-starlight);
+}
+
+.current {
+  position: absolute;
+  right: 40px;
+  margin: -8px 0 0;
+  font: 500 11px var(--font-sans);
+  color: var(--color-starlight);
+  text-shadow: 0 0 6px #000;
+  pointer-events: none;
+}
+
+:host(.compact) .line,
+:host(.compact) .ticks,
+:host(.compact) .slider {
+  bottom: 70px;
+}
+
+.toggle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(2 3 10 / 0.45);
+  color: rgb(236 232 221 / 0.85);
+  font: 500 11px var(--font-sans);
+  cursor: pointer;
+}
+
+.list {
+  position: absolute;
+  right: 44px;
+  top: 40px;
+  z-index: 3;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border-radius: 16px;
+  background: rgb(10 14 30 / 0.94);
+  border: 1px solid rgb(236 232 221 / 0.1);
+}
+
+.list button {
+  width: 100%;
+  min-width: 9rem;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--color-ink);
+  font: 500 13px var(--font-sans);
+  text-align: left;
+  cursor: pointer;
+}
+
+.list button.on {
+  color: var(--color-starlight);
+  background: rgb(243 217 164 / 0.12);
+}
+
+.slider:focus-within {
+  outline: 2px solid var(--color-starlight);
+  outline-offset: 2px;
+  border-radius: 8px;
+}

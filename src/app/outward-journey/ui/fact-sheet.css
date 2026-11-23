@@ -1,0 +1,117 @@
+:host {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  z-index: 3;
+}
+
+:host-context([data-layout='desktop']),
+:host-context([data-layout='tablet']) {
+  left: 40px;
+  right: auto;
+  bottom: 40px;
+  width: min(30rem, calc(100% - 80px));
+}
+
+.sheet {
+  padding: 10px 22px 20px;
+  border-radius: 26px;
+  background: rgb(10 14 30 / 0.86);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(236 232 221 / 0.08);
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.grip {
+  width: 40px;
+  height: 4px;
+  margin: 0 auto 10px;
+  border-radius: 999px;
+  background: rgb(236 232 221 / 0.3);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-starlight);
+}
+
+h3 {
+  margin: 4px 0 0;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-ink-bright);
+  outline: none;
+}
+
+.close {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink-soft);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+ul {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(236 232 221 / 0.08);
+}
+
+.branch {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-starlight);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.source {
+  margin: 8px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 12px;
+  font-size: 12px;
+  color: var(--color-ink-dim);
+}
+
+.credits {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-ink-soft);
+  font: 500 12px var(--font-sans);
+  text-decoration: underline;
+  cursor: pointer;
+}

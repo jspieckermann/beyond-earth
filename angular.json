@@ -71,7 +71,8 @@
             "coverageReporters": ["text", "text-summary", "html"],
             "coverageThresholds": {
               "lines": 85
-            }
+            },
+            "runnerConfig": true
           }
         },
         "lint": {

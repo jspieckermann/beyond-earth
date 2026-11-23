@@ -89,6 +89,16 @@ test.describe('home screen', () => {
     await expect(page.locator('button.star')).toHaveCount(7);
   });
 
+  test('opens the Modul A experience instead of a placeholder', async ({ page }) => {
+    await page.goto('/');
+    await star(page, 'Die Reise nach draussen').click();
+    await preview(page).getByRole('link', { name: 'Eintauchen' }).click();
+    await expect(page).toHaveURL(/\/module\/reise-nach-draussen$/);
+    await expect(page).toHaveTitle('Die Reise nach draussen · Die Milchstrasse erleben');
+    await expect(page.getByText('Bald verfügbar')).toHaveCount(0);
+    await expect(page.getByRole('heading', { level: 2, name: 'Die Erde' })).toBeVisible();
+  });
+
   test('keeps the preview on screen and off its star at the top-right edge', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 640 });
     await page.goto('/');

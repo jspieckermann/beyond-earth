@@ -8,8 +8,11 @@ export interface Point {
   readonly y: number;
 }
 
-/** Fixed preview size in CSS px (content is clamped to fit). */
-export const PREVIEW_SIZE: Size = { width: 208, height: 164 };
+/**
+ * Preview size on phones in CSS px, used for placing it. The height holds a two-line title and a three-line
+ * text; with larger system text the preview grows beyond it rather than cutting the text off.
+ */
+export const PREVIEW_SIZE: Size = { width: 208, height: 212 };
 
 /** Horizontal gutter the preview keeps from the stage edges. */
 export const GUTTER = 16;

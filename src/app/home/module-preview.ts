@@ -4,7 +4,7 @@ import { SkyModule } from './data/modules';
 import { PREVIEW_SIZE } from './data/preview-placement';
 import { WIDE_PREVIEW_SIZE } from './data/wide-sky';
 
-/** Small, non-modal preview of the selected module. */
+/** Small, non-modal preview of the selected module; it grows with its text instead of cutting it off. */
 @Component({
   selector: 'app-module-preview',
   imports: [RouterLink],
@@ -16,7 +16,7 @@ import { WIDE_PREVIEW_SIZE } from './data/wide-sky';
     '[style.top.px]': 'y()',
     '[class.wide]': 'wide()',
     '[style.width.px]': 'size().width',
-    '[style.height.px]': 'size().height',
+    '[style.min-height.px]': 'size().height',
   },
   template: `
     <span class="status">{{ explored() ? 'Schon vertieft' : 'Noch nicht vertieft' }}</span>
@@ -58,22 +58,23 @@ import { WIDE_PREVIEW_SIZE } from './data/wide-sky';
       line-height: 1.1;
       font-weight: 600;
       color: var(--color-ink-bright);
+      /* Long German words (Lichtgeschwindigkeit) break instead of running out of the box. */
+      hyphens: auto;
+      overflow-wrap: break-word;
     }
     .enter { font-size: 13px; }
     :host(.wide) .status { font-size: 12px; }
     :host(.wide) .title { font-size: 27px; }
     :host(.wide) .line { font-size: 14px; line-height: 1.5; }
     :host(.wide) .enter { font-size: 14px; }
+    /* The whole line is always shown; the preview is tall enough for it. */
     .line {
       margin: 0;
       font-size: 13px;
       line-height: 1.4;
       color: var(--color-ink-soft);
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      line-clamp: 2;
-      overflow: hidden;
+      hyphens: auto;
+      overflow-wrap: break-word;
     }
   `,
 })

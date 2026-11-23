@@ -24,6 +24,11 @@ function placeholderRoute(path: string, heading: string) {
 export const routes: Routes = [
   { path: '', pathMatch: 'full', title: APP_TITLE, loadComponent: () => import('./home/home-page').then((m) => m.HomePage) },
   {
+    path: 'module/reise-nach-draussen',
+    title: pageTitle('Die Reise nach draussen'),
+    loadComponent: () => import('./outward-journey/outward-journey-page').then((m) => m.OutwardJourneyPage),
+  },
+  {
     path: 'module/:slug',
     canActivate: [knownModule],
     resolve: { heading: moduleHeading },

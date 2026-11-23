@@ -1,0 +1,99 @@
+:host {
+  display: block;
+  pointer-events: auto;
+}
+
+.age {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 4px;
+}
+
+.age p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--color-ink);
+}
+
+.age strong {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-starlight);
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-starlight);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.change {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-starlight);
+  font: 500 13px var(--font-sans);
+  cursor: pointer;
+}
+
+.ask label {
+  display: block;
+  font-size: 13px;
+  color: var(--color-ink-soft);
+  margin-bottom: 6px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+input {
+  width: 6.5rem;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid rgb(243 217 164 / 0.5);
+  background: rgb(14 19 40 / 0.85);
+  color: var(--color-ink-bright);
+  font: 400 16px var(--font-sans);
+}
+
+input[aria-invalid='true'] {
+  border-color: #ff9b8a;
+}
+
+button[type='submit'] {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--color-starlight);
+  color: #141826;
+  font: 600 14px var(--font-sans);
+  cursor: pointer;
+}
+
+.error {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #ffb4a6;
+}
+
+.note {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--color-ink-dim);
+}

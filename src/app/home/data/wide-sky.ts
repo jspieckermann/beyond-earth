@@ -1,8 +1,8 @@
 import { GUTTER, Point, STAR_REACH, Size } from './preview-placement';
 import { BackgroundStar } from './star-field';
 
-/** Preview size on tablet and desktop (CSS px). */
-export const WIDE_PREVIEW_SIZE: Size = { width: 300, height: 204 };
+/** Preview size on tablet and desktop (CSS px): room for a two-line title; with larger text it grows. */
+export const WIDE_PREVIEW_SIZE: Size = { width: 300, height: 224 };
 
 /** Gap the connector line keeps from the selected star's centre. */
 const CONNECTOR_GAP = 22;

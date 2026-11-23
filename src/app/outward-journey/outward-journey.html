@@ -1,0 +1,38 @@
+<!-- While a planet is open up close, everything behind it is inert: the journey waits there. -->
+<div class="behind" [attr.inert]="planet() ? '' : null">
+  <app-journey-scene />
+  <div class="veil" aria-hidden="true"></div>
+  <app-earth-marker />
+  <app-distance-readout />
+
+  <header class="top">
+    <a routerLink="/" class="icon" aria-label="Zurück zum Himmel">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12" />
+        <path d="M18 6L6 18" />
+      </svg>
+    </a>
+    <h1 #heading tabindex="-1">Die Reise nach draussen</h1>
+    <app-journey-controls />
+  </header>
+
+  <app-scale-bar />
+  <app-stage-text />
+  <app-journey-end (jump)="jumpToStage()" (continued)="completed.emit()" />
+</div>
+
+@if (ui.factsOpen()) {
+  <app-fact-sheet [content]="facts()" (closed)="closeFacts()" />
+}
+
+@if (planet(); as p) {
+  <app-planet-closeup [planet]="p" />
+}
+
+@if (ui.creditsOpen()) {
+  <app-credits-dialog />
+}
+
+@if (ui.share(); as share) {
+  <app-share-card-dialog [kinds]="share.kinds" [planet]="share.planet ?? null" (closed)="ui.share.set(null)" />
+}
