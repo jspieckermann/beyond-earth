@@ -19,7 +19,7 @@ interface Dot {
 }
 
 /** A selectable body: its hit box (base units) and where its name sits relative to that box. */
-interface Target {
+export interface Target {
   readonly id: BodyId;
   readonly name: string;
   readonly label: string;
@@ -47,7 +47,7 @@ const DOTS: readonly Dot[] = [
   { x: -81, y: -168.5, size: 2, color: '#ffffff', glow: '4px 1px rgb(220 230 255 / 0.5)' },
 ];
 
-const TARGETS: readonly Target[] = [
+export const STAR_TARGETS: readonly Target[] = [
   { id: 'sonne', name: 'Sonne', label: 'Sonne', box: around(-8.5, -0.5), labelStyle: 'left: -15.5px; top: 20.5px' },
   // A and B sit close together: their hit areas split the gap between them.
   {
@@ -121,7 +121,7 @@ export class StarSystemLayer {
   protected readonly sun = STAR_SUN;
   protected readonly ring = 5 * UNITS_PER_LIGHT_YEAR;
   protected readonly dots = DOTS;
-  protected readonly targets = TARGETS;
+  protected readonly targets = STAR_TARGETS;
 
   protected select(id: BodyId): void {
     this.ui.planet.set(id);

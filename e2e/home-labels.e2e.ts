@@ -32,7 +32,7 @@ test.describe('clickable module labels', () => {
   test('activating a label again closes the preview (desktop)', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
-    const label = page.locator('button.star[data-module="E"] .label');
+    const label = page.locator('button.star[data-module="D"] .label');
     await label.click();
     await expect(page.getByRole('region')).toContainText('Sterne zählen');
     await label.click();
@@ -54,7 +54,7 @@ test.describe('clickable module labels', () => {
     await page.goto('/');
     await page.locator('button.star').first().waitFor();
     await page.keyboard.press('Tab'); // settings
-    for (const id of ['A', 'C', 'B', 'E', 'D', 'G', 'F']) {
+    for (const id of ['A', 'B', 'D', 'C', 'F', 'E']) {
       await page.keyboard.press('Tab');
       const focused = page.locator(`button.star[data-module="${id}"]`);
       await expect(focused).toBeFocused();

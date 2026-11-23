@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The home screen is the calm, night-sky start page for returning users of "Die Milchstrasse erleben". From here they freely explore the seven experience modules, repeat the guided journey, see what the real sky offers tonight, and reach their saved personal moments.
+The home screen is the calm, night-sky start page for returning users of "Die Milchstrasse erleben". From here they freely explore the six experience modules, repeat the guided journey, see what the real sky offers tonight, and reach their saved personal moments.
 
 ## Requirements
 
@@ -50,17 +50,18 @@ The home screen SHALL offer a settings control in the top-right corner that is l
 - **WHEN** the user activates the settings control
 - **THEN** the settings destination is shown
 
-### Requirement: Module constellation
-The home screen SHALL show the seven experience modules as seven selectable stars placed along the Milky Way band, in journey order from lower left to upper right: A "Die Reise nach draussen", C "Reisen mit Lichtgeschwindigkeit", B "Die Sandkorn-Welt", E "Sterne zählen", D "Licht als Zeitmaschine", G "Das Unsichtbare", F "Das galaktische Jahr". Each star SHALL carry a short visible label and an accessible name equal to the module's full title. No module SHALL be locked. On tablet and desktop layouts the labels SHALL stay visible while their star is selected. A star and its visible label SHALL form one control: activating the label SHALL have exactly the same effect as activating the star, hovering the label SHALL indicate that it is clickable, and star and label together SHALL be a single keyboard stop whose focus indicator encloses both.
+### Requirement: Six module stars along the band
+The home screen SHALL show the six experience modules as six selectable stars placed along the Milky Way band, in journey order from lower left to upper right: A "Die Reise nach draussen", B "Reisen mit Lichtgeschwindigkeit", D "Sterne zählen", C "Licht als Zeitmaschine", F "Das Unsichtbare", E "Das galaktische Jahr". Each star SHALL carry a short visible label and an accessible name equal to the module's full title. No module SHALL be locked. On tablet and desktop layouts the labels SHALL stay visible while their star is selected. A star and its visible label SHALL form one control: activating the label SHALL have exactly the same effect as activating the star, hovering the label SHALL indicate that it is clickable, and star and label together SHALL be a single keyboard stop whose focus indicator encloses both.
 
-#### Scenario: All seven modules present
+#### Scenario: All six modules present
 - **WHEN** the home screen is displayed
-- **THEN** seven module stars are shown in the order A, C, B, E, D, G, F along the band
+- **THEN** six module stars are shown in the order A, B, D, C, F, E along the band
 - **AND** each star has a visible short label and an accessible name with the full module title
+- **AND** no star for "Die Sandkorn-Welt" is shown
 
 #### Scenario: Select a module by its label
-- **WHEN** no module is selected and the user taps or clicks the label "Sandkorn-Welt"
-- **THEN** "Die Sandkorn-Welt" is selected and its preview opens, exactly as when its star is activated
+- **WHEN** no module is selected and the user taps or clicks the label "Zeitmaschine"
+- **THEN** "Licht als Zeitmaschine" is selected and its preview opens, exactly as when its star is activated
 
 #### Scenario: Close by activating the label again
 - **WHEN** "Sterne zählen" is selected on the tablet or desktop layout and the user activates its label again
@@ -75,12 +76,16 @@ The home screen SHALL show the seven experience modules as seven selectable star
 - **THEN** each module is reached exactly once, in journey order, and the focus indicator surrounds both its star and its label
 
 ### Requirement: Exploration is shown by brightness only
-A module the user has explored in depth SHALL be shown as a brighter, larger star with a brighter label; a module not yet explored SHALL be shown fainter. The home screen SHALL NOT show points, percentages, badges or other scores. The explored state SHALL persist on the user's device across visits without an account.
+A module the user has explored in depth SHALL be shown as a brighter, larger star with a brighter label; a module not yet explored SHALL be shown fainter. The home screen SHALL NOT show points, percentages, badges or other scores. The explored state SHALL persist on the user's device across visits without an account. Explored states stored before the modules were renumbered SHALL be carried over to the same modules under their new letters, and an explored state of the removed module "Die Sandkorn-Welt" SHALL be dropped.
 
 #### Scenario: Explored module appears brighter
-- **WHEN** the user has explored "Die Sandkorn-Welt" and returns to the home screen
-- **THEN** the "Die Sandkorn-Welt" star is shown in the explored (brighter) style
+- **WHEN** the user has explored "Reisen mit Lichtgeschwindigkeit" and returns to the home screen
+- **THEN** the "Reisen mit Lichtgeschwindigkeit" star is shown in the explored (brighter) style
 - **AND** stars of unexplored modules are shown in the faint style
+
+#### Scenario: Stored progress survives the renumbering
+- **WHEN** the device stored "Die Reise nach draussen", "Reisen mit Lichtgeschwindigkeit" and "Die Sandkorn-Welt" as explored under the old letters
+- **THEN** "Die Reise nach draussen" and "Reisen mit Lichtgeschwindigkeit" are shown explored, and no other module is
 
 #### Scenario: No scores
 - **WHEN** the home screen is displayed
@@ -94,12 +99,12 @@ A module the user has explored in depth SHALL be shown as a brighter, larger sta
 Selecting a module star SHALL mark it as selected (a visible ring) and open a preview next to it showing its exploration status ("Schon vertieft" or "Noch nicht vertieft"), the full module title, one poetic line, and an "Eintauchen" button. The title and the poetic line SHALL always be shown in full: the preview SHALL be large enough for a two-line title and the whole line, SHALL grow with its text (for example with larger system text) instead of cutting it off, and long words SHALL break instead of running out of the preview. At most one module SHALL be selected at a time. The preview SHALL stay within the screen and SHALL NOT cover the selected star. On the phone layout the preview opens next to the selected star. On tablet and desktop layouts the preview SHALL always open at the same place in the empty sky below the band, SHALL be connected to the selected star by a thin decorative line, and SHALL NOT cover any module star. Activating "Eintauchen" SHALL open that module's destination.
 
 #### Scenario: Select a star
-- **WHEN** no star is selected and the user activates the "Die Sandkorn-Welt" star
+- **WHEN** no star is selected and the user activates the "Sterne zählen" star
 - **THEN** the star is shown as selected
-- **AND** a preview shows "Noch nicht vertieft" or "Schon vertieft", "Die Sandkorn-Welt", its poetic line and an "Eintauchen" button
+- **AND** a preview shows "Noch nicht vertieft" or "Schon vertieft", "Sterne zählen", its poetic line and an "Eintauchen" button
 
 #### Scenario: Switch selection
-- **WHEN** "Die Sandkorn-Welt" is selected and the user activates the "Sterne zählen" star
+- **WHEN** "Licht als Zeitmaschine" is selected and the user activates the "Sterne zählen" star
 - **THEN** only "Sterne zählen" is selected and the preview shows "Sterne zählen"
 
 #### Scenario: Close the preview
@@ -108,21 +113,21 @@ Selecting a module star SHALL mark it as selected (a visible ring) and open a pr
 - **AND** if the preview was closed with Escape, keyboard focus returns to the star that was selected
 
 #### Scenario: Enter a module
-- **WHEN** the preview for "Die Sandkorn-Welt" is open and the user activates "Eintauchen"
-- **THEN** the "Die Sandkorn-Welt" module destination is shown
+- **WHEN** the preview for "Sterne zählen" is open and the user activates "Eintauchen"
+- **THEN** the "Sterne zählen" module destination is shown
 
 #### Scenario: Preview near the screen edge
 - **WHEN** the user selects the star nearest the top-right edge ("Das galaktische Jahr") on a 320 px wide screen
 - **THEN** the preview is fully visible and does not overlap the selected star
 
 #### Scenario: Nothing cut off
-- **WHEN** the user selects any of the seven module stars on a 320 × 640 or 390 × 844 phone, a 768 × 1024 or 834 × 1194 tablet, or a 1024 × 768 or 1440 × 900 screen
+- **WHEN** the user selects any of the six module stars on a 320 × 640 or 390 × 844 phone, a 768 × 1024 or 834 × 1194 tablet, or a 1024 × 768 or 1440 × 900 screen
 - **THEN** the status, the full title, the whole poetic line and "Eintauchen" are visible inside the preview
 
 #### Scenario: Preview on large screens
 - **WHEN** the user selects any module star on a 1440 × 900 desktop or an 834 × 1194 tablet
 - **THEN** the preview appears at the same place below the band, connected to the star by a line
-- **AND** it covers none of the seven module stars, and every other star can still be selected directly
+- **AND** it covers none of the six module stars, and every other star can still be selected directly
 
 ### Requirement: Heute-Nacht card
 The home screen SHALL show a "Heute Nacht" card above the bottom actions. When a location is known, the card SHALL show the location name, the time from which the band is visible, the sky darkness as a filled count on a five-point scale (with an accessible text equivalent such as "Dunkelheit 2 von 5"), a moon line, and tonight's mission text. When no location is known, the card SHALL instead invite the user to choose a place ("Wo stehst du heute Nacht?") without requesting device location automatically. Activating the card SHALL open the Heute-Nacht destination.
@@ -160,7 +165,7 @@ The home screen SHALL show a "Meine Sterne" action with the number of saved mome
 - **THEN** "Meine Sterne" is not shown and "Die Reise" spans the action row
 
 ### Requirement: Placeholder destinations
-Until the linked features exist, every destination reachable from the home screen (each module, the journey, Heute Nacht, Meine Sterne, settings) SHALL show a calm placeholder page naming the destination and offering a way back to the home screen. A destination whose feature exists SHALL open that feature instead. Modul A "Die Reise nach draussen" SHALL open its experience.
+Until the linked features exist, every destination reachable from the home screen (each module, the journey, Heute Nacht, Meine Sterne, settings) SHALL show a calm placeholder page naming the destination and offering a way back to the home screen. A destination whose feature exists SHALL open that feature instead. Modul A "Die Reise nach draussen" and Modul B "Reisen mit Lichtgeschwindigkeit" SHALL open their experiences. The address of the removed module "Die Sandkorn-Welt" SHALL lead back to the home screen like any unknown module address.
 
 #### Scenario: Visit a placeholder and return
 - **WHEN** the user activates "Eintauchen" for "Das Unsichtbare"
@@ -171,6 +176,14 @@ Until the linked features exist, every destination reachable from the home scree
 - **WHEN** the user activates "Eintauchen" for "Die Reise nach draussen"
 - **THEN** the Modul A experience opens instead of a placeholder page
 
+#### Scenario: Travel planner is no longer a placeholder
+- **WHEN** the user activates "Eintauchen" for "Reisen mit Lichtgeschwindigkeit"
+- **THEN** the travel planner opens instead of a placeholder page
+
+#### Scenario: Removed module
+- **WHEN** the user opens the address of "Die Sandkorn-Welt"
+- **THEN** the home screen is shown
+
 ### Requirement: Accessibility
 The home screen SHALL meet WCAG 2.1 AA and report zero automated accessibility (axe) violations. All controls SHALL be reachable and operable with the keyboard in a logical order (settings, module stars in journey order, preview, Heute-Nacht card, bottom actions), SHALL show a visible focus indicator, and SHALL have touch targets of at least 44 × 44 CSS px. Text SHALL have a contrast ratio of at least 4.5:1 against its background.
 
@@ -180,7 +193,7 @@ The home screen SHALL meet WCAG 2.1 AA and report zero automated accessibility (
 
 #### Scenario: Keyboard only
 - **WHEN** a keyboard-only user tabs through the home screen
-- **THEN** focus moves through settings, the seven stars in journey order, the Heute-Nacht card and the bottom actions, each with a visible focus indicator
+- **THEN** focus moves through settings, the six stars in journey order, the Heute-Nacht card and the bottom actions, each with a visible focus indicator
 
 ### Requirement: Responsive layout
 The home screen SHALL work from 320 px wide phones to desktop screens without horizontal scrolling, with three layouts. In every layout the sky SHALL fill the whole viewport and module stars and labels SHALL NOT overlap each other or be cut off.

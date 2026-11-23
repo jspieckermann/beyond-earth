@@ -154,6 +154,20 @@ export class ZoomState {
     this.settle(0);
   }
 
+  /**
+   * Rests at a stage at once, without a flight (coming back from another module); the texts show as
+   * after any arrival.
+   */
+  settleAt(stage: number): void {
+    this.stop();
+    const target = clampZ(Math.round(stage));
+    if (target !== 0) {
+      this.markMoved();
+    }
+    this.zState.set(target);
+    this.settle(target);
+  }
+
   /** Cancels any running flight and pending timers. */
   stop(): void {
     this.frames.cancel(this.frame);

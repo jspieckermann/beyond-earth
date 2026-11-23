@@ -22,7 +22,7 @@
 </div>
 
 @if (ui.factsOpen()) {
-  <app-fact-sheet [content]="facts()" (closed)="closeFacts()" />
+  <app-fact-sheet [content]="facts()" [showCredits]="true" (closed)="closeFacts()" (credits)="ui.creditsOpen.set(true)" />
 }
 
 @if (planet(); as p) {

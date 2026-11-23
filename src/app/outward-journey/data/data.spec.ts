@@ -1,7 +1,7 @@
 import { SKY_MODULES } from '../../home/data/modules';
 import { formatDistance, formatLightTime } from '../engine/format';
 import { CREDITS, CreditId } from './credits';
-import { MOONS, PLANETS, findBody, findPlanet, isStarId } from './planets';
+import { MOONS, PLANETS, findBody, findPlanet, isBodyId, isStarId } from './planets';
 import { HANDOVER_LINE, HOME_LINE, STAGES, STAGE_DISTANCES, STAGE_OFFSETS } from './stages';
 
 describe('stage data', () => {
@@ -67,15 +67,27 @@ describe('stage data', () => {
     expect(STAGES[6].facts.join(' ')).toContain('Simulation');
   });
 
+  it('recognises the ids of bodies with a close-up', () => {
+    for (const id of ['mond', 'sonne', 'voyager', 'mars', 'erde', 'sirius', 'sgr-a', 'andromeda', 'ton-618']) {
+      expect(isBodyId(id), id).toBe(true);
+    }
+    for (const id of ['', null, undefined, 'pluto', 'io']) {
+      expect(isBodyId(id)).toBe(false);
+    }
+  });
+
   it('branches only to known modules', () => {
     const slugs = SKY_MODULES.map((m) => m.slug);
     const branches = STAGES.flatMap((s) => [s.branch, ...(s.factBranches ?? [])]).filter((b) => b !== undefined);
     expect(branches.map((b) => b.slug).sort()).toEqual(
-      ['das-unsichtbare', 'galaktisches-jahr', 'lichtgeschwindigkeit', 'sandkorn-welt', 'zeitmaschine'].sort(),
+      ['das-unsichtbare', 'galaktisches-jahr', 'lichtgeschwindigkeit', 'zeitmaschine'].sort(),
     );
     branches.forEach((b) => expect(slugs).toContain(b.slug));
-    expect(STAGES[3].branch?.label).toBe('Wie leer ist das wirklich?');
+    // The Sandkorn-Welt no longer exists: the neighbouring stars have no branch of their own.
+    expect(STAGES[3].branch).toBeUndefined();
     expect(STAGES[5].branch?.slug).toBe('zeitmaschine');
+    // The light-time branch of the solar system opens the travel planner with Proxima Centauri.
+    expect(STAGES[2].factBranches?.[0]).toEqual({ label: 'Mit Lichtgeschwindigkeit weiterreisen', slug: 'lichtgeschwindigkeit', queryParams: { ziel: 'proxima' } });
   });
 });
 

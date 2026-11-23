@@ -166,6 +166,17 @@ h2 {
   color: var(--color-ink-soft);
 }
 
+/* The questions under the texts: one per line, each with its icon, the travel planner before the facts. */
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+a.facts {
+  text-decoration: none;
+}
+
 .facts {
   min-height: 44px;
   padding: 0;
@@ -190,4 +201,27 @@ h2 {
   .closeup {
     animation: none;
   }
+}
+
+/*
+ * Upright tablets: the tall screen would leave a large empty area below the texts. The sphere (or picture)
+ * and the texts sit together in the middle, the texts centred under the sphere. Taller content still scrolls.
+ */
+:host-context([data-layout='tablet']) .closeup {
+  display: flex;
+  flex-direction: column;
+}
+
+:host-context([data-layout='tablet']) .top {
+  flex: none;
+}
+
+:host-context([data-layout='tablet']) .top + * {
+  margin-top: auto;
+}
+
+:host-context([data-layout='tablet']) .text {
+  width: 100%;
+  margin: 8px auto auto;
+  padding-bottom: 48px;
 }

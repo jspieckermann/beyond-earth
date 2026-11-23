@@ -23,8 +23,8 @@ describe('ModulePreview', () => {
   it('shows "Noch nicht vertieft" otherwise, with title, line and position', async () => {
     const el = await render(false);
     expect(el.textContent).toContain('Noch nicht vertieft');
-    expect(el.querySelector('h2')?.textContent?.trim()).toBe('Die Sandkorn-Welt');
-    expect(el.textContent).toContain('Die Sonne in deiner Hand');
+    expect(el.querySelector('h2')?.textContent?.trim()).toBe('Sterne zählen');
+    expect(el.textContent).toContain('Eins. Zwei. Drei.');
     expect(el.style.left).toBe('30px');
     expect(el.style.top).toBe('200px');
   });
@@ -36,6 +36,6 @@ describe('ModulePreview', () => {
     expect(el.querySelector('h2')?.id).toBe('module-preview-title');
     const link = el.querySelector('a');
     expect(link?.textContent).toContain('Eintauchen');
-    expect(link?.getAttribute('href')).toBe('/module/sandkorn-welt');
+    expect(link?.getAttribute('href')).toBe('/module/sterne-zaehlen');
   });
 });

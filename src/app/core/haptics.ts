@@ -1,10 +1,10 @@
 import { Service, inject } from '@angular/core';
-import { JourneySettings } from '../core/journey-settings';
+import { JourneySettings } from './journey-settings';
 
-/** Length of the pulse when the view snaps into a stage. */
+/** Length of the pulse. */
 export const PULSE_MS = 12;
 
-/** One short pulse when the view snaps into a stage, and no other vibration. */
+/** One short pulse when something settles (a stage of Modul A, a result of Modul B), and no other vibration. */
 @Service()
 export class Haptics {
   private readonly settings = inject(JourneySettings);

@@ -18,7 +18,7 @@ test.describe('home screen quality', () => {
     await page.locator('button.star').first().waitFor();
     expect(await axe(page)).toEqual([]);
 
-    await page.getByRole('button', { name: 'Die Sandkorn-Welt' }).click();
+    await page.getByRole('button', { name: 'Sterne zählen' }).click();
     await expect(page.getByRole('region')).toBeVisible();
     expect(await axe(page)).toEqual([]);
   });
@@ -33,7 +33,7 @@ test.describe('home screen quality', () => {
     await page.goto('/');
     await page.locator('button.star').first().waitFor();
     const order: string[] = [];
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < 10; i++) {
       await page.keyboard.press('Tab');
       order.push(
         await page.evaluate(() => {
@@ -46,7 +46,6 @@ test.describe('home screen quality', () => {
       'Einstellungen',
       'Die Reise nach draussen',
       'Reisen mit Lichtgeschwindigkeit',
-      'Die Sandkorn-Welt',
       'Sterne zählen',
       'Licht als Zeitmaschine',
       'Das Unsichtbare',
@@ -67,7 +66,7 @@ test.describe('home screen quality', () => {
 
   test('controls have touch targets of at least 44 px', async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('button', { name: 'Die Sandkorn-Welt' }).click();
+    await page.getByRole('button', { name: 'Sterne zählen' }).click();
     const small = await page.locator('main a, main button').evaluateAll((els) =>
       els
         .map((e) => ({ name: e.getAttribute('aria-label') ?? e.textContent?.trim(), r: e.getBoundingClientRect() }))

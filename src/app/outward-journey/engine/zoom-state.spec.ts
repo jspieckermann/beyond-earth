@@ -27,6 +27,17 @@ describe('ZoomState', () => {
   beforeEach(() => vi.useFakeTimers());
   afterEach(() => vi.useRealTimers());
 
+  it('settles at a stage at once, without a flight', () => {
+    const zoom = setup();
+    zoom.settleAt(3);
+    expect(zoom.z()).toBe(3);
+    expect(zoom.restingStage()).toBe(3);
+    expect(zoom.settled().stage).toBe(3);
+    expect(zoom.moved()).toBe(true);
+    zoom.settleAt(42);
+    expect(zoom.restingStage()).toBe(6);
+  });
+
   it('starts resting at the Earth', () => {
     const zoom = setup();
     expect(zoom.z()).toBe(0);

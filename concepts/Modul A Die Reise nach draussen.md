@@ -6,7 +6,7 @@ Nov 20, 2026 · @Joerg · aktualisiert am 23. Nov 2026 auf den Stand der Anwendu
 
 Modul A ist die erste Bewegung der Reise: ein einziger, durchgehender Blick, der bei der Erde beginnt und sich Stufe um Stufe bis zum ganzen Universum weitet. Die Nutzer sollen spüren, dass jeder Schritt nach draussen alles Bisherige winzig macht, dass zwischen den Sternen fast nur Leere liegt und dass Galaxien im Vergleich dazu fast dicht beieinander stehen.
 
-- **Platz in der Hauptreise:** Akt 2 „Aufbrechen“, direkt nach dem Ankommen unter dem Nachthimmel und vor dem Flug mit Lichtgeschwindigkeit (C).
+- **Platz in der Hauptreise:** Akt 2 „Aufbrechen“, direkt nach dem Ankommen unter dem Nachthimmel und vor den Reisen mit Lichtgeschwindigkeit (B).
 - **Lernziel:** Nach dem Modul können Nutzer einen Satz wiedergeben wie: „Wäre die Milchstrasse so gross wie Europa, wäre unser ganzes Sonnensystem ein Kronkorken.“
 - **Gefühl am Ende:** Ehrfurcht vor der Grösse, und die kleine leuchtende Erde ist trotzdem nie verloren gegangen.
 - **Didaktischer Kern:** Massstabskette, nie mehr als ein Sprung auf einmal. Jede Stufe enthält die vorherige, nur kleiner.
@@ -20,7 +20,7 @@ Es gibt keine einzelnen Bildschirme und keine Seitenwechsel. Das Modul ist ein e
 - **Einrasten an den Stufen:** Wer loslässt, gleitet sanft zur nächsten Stufe. Erst dort erscheinen Texte, direkt im Bild und ohne Kästen.
 - **Unterwegs nur die Entfernung:** Während des Zoomens verschwindet aller Text. Nur die Entfernung zählt gross und leise mit. So entsteht das Gefühl von Bewegung.
 - **Die Erde bleibt auffindbar:** Bis zum Sonnensystem ist die Erde eine Kugel mit ihrem Namen. Danach bleibt sie bis zum Rand des Universums als kleiner, ruhig leuchtender Punkt markiert, auch wenn sie längst kleiner als ein Pixel wäre. Sie ist der rote Faden zurück. Ab der Stufe „Erde und Mond“ lässt sie sich auf jeder Stufe antippen.
-- **Massstabsleiste am Rand:** Sie zeigt die Entfernung in der jeweils vertrauten Einheit (km, Mio. km, Lichtjahre, Millionen und Milliarden Lichtjahre) und darunter die Lichtzeit. Die Lichtzeit bereitet Modul C vor. Die Leiste nennt alle Stufen, ein Tipp auf einen Namen fliegt dorthin.
+- **Massstabsleiste am Rand:** Sie zeigt die Entfernung in der jeweils vertrauten Einheit (km, Mio. km, Lichtjahre, Millionen und Milliarden Lichtjahre) und darunter die Lichtzeit. Die Lichtzeit bereitet Modul B vor. Die Leiste nennt alle Stufen, ein Tipp auf einen Namen fliegt dorthin.
 - **Die Leere dehnen:** Zwischen dem Sonnensystem und den benachbarten Sternen läuft der Zoom bewusst länger durch fast nichts. Hier soll Leere spürbar werden, nicht übersprungen.
 - **Alles Benannte lässt sich antippen:** Im freien Erkunden öffnen die Himmelskörper und Orte jeder Stufe eine Nahansicht, über ihr Symbol und auch über ihren Namen.
 
@@ -74,7 +74,7 @@ Kursiv stehen die Texte für die Nutzer.
 - **Text:** *„Acht Welten. Und fast alles dazwischen ist leer.“*
 - **Aha:** Mit dem Auto bei 100 km/h ohne Pause wäre man 171 Jahre bis zur Sonne unterwegs.
 - **Faktenebene:** 1 Astronomische Einheit = 149,6 Mio. km, Lichtlaufzeit 8 min 20 s. Die Sonne hat den 109-fachen Erddurchmesser und enthält rund 99,86 % der Masse des Sonnensystems. Voyager 1 ist seit 1977 unterwegs und hat im November 2026 als erstes menschengemachtes Objekt einen Lichttag Entfernung erreicht. Sonne und Planeten sind viel grösser gezeichnet als im Massstab der Bahnen, sonst wären sie unsichtbar klein.
-- **Abzweig in der Faktenebene:** „Mit Lichtgeschwindigkeit weiterreisen“ führt zu Modul C.
+- **Abzweig in der Faktenebene:** „Mit Lichtgeschwindigkeit weiterreisen“ führt zu Modul B.
 - **Sonne antippen:** Im freien Erkunden lässt sich auch die Sonne antippen. Sie öffnet dieselbe Nahansicht wie die Planeten, leuchtet aber selbst, ohne Altersrechnung.
 - **Voyager 1 antippen:** Im freien Erkunden lässt sich auch Voyager 1 antippen. Statt einer drehbaren Kugel zeigt die Nahansicht ein Bild der Sonde, dazu den Abstand zur Erde (ca. 25,9 Mrd. km, rund ein Lichttag), den Satz *„Das am weitesten entfernte Ding, das Menschen je gebaut haben.“* und als Aha: seit 1977 unterwegs mit rund 61.000 km/h, ein Funkspruch braucht einen ganzen Tag hin und einen zurück. Faktenebene: Start 1977, interstellarer Raum seit 2012, „Pale Blue Dot“ 1990, goldene Schallplatte.
 
@@ -93,7 +93,7 @@ Kursiv stehen die Texte für die Nutzer.
 
 Weitere Vertiefungen an den Planeten:
 
-- **Dein Alter auf anderen Planeten:** Wer sein Geburtsjahr angibt (wie in Modul D), sieht an jedem Planeten, wie alt er dort wäre. Wer auf der Erde 30 ist, wäre auf dem Mars knapp 16 und auf Jupiter noch keine 3. Das lässt sich als Bild teilen: „Auf dem Mars wäre ich 16.“
+- **Dein Alter auf anderen Planeten:** Wer sein Geburtsjahr angibt (wie in Modul C), sieht an jedem Planeten, wie alt er dort wäre. Wer auf der Erde 30 ist, wäre auf dem Mars knapp 16 und auf Jupiter noch keine 3. Das lässt sich als Bild teilen: „Auf dem Mars wäre ich 16.“
 - **Grosse Monde:** Bei Jupiter und Saturn lassen sich die grossen Monde antippen, etwa Europa mit seinem Ozean unter dem Eis oder Titan mit seinen Methanseen. Zu jedem gibt es einen Satz.
 - **Faktenebene je Planet:** Durchmesser, Tageslänge, Jahreslänge, Temperatur, Lichtlaufzeit.
 
@@ -103,7 +103,7 @@ Weitere Vertiefungen an den Planeten:
 - **Bild:** endlich die Nachbarn. Die Sonne ist nur noch ein heller Punkt. Am nächsten leuchten der Doppelstern Alpha Centauri und der schwache rote Proxima Centauri, weiter draussen Barnards Pfeilstern, die Braunen Zwerge Luhman 16 und WISE 0855-0714, die Roten Zwerge Wolf 359 und Lalande 21185 und der helle Sirius. Ein Ring markiert 5 Lichtjahre Abstand zur Sonne. Die Abstände zur Sonne stimmen, die Richtungen sind vereinfacht.
 - **Text:** *„Unsere nächsten Nachbarn. Und dazwischen: nichts.“*
 - **Aha:** Voyager 1, unser schnellstes fernes Raumschiff, bräuchte bis hierher rund 75.000 Jahre.
-- **Abzweig:** „Wie leer ist das wirklich?“ führt in die Sandkorn-Welt (B): Proxima liegt dort im Nachbarort.
+- **Abzweig:** In der Nahansicht jedes Sterns führt „Wie lange bräuchte ich dorthin?“ zu Reisen mit Lichtgeschwindigkeit (B), mit diesem Stern als Ziel: Mit Voyager-Tempo wären es bis Proxima rund 75.000 Jahre.
 - **Faktenebene:** Proxima Centauri ist 4,24 Lichtjahre entfernt, das sind ca. 40 Billionen km. Alpha Centauri A und B sind ca. 4,37 Lichtjahre entfernt. Proxima ist ein Roter Zwerg und mit blossem Auge nicht sichtbar. Bis Sirius in 8,6 Lichtjahren folgen die übrigen Nachbarn.
 - **Sterne antippen:** Die Sonne und jeder der neun Sterne öffnen eine Nahansicht als leuchtende Kugel, zum Beispiel:
 
@@ -126,7 +126,7 @@ Weitere Vertiefungen an den Planeten:
 - **Text:** *„Das ist sie. Unsere Galaxie. Und irgendwo darin, viel zu klein, um sie zu sehen: die Erde.“*
 - **Aha:** Wäre die Milchstrasse so gross wie Europa, wäre unser ganzes Sonnensystem bis Neptun etwa ein Kronkorken.
 - **Zusatz:** Die Scheibe ist im Verhältnis so flach wie eine CD.
-- **Abzweige in der Faktenebene:** „Wie lange dauert eine Runde um die Galaxie?“ führt zum galaktischen Jahr (F), „Was verbirgt der Staub?“ zum Unsichtbaren (G).
+- **Abzweige in der Faktenebene:** „Wie lange dauert eine Runde um die Galaxie?“ führt zum galaktischen Jahr (E), „Was verbirgt der Staub?“ zum Unsichtbaren (F).
 - **Faktenebene:** Durchmesser ca. 100.000 Lichtjahre, Scheibe ca. 1.000 Lichtjahre dick, 100 bis 400 Milliarden Sterne. Der nächste Stern läge im Europa-Modell 170 m neben dem Kronkorken. Wichtig: Niemand hat die Milchstrasse je von aussen fotografiert. Das Bild ist eine Rekonstruktion aus Messdaten. Wo genau die Arme verlaufen, ist noch Gegenstand der Forschung.
 - **Antippen:**
   - **Sagittarius A*:** die echte Aufnahme des Event Horizon Telescope. *„Im Herzen unserer Galaxie: etwas, aus dem nicht einmal Licht entkommt.“* Aha: rund 4 Millionen Sonnenmassen, zusammengedrückt auf einen Raum, der in die Bahn des Merkur passen würde.
@@ -139,7 +139,7 @@ Weitere Vertiefungen an den Planeten:
 - **Text:** *„Unsere Nachbarschaft. Und zum ersten Mal ist es hier nicht leer.“*
 - **Aha:** Wäre die Milchstrasse eine Münze, läge Andromeda nur gut einen halben Meter entfernt.
 - **Zusatz:** Wäre die Sonne eine Münze, läge der nächste Stern Hunderte Kilometer weit weg. Sterne stehen einsam, Galaxien fast dicht.
-- **Abzweig:** Licht als Zeitmaschine (D).
+- **Abzweig:** Licht als Zeitmaschine (C).
 - **Faktenebene:** Durchmesser der Lokalen Gruppe ca. 10 Millionen Lichtjahre, über 80 bekannte Mitglieder, die meisten davon Zwerggalaxien. Das Bild ist eine schematische Darstellung, keine Aufnahme.
 - **Galaxien antippen:** Jede benannte Galaxie öffnet eine Nahansicht mit Foto:
 
@@ -181,7 +181,7 @@ Das Modul endet nicht in der Ferne, sondern wieder bei der Erde.
 1. Beim ganzen Universum erscheint zusammen mit den Texten der Satz *„Und jetzt zurück. Nach Hause.“* als Schaltfläche.
 2. Wer will, zoomt selbst zurück. Alternativ führt ein Tipp in einem ca. 10 Sekunden langen Rückflug durch alle Stufen, der in der Leere kurz verweilt.
 3. Die Reise landet bei der Erde. Text: *„All das. Und mittendrin: wir.“*
-4. **In der Hauptreise:** Übergang zu Modul C mit *„Jetzt fliegst du selbst. So schnell, wie es überhaupt geht.“*
+4. **In der Hauptreise:** Übergang zu Modul B mit *„Jetzt fliegst du selbst. So schnell, wie es überhaupt geht.“*
 5. **Im freien Erkunden:** Am Ende stehen drei Wege offen: nochmal reisen, zu einer Stufe springen oder das passende Bild teilen.
 
 ## Zwei Fassungen: Hauptreise und freies Erkunden
@@ -191,7 +191,7 @@ In der Hauptreise ist Modul A kurz und straff, beim freien Erkunden darf es tief
 | Fassung | Stufen | Dauer | Faktenebene | Abzweige und Vertiefungen |
 | --- | --- | --- | --- | --- |
 | Hauptreise | alle 7 Stufen, ohne Nahansichten | ca. 4–5 min | zugeklappt, aber erreichbar | keine, der Bogen bleibt geschlossen |
-| Freies Erkunden | alle 7 Stufen; Planeten, Monde, Sonne, Erde, Voyager 1, Nachbarsterne, Teile der Milchstrasse, Galaxien und Orte des Universums antippbar | offen | sichtbar angeboten | zu B (Nachbarsterne), C (Lichtzeit im Sonnensystem), F und G (Milchstrasse), D (Lokale Gruppe) |
+| Freies Erkunden | alle 7 Stufen; Planeten, Monde, Sonne, Erde, Voyager 1, Nachbarsterne, Teile der Milchstrasse, Galaxien und Orte des Universums antippbar | offen | sichtbar angeboten | zu B (Lichtzeit im Sonnensystem und „Wie lange bräuchte ich dorthin?“ in jeder Nahansicht), E und F (Milchstrasse), C (Lokale Gruppe) |
 
 Beim freien Erkunden kann man über die Massstabsleiste von Anfang an direkt zu einer Stufe springen. Das Erlebnis der Leere entsteht aber nur beim durchgehenden Zoomen.
 
@@ -223,7 +223,7 @@ Modul A braucht keinen Standort und keine persönlichen Daten. Der persönliche 
 - [ ] Europa-Vergleich: Verwenden alle Sprachfassungen Europa, oder wird der eigene Kontinent eingesetzt? Bei Nordamerika (ca. 5.000 km) wäre das Sonnensystem etwa 5 cm gross.
 - [ ] Wie lange darf die Leere vor den benachbarten Sternen dauern, ohne zu langweilen? Das sollte mit Testpersonen geklärt werden.
 - [ ] Rückweg: Zoomen die Nutzer selbst zurück, oder gibt es den automatischen Rückflug? Ein automatischer Rückflug widerspricht der Regel „nie von allein“. (Umgesetzt: beides, der Rückflug startet nur auf Tipp.)
-- [ ] Alter auf anderen Planeten: Wird das Geburtsjahr schon in Modul A abgefragt, oder erst in Modul D und danach wiederverwendet?
+- [ ] Alter auf anderen Planeten: Wird das Geburtsjahr schon in Modul A abgefragt, oder erst in Modul C und danach wiederverwendet?
 - [ ] Soll die drehende Erde angehalten werden können (WCAG: bewegte Inhalte über 5 Sekunden), etwa mit einem Tipp?
 - [x] ~~Wie wechselt das Bild vom Orion-Arm zum Zentrum, ohne dass die Erde aus dem Blick gerät?~~ Entfallen: Orion-Arm und Zentrum sind keine eigenen Stufen mehr.
 - [x] ~~Erzählstimme: Gilt die Regel „nur der poetische Satz“ für alle Module?~~ Entfallen: Es gibt keine Erzählstimme.

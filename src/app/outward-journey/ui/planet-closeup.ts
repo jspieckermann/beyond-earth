@@ -11,7 +11,9 @@ import {
   viewChild,
 } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { Body, MOONS, MoonId } from '../data/planets';
+import { STAGES } from '../data/stages';
 import { ZoomState } from '../engine/zoom-state';
 import { JourneyUi } from '../journey-ui';
 import { TextureData, proceduralTexture, renderSphere, sphereLookup, tintTexture } from '../scene/sphere-renderer';
@@ -34,7 +36,7 @@ const GAS_GIANTS = new Set(['jupiter', 'saturn', 'uranus', 'neptun']);
  */
 @Component({
   selector: 'app-planet-closeup',
-  imports: [BirthYearForm, NgOptimizedImage],
+  imports: [BirthYearForm, NgOptimizedImage, RouterLink],
   host: {
     '(keydown.escape)': 'close()',
   },
@@ -50,6 +52,10 @@ export class PlanetCloseup {
   private readonly back = viewChild.required<ElementRef<HTMLButtonElement>>('back');
 
   protected readonly radius = PLANET_RADIUS;
+  /** Free exploration: the link to the travel planner of Modul B, with this object and the stage to return to. */
+  protected readonly travel = computed(() =>
+    this.ui.isExplore() ? { ziel: this.planet().id, von: STAGES[this.zoom.nearest()].id } : null,
+  );
   protected readonly rotation = signal(0);
   protected readonly moon = signal<MoonId | null>(null);
   protected readonly moons = computed(() => this.planet().moons.map((id) => MOONS[id]));

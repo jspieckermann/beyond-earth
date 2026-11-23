@@ -3,9 +3,10 @@ import { expect, test, type Page } from '@playwright/test';
 const star = (page: Page, title: string) => page.getByRole('button', { name: title, exact: true });
 const preview = (page: Page) => page.getByRole('region');
 
-async function seed(page: Page, data: { explored?: string[]; moments?: number }) {
+async function seed(page: Page, data: { explored?: string[]; legacyExplored?: string[]; moments?: number }) {
   await page.addInitScript((d) => {
-    if (d.explored) localStorage.setItem('be.explored', JSON.stringify(d.explored));
+    if (d.explored) localStorage.setItem('be.explored.v2', JSON.stringify(d.explored));
+    if (d.legacyExplored) localStorage.setItem('be.explored', JSON.stringify(d.legacyExplored));
     if (d.moments !== undefined) localStorage.setItem('be.moments', String(d.moments));
   }, data);
 }
@@ -19,35 +20,42 @@ test.describe('home screen', () => {
     await expect(page.getByText('„Heute Nacht zieht das Band über dich hinweg.“')).toBeVisible();
   });
 
-  test('shows the seven module stars in journey order', async ({ page }) => {
+  test('shows the six module stars in journey order, without the Sandkorn-Welt', async ({ page }) => {
     await page.goto('/');
     const names = await page.locator('button.star').evaluateAll((els) => els.map((e) => e.getAttribute('aria-label')));
     expect(names).toEqual([
       'Die Reise nach draussen',
       'Reisen mit Lichtgeschwindigkeit',
-      'Die Sandkorn-Welt',
       'Sterne zählen',
       'Licht als Zeitmaschine',
       'Das Unsichtbare',
       'Das galaktische Jahr',
     ]);
-    await expect(page.getByText('Sandkorn-Welt', { exact: true })).toBeVisible();
+    await expect(page.getByText('Sandkorn-Welt')).toHaveCount(0);
   });
 
   test('shows explored modules brighter, without scores', async ({ page }) => {
     await seed(page, { explored: ['B'] });
     await page.goto('/');
-    await expect(star(page, 'Die Sandkorn-Welt')).toHaveClass(/explored/);
+    await expect(star(page, 'Reisen mit Lichtgeschwindigkeit')).toHaveClass(/explored/);
     await expect(star(page, 'Sterne zählen')).not.toHaveClass(/explored/);
     await expect(page.locator('main')).not.toContainText('%');
   });
 
+  test('carries progress stored under the old module letters over', async ({ page }) => {
+    // Old letters: C was Reisen mit Lichtgeschwindigkeit, B the removed Sandkorn-Welt.
+    await seed(page, { legacyExplored: ['C', 'B'] });
+    await page.goto('/');
+    await expect(star(page, 'Reisen mit Lichtgeschwindigkeit')).toHaveClass(/explored/);
+    await expect(page.locator('button.star.explored')).toHaveCount(1);
+  });
+
   test('selects, switches and closes the preview', async ({ page }) => {
     await page.goto('/');
-    await star(page, 'Die Sandkorn-Welt').click();
-    await expect(preview(page)).toContainText('Die Sandkorn-Welt');
+    await star(page, 'Sterne zählen').click();
+    await expect(preview(page)).toContainText('Sterne zählen');
     await expect(preview(page)).toContainText('Noch nicht vertieft');
-    await expect(star(page, 'Die Sandkorn-Welt')).toHaveAttribute('aria-expanded', 'true');
+    await expect(star(page, 'Sterne zählen')).toHaveAttribute('aria-expanded', 'true');
 
     await page.keyboard.press('Escape');
     await star(page, 'Das galaktische Jahr').click();
@@ -86,7 +94,17 @@ test.describe('home screen', () => {
     await expect(page.getByText('Bald verfügbar')).toBeVisible();
     await page.getByRole('link', { name: 'Zurück zum Himmel' }).click();
     await expect(page).toHaveURL(/\/$/);
-    await expect(page.locator('button.star')).toHaveCount(7);
+    await expect(page.locator('button.star')).toHaveCount(6);
+  });
+
+  test('opens the Modul B travel planner instead of a placeholder', async ({ page }) => {
+    await page.goto('/');
+    await star(page, 'Reisen mit Lichtgeschwindigkeit').click();
+    await preview(page).getByRole('link', { name: 'Eintauchen' }).click();
+    await expect(page).toHaveURL(/\/module\/lichtgeschwindigkeit$/);
+    await expect(page).toHaveTitle('Reisen mit Lichtgeschwindigkeit · Die Milchstrasse erleben');
+    await expect(page.getByText('Bald verfügbar')).toHaveCount(0);
+    await expect(page.getByRole('heading', { level: 1, name: 'Reisen mit Lichtgeschwindigkeit' })).toBeFocused();
   });
 
   test('opens the Modul A experience instead of a placeholder', async ({ page }) => {
@@ -155,7 +173,7 @@ test.describe('home screen', () => {
 
   test('is quiet: no audio or video', async ({ page }) => {
     await page.goto('/');
-    await star(page, 'Die Sandkorn-Welt').click();
+    await star(page, 'Sterne zählen').click();
     await expect(page.locator('audio, video')).toHaveCount(0);
   });
 });

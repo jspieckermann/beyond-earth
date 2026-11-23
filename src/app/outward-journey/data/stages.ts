@@ -16,6 +16,8 @@ export interface Branch {
   readonly label: string;
   /** Slug of the target module (see the home screen's module catalog). */
   readonly slug: string;
+  /** Query of the link, e.g. the destination of the travel planner. */
+  readonly queryParams?: Readonly<Record<string, string>>;
 }
 
 export interface Stage {
@@ -93,7 +95,7 @@ export const STAGES: readonly Stage[] = [
     earthOffset: CENTRE,
     alt: 'Die Sonne, darum die Bahnen der acht Planeten mit den Planeten als kleine Kugeln darauf, jeweils von der Sonne her beleuchtet. Am Rand die Sonde Voyager 1.',
     credits: ['sun-texture', 'voyager', 'mercury', 'venus', 'earth-day', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune'],
-    factBranches: [{ label: 'Mit Lichtgeschwindigkeit weiterreisen', slug: 'lichtgeschwindigkeit' }],
+    factBranches: [{ label: 'Mit Lichtgeschwindigkeit weiterreisen', slug: 'lichtgeschwindigkeit', queryParams: { ziel: 'proxima' } }],
   },
   {
     id: 'alpha-centauri',
@@ -111,7 +113,6 @@ export const STAGES: readonly Stage[] = [
     earthOffset: CENTRE,
     alt: 'Dunkelheit. Die Sonne ist ein heller Punkt. Am nächsten leuchten der Doppelstern Alpha Centauri und der schwache rote Proxima Centauri, weiter draussen Barnards Pfeilstern, die Braunen Zwerge Luhman 16 und WISE 0855-0714, die Roten Zwerge Wolf 359 und Lalande 21185 und der helle Sirius. Ein Ring markiert 5 Lichtjahre Abstand zur Sonne.',
     credits: ['stars'],
-    branch: { label: 'Wie leer ist das wirklich?', slug: 'sandkorn-welt' },
   },
   {
     id: 'milchstrasse',

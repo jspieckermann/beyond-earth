@@ -1008,6 +1008,17 @@ export function isPlanetId(id: BodyId): id is PlanetId {
   return PLANETS.some((p) => p.id === id);
 }
 
+/** Whether a text (e.g. from the address) names a body that has a close-up. */
+export function isBodyId(id: string | null | undefined): id is BodyId {
+  if (!id) {
+    return false;
+  }
+  const body = id as BodyId;
+  return (
+    id === 'mond' || id === 'sonne' || id === 'voyager' || isPlanetId(body) || isStarId(body) || isGalaxyPartId(body) || isGalaxyId(body) || isCosmicId(body)
+  );
+}
+
 /** Where a close-up returns to, per stage: the Earth can be opened from every stage after the first. */
 const STAGE_BACK: Readonly<Record<Exclude<StageId, 'erde'>, { readonly backTo: string; readonly backLabel: string }>> = {
   mond: { backTo: MOON.backTo, backLabel: MOON.backLabel },

@@ -1,5 +1,5 @@
-/** The seven experience modules of the concept, by their letter. */
-export const MODULE_IDS = ['A', 'B', 'C', 'D', 'E', 'F', 'G'] as const;
+/** The six experience modules of the concept, by their letter (A Reise nach draussen, B Lichtgeschwindigkeit, C Zeitmaschine, D Sterne zählen, E galaktisches Jahr, F das Unsichtbare). */
+export const MODULE_IDS = ['A', 'B', 'C', 'D', 'E', 'F'] as const;
 export type ModuleId = (typeof MODULE_IDS)[number];
 
 export function isModuleId(value: unknown): value is ModuleId {

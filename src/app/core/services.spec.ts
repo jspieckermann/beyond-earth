@@ -13,9 +13,9 @@ function blockedStorage(): Storage {
 }
 
 describe('isModuleId', () => {
-  it('accepts the seven module letters only', () => {
-    expect(['A', 'B', 'C', 'D', 'E', 'F', 'G'].every(isModuleId)).toBe(true);
-    expect(isModuleId('H')).toBe(false);
+  it('accepts the six module letters only', () => {
+    expect(['A', 'B', 'C', 'D', 'E', 'F'].every(isModuleId)).toBe(true);
+    expect(isModuleId('G')).toBe(false);
     expect(isModuleId(1)).toBe(false);
   });
 });
@@ -31,7 +31,7 @@ describe('ExplorationProgress', () => {
 
   it('persists explored modules across visits', () => {
     TestBed.inject(ExplorationProgress).markExplored('B');
-    expect(JSON.parse(localStorage.getItem('be.explored') ?? '[]')).toEqual(['B']);
+    expect(JSON.parse(localStorage.getItem('be.explored.v2') ?? '[]')).toEqual(['B']);
 
     TestBed.resetTestingModule();
     const nextVisit = TestBed.inject(ExplorationProgress);
@@ -40,11 +40,36 @@ describe('ExplorationProgress', () => {
   });
 
   it('ignores unknown or malformed stored values', () => {
-    localStorage.setItem('be.explored', '["B","X",3]');
+    localStorage.setItem('be.explored.v2', '["B","X",3]');
     expect([...TestBed.inject(ExplorationProgress).exploredIds()]).toEqual(['B']);
     TestBed.resetTestingModule();
-    localStorage.setItem('be.explored', '{"B":true}');
+    localStorage.setItem('be.explored.v2', '{"B":true}');
     expect(TestBed.inject(ExplorationProgress).exploredIds().size).toBe(0);
+  });
+
+  it('carries every old letter over to the new one and drops the Sandkorn-Welt', () => {
+    // Old letters: A Reise, B Sandkorn-Welt, C Lichtgeschwindigkeit, D Zeitmaschine, E Sterne zählen, F galaktisches Jahr, G Unsichtbares.
+    localStorage.setItem('be.explored', '["A","B","C","D","E","F","G"]');
+    const progress = TestBed.inject(ExplorationProgress);
+    expect([...progress.exploredIds()].sort()).toEqual(['A', 'B', 'C', 'D', 'E', 'F']);
+    expect(localStorage.getItem('be.explored')).toBeNull();
+    expect(JSON.parse(localStorage.getItem('be.explored.v2') ?? '[]').sort()).toEqual(['A', 'B', 'C', 'D', 'E', 'F']);
+  });
+
+  it('maps the light-speed module from old C to new B and forgets the old B', () => {
+    localStorage.setItem('be.explored', '["A","C","B"]');
+    const progress = TestBed.inject(ExplorationProgress);
+    expect([...progress.exploredIds()].sort()).toEqual(['A', 'B']);
+    expect(progress.isExplored('C')).toBe(false);
+  });
+
+  it('migrates only once', () => {
+    localStorage.setItem('be.explored', '["G"]');
+    expect([...TestBed.inject(ExplorationProgress).exploredIds()]).toEqual(['F']);
+    TestBed.resetTestingModule();
+    // An old key that appears again later (another tab of an old version) does not override the migrated state.
+    localStorage.setItem('be.explored', '["C"]');
+    expect([...TestBed.inject(ExplorationProgress).exploredIds()]).toEqual(['F']);
   });
 
   it('shows nothing explored when storage is unavailable', () => {

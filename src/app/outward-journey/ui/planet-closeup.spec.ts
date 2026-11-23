@@ -46,6 +46,16 @@ describe('PlanetCloseup', () => {
     localStorage.clear();
   });
 
+  it('links to the travel planner with this object and its stage, in free exploration only', async () => {
+    TestBed.inject(ZoomState).settleAt(2);
+    await fixture.whenStable();
+    const link = [...el.querySelectorAll('a')].find((a) => a.textContent?.includes('Wie lange bräuchte ich dorthin?'));
+    expect(link?.getAttribute('href')).toBe('/module/lichtgeschwindigkeit?ziel=jupiter&von=sonnensystem');
+    ui.variant.set('hauptreise');
+    await fixture.whenStable();
+    expect(el.textContent).not.toContain('Wie lange bräuchte ich dorthin?');
+  });
+
   it('shows the planet with its distance, line and Aha, and focuses the way back', () => {
     expect(el.querySelector('h2')?.textContent).toBe('Jupiter');
     expect(el.textContent).toContain('778 Mio. km');
@@ -101,7 +111,7 @@ describe('PlanetCloseup', () => {
   });
 
   it('opens the planet facts and shares the age', async () => {
-    (el.querySelector('.facts') as HTMLButtonElement).click();
+    (el.querySelector('button.facts') as HTMLButtonElement).click();
     expect(ui.factsOpen()).toBe(true);
     TestBed.inject(BirthYear).set(1996);
     await fixture.whenStable();

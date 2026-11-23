@@ -37,7 +37,7 @@ interface StarView {
 }
 
 /**
- * The seven module stars with their labels and the preview of the selected one.
+ * The six module stars with their labels and the preview of the selected one.
  * Phone: stars on the 390 × 600 sky stage, preview next to the star.
  * Tablet/desktop: stars spread over the measured sky region, which also draws the band;
  * the preview opens at a fixed spot below the band, joined to its star by a line.

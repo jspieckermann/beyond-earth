@@ -14,8 +14,8 @@ import {
 import { RouterLink } from '@angular/router';
 import { ExplorationProgress } from '../core/exploration-progress';
 import { LayoutMode } from '../core/layout-mode';
-import { Haptics } from './haptics';
-import { findBody } from './data/planets';
+import { Haptics } from '../core/haptics';
+import { findBody, isBodyId } from './data/planets';
 import { STAGES } from './data/stages';
 import { ZoomState } from './engine/zoom-state';
 import { keyIntent } from './input/zoom-input';
@@ -25,13 +25,19 @@ import { SceneGeometry } from './scene/scene-geometry';
 import { CreditsDialog } from './ui/credits-dialog';
 import { DistanceReadout } from './ui/distance-readout';
 import { EarthMarker } from './ui/earth-marker';
-import { FactSheet, FactSheetContent } from './ui/fact-sheet';
+import { FactSheet, FactSheetContent } from '../core/fact-sheet';
+import { CREDITS, CREDIT_KIND_LABEL, CreditId } from './data/credits';
 import { JourneyControls } from './ui/journey-controls';
 import { JourneyEnd } from './ui/journey-end';
 import { ScaleBar } from './ui/scale-bar';
 import { StageText } from './ui/stage-text';
 import { PlanetCloseup } from './ui/planet-closeup';
 import { ShareCardDialog } from '../core/share-card-dialog';
+
+/** The credit lines under the facts: kind and source of each picture. */
+function sourcesOf(ids: readonly CreditId[]): FactSheetContent['sources'] {
+  return ids.map((id) => ({ kind: CREDIT_KIND_LABEL[CREDITS[id].kind], source: CREDITS[id].source }));
+}
 
 /**
  * Modul A "Die Reise nach draussen": one continuous zoom from the Earth to the universe.
@@ -64,6 +70,10 @@ import { ShareCardDialog } from '../core/share-card-dialog';
 })
 export class OutwardJourney {
   readonly variant = input<JourneyVariant>('freies-erkunden');
+  /** Free exploration: the stage to start at (a stage id), e.g. when coming back from Modul B. */
+  readonly startStage = input<string | null>(null);
+  /** Free exploration: the body whose close-up opens at the start stage. */
+  readonly startBody = input<string | null>(null);
   /** Main-journey variant: the user chose "Weiter" at the end. */
   readonly completed = output<void>();
 
@@ -88,24 +98,50 @@ export class OutwardJourney {
   protected readonly facts = computed<FactSheetContent>(() => {
     const planet = this.planet();
     if (planet) {
-      return {
-        kicker: planet.name,
-        facts: planet.facts,
-        credits: [planet.credit],
-      };
+      return { kicker: planet.name, facts: planet.facts, sources: sourcesOf([planet.credit]) };
     }
     const stage = STAGES[this.zoom.restingStage() ?? this.zoom.nearest()];
     return {
       kicker: stage.title,
       facts: stage.facts,
-      credits: stage.credits,
+      sources: sourcesOf(stage.credits),
       branches: this.ui.isExplore() ? stage.factBranches : undefined,
     };
   });
 
   constructor() {
     effect(() => this.ui.variant.set(this.variant()));
+
+    // Coming back from another module: rest at that stage and open the close-up again. Unknown values start at the Earth.
+    let started = false;
+    effect(() => {
+      const stage = STAGES.findIndex((s) => s.id === this.startStage());
+      const body = this.startBody();
+      if (started || this.variant() !== 'freies-erkunden' || stage < 0) {
+        return;
+      }
+      started = true;
+      untracked(() => {
+        this.zoom.settleAt(stage);
+        if (isBodyId(body)) {
+          this.ui.planet.set(body);
+        }
+      });
+    });
     this.zoom.onCompleted(() => this.progress.markExplored('A'));
+
+    // Any movement of the view closes the facts.
+    let lastZ = this.zoom.z();
+    effect(() => {
+      const z = this.zoom.z();
+      if (z === lastZ) {
+        return;
+      }
+      lastZ = z;
+      if (untracked(() => this.ui.factsOpen())) {
+        untracked(() => this.closeFacts());
+      }
+    });
 
     // Every snap into a stage: one short vibration pulse.
     let lastSeq = this.zoom.settled().seq;
@@ -127,7 +163,9 @@ export class OutwardJourney {
     afterNextRender(() => {
       resize();
       observer?.observe(this.host.nativeElement);
-      this.heading().nativeElement.focus();
+      if (!this.ui.planet()) {
+        this.heading().nativeElement.focus();
+      }
     });
     inject(DestroyRef).onDestroy(() => observer?.disconnect());
   }

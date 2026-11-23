@@ -43,6 +43,15 @@ export class LocalStore {
     }
   }
 
+  remove(key: string): void {
+    this.memory.delete(key);
+    try {
+      this.storage?.removeItem(key);
+    } catch {
+      // Blocked storage: nothing to remove.
+    }
+  }
+
   readJson<T>(key: string, isValid: (value: unknown) => value is T, fallback: T): T {
     const raw = this.read(key);
     if (raw === null) {

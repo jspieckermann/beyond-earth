@@ -10,7 +10,6 @@ import { SceneGeometry } from '../scene/scene-geometry';
 import { JourneyTestOptions, journeyTestProviders } from '../testing';
 import { DistanceReadout } from './distance-readout';
 import { EarthMarker } from './earth-marker';
-import { FactSheet } from './fact-sheet';
 import { JourneyControls } from './journey-controls';
 import { ScaleBar } from './scale-bar';
 import { StageText } from './stage-text';
@@ -159,7 +158,7 @@ describe('journey overlay', { timeout: 30_000 }, () => {
     expect(el.querySelectorAll('app-earth-moon-layer .gap-planet.in')).toHaveLength(7);
     host.zoom.flyTo(3);
     advance(10_000);
-    expect(el.querySelector('a[href="/module/sandkorn-welt"]')?.textContent).toContain('Wie leer ist das wirklich?');
+    expect([...el.querySelectorAll('app-stage-text a')].some((a) => a.textContent?.includes('Wie leer ist das wirklich?'))).toBe(false);
   });
 
   it('lines the seven planets up in the Earth–Moon gap', () => {
@@ -288,27 +287,5 @@ describe('journey overlay', { timeout: 30_000 }, () => {
     inputs[0].dispatchEvent(new Event('change'));
     expect(settings.vibration()).toBe(false);
     expect(el.textContent).not.toContain('Erzählstimme');
-  });
-});
-
-describe('FactSheet', () => {
-  it('lists facts and sources and closes when the view moves', async () => {
-    TestBed.configureTestingModule({ providers: [...journeyTestProviders(), ZoomState, JourneyUi] });
-    const fixture = TestBed.createComponent(FactSheet);
-    fixture.componentRef.setInput('content', {
-      kicker: 'Die ganze Milchstrasse',
-      facts: ['Durchmesser ca. 100.000 Lichtjahre'],
-      credits: ['milky-way'],
-      branches: [{ label: 'Mit Lichtgeschwindigkeit weiterreisen', slug: 'lichtgeschwindigkeit' }],
-    });
-    const closed = vi.fn();
-    fixture.componentInstance.closed.subscribe(closed);
-    await fixture.whenStable();
-    const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain('Rekonstruktion: NASA/JPL-Caltech/ESO/R. Hurt');
-    expect(el.querySelector('a')?.getAttribute('href')).toBe('/module/lichtgeschwindigkeit');
-    TestBed.inject(ZoomState).nudge(0.1);
-    await fixture.whenStable();
-    expect(closed).toHaveBeenCalled();
   });
 });

@@ -46,7 +46,7 @@ Die Anwendung fühlt sich an wie eine nächtliche Wanderung, nicht wie eine Schu
 | Moment | Text |
 | --- | --- |
 | Einstieg | „Schau nach oben. Das blasse Band über dir, das sind wir. Von innen gesehen.“ |
-| Sandkorn-Welt | „Wäre die Sonne ein Sandkorn in deiner Hand, läge der nächste Stern im Nachbarort. Und dazwischen: nichts.“ |
+| Reisen mit Lichtgeschwindigkeit | „Such dir ein Ziel. Wähle dein Tempo. Und dann sieh, wer ankommt: du, deine Urenkel oder niemand, den du je kennen wirst.“ |
 | Licht als Zeitmaschine | „Dieses Licht ist losgeflogen, als Menschen ihre Hände an Höhlenwände malten. Heute Nacht trifft es dein Auge.“ |
 | Geburtsstern | „Im Jahr deiner Geburt ist ein Lichtstrahl aufgebrochen. Heute ist er angekommen.“ |
 | Galaktisches Jahr | „Als die Sonne das letzte Mal an dieser Stelle war, gingen die ersten Dinosaurier über die Erde.“ |
@@ -59,17 +59,17 @@ Beim ersten Start führt eine geführte Hauptreise durch das Erlebnis. Danach si
 **Die geführte Hauptreise** hat einen klaren Anfang und ein klares Ende, Richtwert ca. 10–15 Minuten. Sie folgt einem Bogen in sechs Akten:
 
 1. **Ankommen:** Hier bist du. Der Blick auf das Band der Milchstrasse am Nachthimmel.
-2. **Aufbrechen:** Die Reise nach draussen (A), unterwegs mit Lichtgeschwindigkeit (C).
-3. **Staunen:** Wie leer und riesig alles ist, in der Sandkorn-Welt (B) und beim Sterne-Zählen (E).
-4. **Verstehen:** Licht als Zeitmaschine (D) und das Unsichtbare (G).
-5. **Heimkehren:** Das galaktische Jahr (F) und unser Platz im Orion-Arm.
+2. **Aufbrechen:** Die Reise nach draussen (A), dann die Reise zum nächsten Stern, mit Lichtgeschwindigkeit und darunter (B).
+3. **Staunen:** Wie riesig alles ist, beim Sterne-Zählen (D).
+4. **Verstehen:** Licht als Zeitmaschine (C) und das Unsichtbare (F).
+5. **Heimkehren:** Das galaktische Jahr (E) und unser Platz im Orion-Arm.
 6. **Rausgehen:** Was du heute Nacht selbst sehen kannst.
 
 **Freies Erkunden** beginnt nach der ersten Reise. Jedes Modul ist einzeln zugänglich und kann vertieft werden. Die Hauptreise bleibt jederzeit wiederholbar. Ein wiederkehrender Anlass zur Rückkehr ist die Heute-Nacht-Funktion.
 
 ## Erlebnismodule
 
-Sieben Module tragen das Erlebnis. Jedes macht eine Dimension mit einem eigenen Werkzeug greifbar.
+Sechs Module tragen das Erlebnis. Jedes macht eine Dimension mit einem eigenen Werkzeug greifbar.
 
 ### A) Die Reise nach draussen
 
@@ -96,35 +96,33 @@ Orion-Arm, Zentrum und Andromeda sind keine eigenen Stufen mehr, sondern Ziele z
 - **Die Erde bleibt markiert:** Die Erde bleibt bis zum Rand des Universums als kleiner, leuchtender Punkt markiert, auch wenn sie längst unsichtbar wäre. Sie ist der Weg zurück, und sie lässt sich auf jeder Stufe antippen.
 - **Die Leere spüren:** Zwischen dem Sonnensystem und dem nächsten Stern zieht sich der Zoom bewusst lang durch fast nichts.
 - **Antippen und vertiefen:** Planeten, Monde, Sterne, Teile der Milchstrasse, Galaxien und Orte des Universums öffnen beim freien Erkunden eine Nahansicht.
-- **Abzweige:** Die Milchstrasse führt zum Unsichtbaren (G) und zum galaktischen Jahr (F), die Nachbarsterne zur Sandkorn-Welt (B), die Lokale Gruppe zu Licht als Zeitmaschine (D).
+- **Abzweige:** Die Milchstrasse führt zum Unsichtbaren (F) und zum galaktischen Jahr (E), die Lokale Gruppe zu Licht als Zeitmaschine (C). Jede Nahansicht bietet „Wie lange bräuchte ich dorthin?“ und öffnet damit Reisen mit Lichtgeschwindigkeit (B) mit diesem Ziel.
 
-### B) Die Sandkorn-Welt
+### B) Reisen mit Lichtgeschwindigkeit
 
-Die Sonne wird auf ein Sandkorn von 1 mm verkleinert, und das Modell wird auf die echte Umgebung der Nutzer gelegt:
+Ein Reiseplaner in drei Schritten. Die Nutzer wählen ein **Ziel** aus allen Orten, die in der Reise nach draussen (A) zu sehen sind, vom Mond über Proxima Centauri und das Zentrum der Milchstrasse bis zu Andromeda und den fernsten Orten des Universums. Dann wählen sie ein **Tempo** als Prozent der Lichtgeschwindigkeit, vom Tempo der Raumsonde Voyager 1 (0,0057 %) bis fast an das Licht heran (99,9999 %). Als Ergebnis sehen sie, **wie lange die Reise dauert und wie viele Generationen dafür vermutlich nötig wären**.
 
-- Die Erde kreist in ca. 11 cm Abstand und ist ein unsichtbares Staubkorn.
-- Der nächste Stern, Proxima Centauri, liegt ca. 29 km entfernt, also im Nachbarort.
-- Die ganze Milchstrasse wäre ca. 700.000 km gross, fast doppelt so weit wie von der Erde zum Mond.
+- **Zwei Uhren:** Die Dauer auf der Erde und die Dauer an Bord. Je näher das Tempo an der Lichtgeschwindigkeit liegt, desto weniger Zeit vergeht für die Reisenden.
+- **Generationen:** an Bord und auf der Erde, mit einem Vergleich aus der Geschichte. Mit Voyager-Tempo dauert die Reise zum nächsten Stern rund 75.000 Jahre, das sind fast 3.000 Generationen. Mit 99,9999 % kommt man im Zentrum der Milchstrasse nach 37 Jahren an Bord an, auf der Erde sind dann über tausend Generationen vergangen.
+- **Grenzen:** Wo die Nutzer schon sind (Erde, Orion-Arm, Milchstrasse), müssen sie nicht reisen. Die fernsten Orte des Universums sind nie erreichbar, nicht einmal für Licht, weil sich das Universum schneller ausdehnt, als man sich nähert.
 
-### C) Reisen mit Lichtgeschwindigkeit
+Details, Rechenregeln und Beispiele stehen im Konzept zu Modul B.
 
-Die Nutzer fliegen selbst los: 8 Minuten bis zur Sonne, gut 4 Jahre bis zum nächsten Stern, 26.000 Jahre bis zum Zentrum der Milchstrasse, 100.000 Jahre einmal quer hindurch. Zum Vergleich: Die Raumsonde Voyager 1 bräuchte bis zum nächsten Stern rund 75.000 Jahre.
-
-### D) Licht als Zeitmaschine
+### C) Licht als Zeitmaschine
 
 Jeder Stern am Himmel ist ein Blick in die Vergangenheit. Licht aus dem galaktischen Zentrum ist losgeflogen, als in Europa Eiszeitjäger lebten.
 
 - **Dein Geburtsstern:** Sterne, die so viele Lichtjahre entfernt sind, wie die Nutzer alt sind. Ihr Licht ist im Geburtsjahr losgeflogen und kommt heute an.
 
-### E) Sterne zählen
+### D) Sterne zählen
 
 Wer jede Sekunde einen Stern zählt, ohne Pause, braucht für die 100 bis 400 Milliarden Sterne der Milchstrasse zwischen 3.000 und 13.000 Jahre. Umgesetzt als ruhiges, meditatives Element.
 
-### F) Das galaktische Jahr
+### E) Das galaktische Jahr
 
 Die Sonne umrundet das Zentrum der Galaxie mit rund 230 km/s und braucht dafür etwa 230 Millionen Jahre. Als sie zuletzt an ihrer heutigen Position war, entstanden die ersten Dinosaurier. Eine Zeitleiste zeigt, was vor einer, zwei oder drei Runden auf der Erde geschah.
 
-### G) Das Unsichtbare
+### F) Das Unsichtbare
 
 Staub verdeckt einen grossen Teil unserer Galaxie. Ein Umschalten zwischen sichtbarem Licht, Infrarot und Radio zeigt, was dahinter liegt, bis hin zum Schwarzen Loch im Zentrum mit rund 4 Millionen Sonnenmassen.
 
@@ -141,8 +139,8 @@ Die Begeisterung soll nicht in der App enden, sondern unter dem echten Himmel we
 Die Anwendung ist frei verfügbar. Deshalb zählen eine niedrige Einstiegshürde und eine grosse Reichweite.
 
 - **Keine Hürden:** kein Konto, keine Anmeldung, sofort loslegen
-- **Standort nur freiwillig:** Sandkorn-Welt und Heute-Nacht-Funktion fragen nach dem Ort. Alternativ wählen die Nutzer einen Ort von Hand.
-- **Verbreitung durch Teilen:** Besondere Momente lassen sich als schönes Bild teilen, etwa „Mein Geburtsstern“ oder „Der nächste Stern liegt in …“.
+- **Standort nur freiwillig:** Die Heute-Nacht-Funktion fragt nach dem Ort. Alternativ wählen die Nutzer einen Ort von Hand.
+- **Verbreitung durch Teilen:** Besondere Momente lassen sich als schönes Bild teilen, etwa „Mein Geburtsstern“ oder „Nach Proxima Centauri mit 1 % der Lichtgeschwindigkeit: 424 Jahre. An Bord vergehen dabei 17 Generationen.“.
 - **Mehrsprachigkeit** von Anfang an mitdenken
 - **Partner:** Sternwarten und Planetarien als natürliche Verbündete. Sie profitieren von der Brücke in die reale Welt und geben der Anwendung Glaubwürdigkeit.
 

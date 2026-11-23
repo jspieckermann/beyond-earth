@@ -29,6 +29,11 @@ export const routes: Routes = [
     loadComponent: () => import('./outward-journey/outward-journey-page').then((m) => m.OutwardJourneyPage),
   },
   {
+    path: 'module/lichtgeschwindigkeit',
+    title: pageTitle('Reisen mit Lichtgeschwindigkeit'),
+    loadComponent: () => import('./light-speed-journey/light-speed-page').then((m) => m.LightSpeedPage),
+  },
+  {
     path: 'module/:slug',
     canActivate: [knownModule],
     resolve: { heading: moduleHeading },

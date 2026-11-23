@@ -42,6 +42,36 @@ describe('OutwardJourney', { timeout: 30_000 }, () => {
     expect(text()).toContain('Zum Hinauszoomen');
   });
 
+  it('comes back to a stage with a close-up open, e.g. from Modul B', async () => {
+    TestBed.configureTestingModule({ providers: journeyTestProviders() });
+    fixture = TestBed.createComponent(OutwardJourney);
+    fixture.componentRef.setInput('startStage', 'alpha-centauri');
+    fixture.componentRef.setInput('startBody', 'sirius');
+    el = fixture.nativeElement as HTMLElement;
+    document.body.appendChild(el);
+    await fixture.whenStable();
+    vi.useFakeTimers();
+    advance(50);
+    expect(el.querySelector('app-planet-closeup h2')?.textContent).toBe('Sirius');
+    expect(document.activeElement?.getAttribute('aria-label')).toBe('Zurück zu den benachbarten Sternensystemen');
+    button('Zurück zu den benachbarten Sternensystemen').click();
+    advance(50);
+    expect(el.querySelector('h2')?.textContent).toBe('Benachbarte Sternensysteme');
+  });
+
+  it('starts at the Earth for unknown return values', async () => {
+    TestBed.configureTestingModule({ providers: journeyTestProviders() });
+    fixture = TestBed.createComponent(OutwardJourney);
+    fixture.componentRef.setInput('startStage', 'irgendwo');
+    fixture.componentRef.setInput('startBody', 'nichts');
+    el = fixture.nativeElement as HTMLElement;
+    document.body.appendChild(el);
+    await fixture.whenStable();
+    vi.useFakeTimers();
+    expect(el.querySelector('app-planet-closeup')).toBeNull();
+    expect(el.querySelector('h2')?.textContent).toBe('Die Erde');
+  });
+
   it('moves one stage out with Arrow-Up and shows the texts only at rest', async () => {
     await render();
     el.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp', bubbles: true }));
@@ -70,6 +100,17 @@ describe('OutwardJourney', { timeout: 30_000 }, () => {
     advance(50);
     expect(el.querySelector('app-fact-sheet')).toBeNull();
     expect(document.activeElement?.textContent).toContain('Wie genau weiss man das?');
+  });
+
+  it('lists the picture sources in the facts and closes them when the view moves', async () => {
+    await render();
+    button('Wie genau weiss man das?').click();
+    advance(50);
+    expect(el.querySelector('app-fact-sheet')?.textContent).toContain('Bildnachweise');
+    expect(el.querySelector('app-fact-sheet')?.textContent).toMatch(/Aufnahme: /);
+    el.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp', bubbles: true }));
+    advance(50);
+    expect(el.querySelector('app-fact-sheet')).toBeNull();
   });
 
   it('opens a planet close-up from the solar system', async () => {

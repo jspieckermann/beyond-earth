@@ -1,8 +1,18 @@
+import { MODULE_IDS } from '../../core/models';
 import { SKY_HEIGHT, SKY_MODULES, SKY_WIDTH, findModuleBySlug } from './modules';
 
 describe('SKY_MODULES', () => {
-  it('lists all seven modules in journey order A, C, B, E, D, G, F', () => {
-    expect(SKY_MODULES.map((m) => m.id)).toEqual(['A', 'C', 'B', 'E', 'D', 'G', 'F']);
+  it('lists the six modules of the concept in journey order A, B, D, C, F, E', () => {
+    expect(SKY_MODULES.map((m) => m.id)).toEqual(['A', 'B', 'D', 'C', 'F', 'E']);
+    expect([...MODULE_IDS]).toEqual(['A', 'B', 'C', 'D', 'E', 'F']);
+    expect(SKY_MODULES.map((m) => m.title)).toEqual([
+      'Die Reise nach draussen',
+      'Reisen mit Lichtgeschwindigkeit',
+      'Sterne zählen',
+      'Licht als Zeitmaschine',
+      'Das Unsichtbare',
+      'Das galaktische Jahr',
+    ]);
   });
 
   it('runs from lower left to upper right', () => {
@@ -19,11 +29,12 @@ describe('SKY_MODULES', () => {
       expect(m.y).toBeGreaterThan(0);
       expect(m.y).toBeLessThan(SKY_HEIGHT);
     }
-    expect(new Set(SKY_MODULES.map((m) => m.slug)).size).toBe(7);
+    expect(new Set(SKY_MODULES.map((m) => m.slug)).size).toBe(6);
   });
 
-  it('finds modules by slug', () => {
-    expect(findModuleBySlug('sandkorn-welt')?.title).toBe('Die Sandkorn-Welt');
+  it('finds modules by slug, and no longer knows the Sandkorn-Welt', () => {
+    expect(findModuleBySlug('lichtgeschwindigkeit')?.id).toBe('B');
+    expect(findModuleBySlug('sandkorn-welt')).toBeUndefined();
     expect(findModuleBySlug('nope')).toBeUndefined();
     expect(findModuleBySlug(null)).toBeUndefined();
   });

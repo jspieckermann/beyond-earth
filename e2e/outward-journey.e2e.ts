@@ -176,11 +176,14 @@ test.describe('Modul A: Die Reise nach draussen', () => {
     await expect(page.getByRole('button', { name: 'Die Reise nach draussen', exact: true })).toHaveClass(/explored/);
   });
 
-  test('branches to the sand-grain world', async ({ page }) => {
+  test('branches from the Local Group to Licht als Zeitmaschine, and no longer to the Sandkorn-Welt', async ({ page }) => {
     await open(page);
     await bar(page, 'Benachbarte Sternensysteme').click();
-    await page.getByRole('link', { name: /Wie leer ist das wirklich\?/ }).click({ timeout: 30_000 });
-    await expect(page).toHaveURL(/\/module\/sandkorn-welt$/);
+    await expect(stageTitle(page)).toHaveText('Benachbarte Sternensysteme', { timeout: 30_000 });
+    await expect(page.getByRole('link', { name: /Wie leer ist das wirklich\?/ })).toHaveCount(0);
+    await bar(page, 'Lokale Gruppe').click();
+    await page.getByRole('link', { name: /Licht als Zeitmaschine/ }).click({ timeout: 30_000 });
+    await expect(page).toHaveURL(/\/module\/zeitmaschine$/);
   });
 
   test('has no axe violations at the key states', async ({ page }) => {

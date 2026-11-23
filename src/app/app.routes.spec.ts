@@ -5,6 +5,7 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { appConfig } from './app.config';
 import { routes } from './app.routes';
 import { HomePage } from './home/home-page';
+import { LightSpeedPage } from './light-speed-journey/light-speed-page';
 import { OutwardJourneyPage } from './outward-journey/outward-journey-page';
 import { PlaceholderPage } from './placeholder/placeholder-page';
 
@@ -40,6 +41,14 @@ describe('routes', { timeout: 30_000 }, () => {
   it('opens the outward journey for Modul A', async () => {
     expect(await harness.navigateByUrl('/module/reise-nach-draussen')).toBeInstanceOf(OutwardJourneyPage);
     expect(title()).toBe('Die Reise nach draussen · Die Milchstrasse erleben');
+  });
+
+  it('opens the travel planner for Modul B, with its destination from the address', async () => {
+    expect(await harness.navigateByUrl('/module/lichtgeschwindigkeit')).toBeInstanceOf(LightSpeedPage);
+    expect(title()).toBe('Reisen mit Lichtgeschwindigkeit · Die Milchstrasse erleben');
+    expect(heading()).toBe('Reisen mit Lichtgeschwindigkeit');
+    await harness.navigateByUrl('/module/lichtgeschwindigkeit?ziel=sirius&von=alpha-centauri');
+    expect((harness.routeNativeElement as HTMLElement).querySelector('.goal-name')?.textContent).toBe('Sirius');
   });
 
   it('titles module placeholders from the catalog', async () => {

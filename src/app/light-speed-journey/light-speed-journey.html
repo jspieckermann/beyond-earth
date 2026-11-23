@@ -1,0 +1,76 @@
+<div class="page" [attr.inert]="pickerOpen() || shareOpen() ? '' : null">
+  <header class="top">
+    <a routerLink="/" class="icon" aria-label="Zurück zum Himmel">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12" />
+        <path d="M18 6L6 18" />
+      </svg>
+    </a>
+    <h1 #heading tabindex="-1">Reisen mit Lichtgeschwindigkeit</h1>
+  </header>
+
+  @if (back(); as b) {
+    <a class="back" routerLink="/module/reise-nach-draussen" [queryParams]="b.queryParams">← Zurück zu {{ b.name }}</a>
+  }
+
+  <div class="steps">
+    <div class="plan">
+      <section class="step" aria-labelledby="step-goal">
+        <h2 id="step-goal">Ziel</h2>
+        @let d = destination();
+        @if (explore()) {
+          <button type="button" class="goal" aria-haspopup="dialog" (click)="pickerOpen.set(true)">
+            <span class="goal-name">{{ d.name }}</span>
+            <span class="goal-distance">{{ d.distanceLabel }}</span>
+            <span class="goal-change">Ziel ändern</span>
+          </button>
+        } @else {
+          <p class="goal">
+            <span class="goal-name">{{ d.name }}</span>
+            <span class="goal-distance">{{ d.distanceLabel }}</span>
+          </p>
+        }
+        @if (d.closestApproach) {
+          <p class="note">Bei günstigster Stellung, also im kleinsten Abstand zur Erde. Meist ist {{ d.name }} viel weiter weg.</p>
+        }
+      </section>
+
+      <section class="step" aria-labelledby="step-speed">
+        <h2 id="step-speed">Tempo</h2>
+        @if (explore()) {
+          <app-speed-control [(beta)]="beta" (committed)="settle()" />
+        } @else {
+          <p class="fixed-speed"><span class="number">{{ percent() }}</span> % der Lichtgeschwindigkeit</p>
+        }
+      </section>
+    </div>
+
+    <section class="step arrival" aria-labelledby="step-arrival">
+      <h2 id="step-arrival">Ankunft</h2>
+      <app-arrival [result]="result()" [shareable]="explore()" (share)="openShare()" />
+      <div class="actions">
+        @if (explore()) {
+          <button #factsButton type="button" class="link" (click)="factsOpen.set(true)">Wie genau weiss man das?</button>
+        } @else {
+          <button type="button" class="primary" (click)="next()">Weiter</button>
+        }
+      </div>
+    </section>
+  </div>
+
+  <p class="sr-only" aria-live="polite">{{ announcement() }}</p>
+</div>
+
+@if (factsOpen()) {
+  <div class="facts-layer">
+    <app-fact-sheet [content]="facts" (closed)="closeFacts()" />
+  </div>
+}
+
+@if (pickerOpen()) {
+  <app-destination-picker [current]="destination().id" (chosen)="choose($event)" (closed)="pickerOpen.set(false)" />
+}
+
+@if (shareOpen()) {
+  <app-share-card-dialog [kinds]="['reise']" [journey]="card()" [picture]="sharePicture()" (closed)="shareOpen.set(false)" />
+}

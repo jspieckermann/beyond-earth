@@ -42,7 +42,7 @@ describe('HomePage', () => {
   it('renders all sections', async () => {
     await render();
     expect(el.querySelector('app-sky-backdrop')).not.toBeNull();
-    expect(el.querySelectorAll('app-module-constellation button.star')).toHaveLength(7);
+    expect(el.querySelectorAll('app-module-constellation button.star')).toHaveLength(6);
     expect(el.querySelector('app-tonight-card')?.textContent).toContain('Wo stehst du heute Nacht?');
     expect(el.querySelector('app-home-actions')?.textContent).toContain('Die Reise');
     expect(el.querySelector('h1')?.textContent).toBe('Die Milchstrasse erleben');

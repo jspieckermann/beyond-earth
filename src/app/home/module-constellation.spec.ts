@@ -8,7 +8,7 @@ describe('ModuleConstellation', () => {
   let el: HTMLElement;
 
   async function render(explored: string[] = []) {
-    localStorage.setItem('be.explored', JSON.stringify(explored));
+    localStorage.setItem('be.explored.v2', JSON.stringify(explored));
     TestBed.configureTestingModule({ providers: [provideRouter([])] });
     fixture = TestBed.createComponent(ModuleConstellation);
     el = fixture.nativeElement as HTMLElement;
@@ -27,14 +27,14 @@ describe('ModuleConstellation', () => {
     localStorage.clear();
   });
 
-  it('renders seven stars in journey order with full-title accessible names and short labels', async () => {
+  it('renders six stars in journey order with full-title accessible names and short labels', async () => {
     await render();
     const buttons = [...el.querySelectorAll('button.star')];
-    expect(buttons.map((b) => b.getAttribute('data-module'))).toEqual(['A', 'C', 'B', 'E', 'D', 'G', 'F']);
-    expect(star('B')?.getAttribute('aria-label')).toBe('Die Sandkorn-Welt');
+    expect(buttons.map((b) => b.getAttribute('data-module'))).toEqual(['A', 'B', 'D', 'C', 'F', 'E']);
+    expect(star('B')?.getAttribute('aria-label')).toBe('Reisen mit Lichtgeschwindigkeit');
     const labels = [...el.querySelectorAll('.label')].map((l) => l.textContent?.trim());
-    expect(labels).toContain('Sandkorn-Welt');
-    expect(labels).toHaveLength(7);
+    expect(labels).toContain('Lichtgeschwindigkeit');
+    expect(labels).toHaveLength(6);
   });
 
   describe('clickable labels', () => {
@@ -42,16 +42,16 @@ describe('ModuleConstellation', () => {
 
     it('puts each label inside its star control, keeping one control per module', async () => {
       await render();
-      expect(el.querySelectorAll('button.star')).toHaveLength(7);
-      expect(label('B')?.textContent?.trim()).toBe('Sandkorn-Welt');
-      expect(star('B')?.getAttribute('aria-label')).toBe('Die Sandkorn-Welt');
+      expect(el.querySelectorAll('button.star')).toHaveLength(6);
+      expect(label('B')?.textContent?.trim()).toBe('Lichtgeschwindigkeit');
+      expect(star('B')?.getAttribute('aria-label')).toBe('Reisen mit Lichtgeschwindigkeit');
     });
 
     it('selects the module when its label is clicked', async () => {
       await render();
-      label('E')?.click();
+      label('D')?.click();
       await fixture.whenStable();
-      expect(fixture.componentInstance.selected()).toBe('E');
+      expect(fixture.componentInstance.selected()).toBe('D');
       expect(el.querySelector('app-module-preview')?.textContent).toContain('Sterne zählen');
     });
 
@@ -59,19 +59,19 @@ describe('ModuleConstellation', () => {
       await render();
       fixture.componentRef.setInput('layout', 'desktop');
       await fixture.whenStable();
-      label('E')?.click();
+      label('D')?.click();
       await fixture.whenStable();
-      label('E')?.click();
+      label('D')?.click();
       await fixture.whenStable();
       expect(fixture.componentInstance.selected()).toBeNull();
     });
 
     it('anchors left-side labels from the right so the star stays in place', async () => {
       await render();
-      expect(star('B')?.classList).toContain('left');
-      // B sits at x = 154 of 390: anchored 100 % − 39.49 % from the right.
-      expect(parseFloat((star('B')?.style.right ?? '').replace('calc(', ''))).toBeCloseTo(100 - (154 / 390) * 100, 2);
-      expect(star('B')?.style.left).toBe('');
+      expect(star('F')?.classList).toContain('left');
+      // F (Das Unsichtbare) sits at x = 319 of 390: anchored 100 % − 81.79 % from the right.
+      expect(parseFloat((star('F')?.style.right ?? '').replace('calc(', ''))).toBeCloseTo(100 - (319 / 390) * 100, 2);
+      expect(star('F')?.style.left).toBe('');
       expect(parseFloat(star('A')?.style.left ?? '')).toBeCloseTo((43 / 390) * 100, 2);
     });
 
@@ -98,14 +98,14 @@ describe('ModuleConstellation', () => {
     expect(star('B')?.getAttribute('aria-controls')).toBe('module-preview');
     const preview = el.querySelector('app-module-preview');
     expect(preview?.textContent).toContain('Schon vertieft');
-    expect(preview?.textContent).toContain('Die Sandkorn-Welt');
+    expect(preview?.textContent).toContain('Reisen mit Lichtgeschwindigkeit');
     expect(preview?.textContent).toContain('Eintauchen');
   });
 
   it('switches the selection to another star', async () => {
     await render();
     await click('B');
-    await click('E');
+    await click('D');
     expect(el.querySelectorAll('[aria-expanded="true"]')).toHaveLength(1);
     expect(el.querySelector('app-module-preview')?.textContent).toContain('Sterne zählen');
     expect(el.querySelector('app-module-preview')?.textContent).toContain('Noch nicht vertieft');
@@ -122,12 +122,12 @@ describe('ModuleConstellation', () => {
 
   it('closes on Escape and returns focus to the star', async () => {
     await render();
-    await click('D');
+    await click('C');
     el.querySelector<HTMLAnchorElement>('app-module-preview a')?.focus();
     el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
     await fixture.whenStable();
     expect(fixture.componentInstance.selected()).toBeNull();
-    expect(document.activeElement).toBe(star('D'));
+    expect(document.activeElement).toBe(star('C'));
   });
 
   it('ignores Escape when nothing is selected', async () => {
@@ -139,7 +139,7 @@ describe('ModuleConstellation', () => {
 
   it('hides the label of the selected star while its preview shows the title', async () => {
     await render();
-    await click('G');
+    await click('F');
     const hidden = [...el.querySelectorAll<HTMLElement>('.label')].filter((l) => l.hidden);
     expect(hidden.map((l) => l.textContent?.trim())).toEqual(['Das Unsichtbare']);
   });
@@ -160,12 +160,12 @@ describe('ModuleConstellation', () => {
       expect(el.querySelectorAll('.band .layer')).toHaveLength(4);
       expect(el.querySelectorAll('.cloud circle').length).toBeGreaterThan(100);
       expect(star('A')?.style.left).toBe('9%');
-      expect(star('F')?.style.top).toBe('26%');
+      expect(star('E')?.style.top).toBe('26%');
     });
 
     it('keeps the label of the selected star visible', async () => {
       await renderWide('tablet', 834, 738);
-      await click('G');
+      await click('F');
       const hidden = [...el.querySelectorAll<HTMLElement>('.label')].filter((l) => l.hidden);
       expect(hidden).toEqual([]);
       expect(el.querySelector('.label.selected')?.textContent?.trim()).toBe('Das Unsichtbare');
@@ -181,7 +181,7 @@ describe('ModuleConstellation', () => {
       const line = el.querySelector('.connector line');
       expect(line?.getAttribute('x2')).toBe('570');
 
-      await click('F');
+      await click('E');
       expect(el.querySelector<HTMLElement>('app-module-preview')?.style.left).toBe('570px');
       expect(el.querySelector('.connector line')?.getAttribute('y2')).toBe('589.5');
     });
@@ -196,7 +196,7 @@ describe('ModuleConstellation', () => {
     await render();
     Object.defineProperty(el, 'clientWidth', { configurable: true, value: 320 });
     Object.defineProperty(el, 'clientHeight', { configurable: true, value: 492 });
-    await click('F');
+    await click('E');
     const preview = el.querySelector<HTMLElement>('app-module-preview');
     const left = parseFloat(preview?.style.left ?? 'NaN');
     expect(left + 208).toBeLessThanOrEqual(320 - 16);

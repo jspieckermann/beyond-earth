@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { JourneySettings } from '../core/journey-settings';
+import { JourneySettings } from './journey-settings';
 import { Haptics, PULSE_MS } from './haptics';
 
 describe('Haptics', () => {
