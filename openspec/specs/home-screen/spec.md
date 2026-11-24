@@ -51,11 +51,11 @@ The home screen SHALL offer a settings control in the top-right corner that is l
 - **THEN** the settings destination is shown
 
 ### Requirement: Six module stars along the band
-The home screen SHALL show the six experience modules as six selectable stars placed along the Milky Way band, in journey order from lower left to upper right: A "Die Reise nach draussen", B "Reisen mit Lichtgeschwindigkeit", D "Sterne zählen", C "Licht als Zeitmaschine", F "Das Unsichtbare", E "Das galaktische Jahr". Each star SHALL carry a short visible label and an accessible name equal to the module's full title. No module SHALL be locked. On tablet and desktop layouts the labels SHALL stay visible while their star is selected. A star and its visible label SHALL form one control: activating the label SHALL have exactly the same effect as activating the star, hovering the label SHALL indicate that it is clickable, and star and label together SHALL be a single keyboard stop whose focus indicator encloses both.
+The home screen SHALL show the six experience modules as six selectable stars placed along the Milky Way band, from lower left to upper right: A "Die Reise nach draussen", B "Reisen mit Lichtgeschwindigkeit", C "Das galaktische Jahr", E "Sterne zählen", D "Licht als Zeitmaschine", F "Das Unsichtbare". Each star SHALL carry a short visible label and an accessible name equal to the module's full title. No module SHALL be locked. On tablet and desktop layouts the labels SHALL stay visible while their star is selected. A star and its visible label SHALL form one control: activating the label SHALL have exactly the same effect as activating the star, hovering the label SHALL indicate that it is clickable, and star and label together SHALL be a single keyboard stop whose focus indicator encloses both.
 
 #### Scenario: All six modules present
 - **WHEN** the home screen is displayed
-- **THEN** six module stars are shown in the order A, B, D, C, F, E along the band
+- **THEN** six module stars are shown in the order A, B, C, E, D, F along the band, "Das galaktische Jahr" between "Reisen mit Lichtgeschwindigkeit" and "Sterne zählen"
 - **AND** each star has a visible short label and an accessible name with the full module title
 - **AND** no star for "Die Sandkorn-Welt" is shown
 
@@ -73,10 +73,10 @@ The home screen SHALL show the six experience modules as six selectable stars pl
 
 #### Scenario: One keyboard stop per module
 - **WHEN** a keyboard user tabs through the module constellation
-- **THEN** each module is reached exactly once, in journey order, and the focus indicator surrounds both its star and its label
+- **THEN** each module is reached exactly once, in the order along the band, and the focus indicator surrounds both its star and its label
 
 ### Requirement: Exploration is shown by brightness only
-A module the user has explored in depth SHALL be shown as a brighter, larger star with a brighter label; a module not yet explored SHALL be shown fainter. The home screen SHALL NOT show points, percentages, badges or other scores. The explored state SHALL persist on the user's device across visits without an account. Explored states stored before the modules were renumbered SHALL be carried over to the same modules under their new letters, and an explored state of the removed module "Die Sandkorn-Welt" SHALL be dropped.
+A module the user has explored in depth SHALL be shown as a brighter, larger star with a brighter label; a module not yet explored SHALL be shown fainter. The home screen SHALL NOT show points, percentages, badges or other scores. The explored state SHALL persist on the user's device across visits without an account. Explored states stored under earlier letters SHALL be carried over once to the same modules under the current letters (C "Das galaktische Jahr", D "Licht als Zeitmaschine", E "Sterne zählen"), and an explored state of the removed module "Die Sandkorn-Welt" SHALL be dropped.
 
 #### Scenario: Explored module appears brighter
 - **WHEN** the user has explored "Reisen mit Lichtgeschwindigkeit" and returns to the home screen
@@ -86,6 +86,10 @@ A module the user has explored in depth SHALL be shown as a brighter, larger sta
 #### Scenario: Stored progress survives the renumbering
 - **WHEN** the device stored "Die Reise nach draussen", "Reisen mit Lichtgeschwindigkeit" and "Die Sandkorn-Welt" as explored under the old letters
 - **THEN** "Die Reise nach draussen" and "Reisen mit Lichtgeschwindigkeit" are shown explored, and no other module is
+
+#### Scenario: Stored progress survives the second renumbering
+- **WHEN** the device stored "Das galaktische Jahr" as explored under its earlier letter E
+- **THEN** "Das galaktische Jahr" is shown explored, and "Sterne zählen", which now has the letter E, is not
 
 #### Scenario: No scores
 - **WHEN** the home screen is displayed
@@ -117,7 +121,7 @@ Selecting a module star SHALL mark it as selected (a visible ring) and open a pr
 - **THEN** the "Sterne zählen" module destination is shown
 
 #### Scenario: Preview near the screen edge
-- **WHEN** the user selects the star nearest the top-right edge ("Das galaktische Jahr") on a 320 px wide screen
+- **WHEN** the user selects the star nearest the top-right edge ("Das Unsichtbare") on a 320 px wide screen
 - **THEN** the preview is fully visible and does not overlap the selected star
 
 #### Scenario: Nothing cut off
@@ -165,7 +169,7 @@ The home screen SHALL show a "Meine Sterne" action with the number of saved mome
 - **THEN** "Meine Sterne" is not shown and "Die Reise" spans the action row
 
 ### Requirement: Placeholder destinations
-Until the linked features exist, every destination reachable from the home screen (each module, the journey, Heute Nacht, Meine Sterne, settings) SHALL show a calm placeholder page naming the destination and offering a way back to the home screen. A destination whose feature exists SHALL open that feature instead. Modul A "Die Reise nach draussen" and Modul B "Reisen mit Lichtgeschwindigkeit" SHALL open their experiences. The address of the removed module "Die Sandkorn-Welt" SHALL lead back to the home screen like any unknown module address.
+Until the linked features exist, every destination reachable from the home screen (each module, the journey, Heute Nacht, Meine Sterne, settings) SHALL show a calm placeholder page naming the destination and offering a way back to the home screen. A destination whose feature exists SHALL open that feature instead. Modul A "Die Reise nach draussen", Modul B "Reisen mit Lichtgeschwindigkeit" and Modul C "Das galaktische Jahr" SHALL open their experiences. The address of the removed module "Die Sandkorn-Welt" SHALL lead back to the home screen like any unknown module address.
 
 #### Scenario: Visit a placeholder and return
 - **WHEN** the user activates "Eintauchen" for "Das Unsichtbare"
@@ -180,12 +184,16 @@ Until the linked features exist, every destination reachable from the home scree
 - **WHEN** the user activates "Eintauchen" for "Reisen mit Lichtgeschwindigkeit"
 - **THEN** the travel planner opens instead of a placeholder page
 
+#### Scenario: Galactic year is no longer a placeholder
+- **WHEN** the user activates "Eintauchen" for "Das galaktische Jahr"
+- **THEN** the Modul C experience opens instead of a placeholder page
+
 #### Scenario: Removed module
 - **WHEN** the user opens the address of "Die Sandkorn-Welt"
 - **THEN** the home screen is shown
 
 ### Requirement: Accessibility
-The home screen SHALL meet WCAG 2.1 AA and report zero automated accessibility (axe) violations. All controls SHALL be reachable and operable with the keyboard in a logical order (settings, module stars in journey order, preview, Heute-Nacht card, bottom actions), SHALL show a visible focus indicator, and SHALL have touch targets of at least 44 × 44 CSS px. Text SHALL have a contrast ratio of at least 4.5:1 against its background.
+The home screen SHALL meet WCAG 2.1 AA and report zero automated accessibility (axe) violations. All controls SHALL be reachable and operable with the keyboard in a logical order (settings, module stars in the order along the band, preview, Heute-Nacht card, bottom actions), SHALL show a visible focus indicator, and SHALL have touch targets of at least 44 × 44 CSS px. Text SHALL have a contrast ratio of at least 4.5:1 against its background.
 
 #### Scenario: Automated check
 - **WHEN** an axe accessibility scan is run on the home screen, with and without an open preview
@@ -193,7 +201,7 @@ The home screen SHALL meet WCAG 2.1 AA and report zero automated accessibility (
 
 #### Scenario: Keyboard only
 - **WHEN** a keyboard-only user tabs through the home screen
-- **THEN** focus moves through settings, the six stars in journey order, the Heute-Nacht card and the bottom actions, each with a visible focus indicator
+- **THEN** focus moves through settings, the six stars in the order along the band (A, B, C, E, D, F), the Heute-Nacht card and the bottom actions, each with a visible focus indicator
 
 ### Requirement: Responsive layout
 The home screen SHALL work from 320 px wide phones to desktop screens without horizontal scrolling, with three layouts. In every layout the sky SHALL fill the whole viewport and module stars and labels SHALL NOT overlap each other or be cut off.

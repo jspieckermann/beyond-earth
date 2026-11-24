@@ -59,6 +59,33 @@ describe('OutwardJourney', { timeout: 30_000 }, () => {
     expect(el.querySelector('h2')?.textContent).toBe('Benachbarte Sternensysteme');
   });
 
+  it('comes back to a stage without a close-up', async () => {
+    TestBed.configureTestingModule({ providers: journeyTestProviders() });
+    fixture = TestBed.createComponent(OutwardJourney);
+    fixture.componentRef.setInput('startStage', 'milchstrasse');
+    el = fixture.nativeElement as HTMLElement;
+    document.body.appendChild(el);
+    await fixture.whenStable();
+    vi.useFakeTimers();
+    advance(50);
+    expect(el.querySelector('app-planet-closeup')).toBeNull();
+    expect(el.querySelector('h2')?.textContent).toBe('Die ganze Milchstrasse');
+  });
+
+  it('rests at a known stage without a close-up when the close-up is unknown', async () => {
+    TestBed.configureTestingModule({ providers: journeyTestProviders() });
+    fixture = TestBed.createComponent(OutwardJourney);
+    fixture.componentRef.setInput('startStage', 'milchstrasse');
+    fixture.componentRef.setInput('startBody', 'nichts');
+    el = fixture.nativeElement as HTMLElement;
+    document.body.appendChild(el);
+    await fixture.whenStable();
+    vi.useFakeTimers();
+    advance(50);
+    expect(el.querySelector('app-planet-closeup')).toBeNull();
+    expect(el.querySelector('h2')?.textContent).toBe('Die ganze Milchstrasse');
+  });
+
   it('starts at the Earth for unknown return values', async () => {
     TestBed.configureTestingModule({ providers: journeyTestProviders() });
     fixture = TestBed.createComponent(OutwardJourney);

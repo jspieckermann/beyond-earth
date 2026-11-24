@@ -30,7 +30,7 @@ describe('ModuleConstellation', () => {
   it('renders six stars in journey order with full-title accessible names and short labels', async () => {
     await render();
     const buttons = [...el.querySelectorAll('button.star')];
-    expect(buttons.map((b) => b.getAttribute('data-module'))).toEqual(['A', 'B', 'D', 'C', 'F', 'E']);
+    expect(buttons.map((b) => b.getAttribute('data-module'))).toEqual(['A', 'B', 'C', 'E', 'D', 'F']);
     expect(star('B')?.getAttribute('aria-label')).toBe('Reisen mit Lichtgeschwindigkeit');
     const labels = [...el.querySelectorAll('.label')].map((l) => l.textContent?.trim());
     expect(labels).toContain('Lichtgeschwindigkeit');
@@ -49,9 +49,9 @@ describe('ModuleConstellation', () => {
 
     it('selects the module when its label is clicked', async () => {
       await render();
-      label('D')?.click();
+      label('E')?.click();
       await fixture.whenStable();
-      expect(fixture.componentInstance.selected()).toBe('D');
+      expect(fixture.componentInstance.selected()).toBe('E');
       expect(el.querySelector('app-module-preview')?.textContent).toContain('Sterne zählen');
     });
 
@@ -59,9 +59,9 @@ describe('ModuleConstellation', () => {
       await render();
       fixture.componentRef.setInput('layout', 'desktop');
       await fixture.whenStable();
-      label('D')?.click();
+      label('E')?.click();
       await fixture.whenStable();
-      label('D')?.click();
+      label('E')?.click();
       await fixture.whenStable();
       expect(fixture.componentInstance.selected()).toBeNull();
     });
@@ -69,8 +69,8 @@ describe('ModuleConstellation', () => {
     it('anchors left-side labels from the right so the star stays in place', async () => {
       await render();
       expect(star('F')?.classList).toContain('left');
-      // F (Das Unsichtbare) sits at x = 319 of 390: anchored 100 % − 81.79 % from the right.
-      expect(parseFloat((star('F')?.style.right ?? '').replace('calc(', ''))).toBeCloseTo(100 - (319 / 390) * 100, 2);
+      // F (Das Unsichtbare) sits at x = 339 of 390: anchored 100 % − 86.92 % from the right.
+      expect(parseFloat((star('F')?.style.right ?? '').replace('calc(', ''))).toBeCloseTo(100 - (339 / 390) * 100, 2);
       expect(star('F')?.style.left).toBe('');
       expect(parseFloat(star('A')?.style.left ?? '')).toBeCloseTo((43 / 390) * 100, 2);
     });
@@ -105,7 +105,7 @@ describe('ModuleConstellation', () => {
   it('switches the selection to another star', async () => {
     await render();
     await click('B');
-    await click('D');
+    await click('E');
     expect(el.querySelectorAll('[aria-expanded="true"]')).toHaveLength(1);
     expect(el.querySelector('app-module-preview')?.textContent).toContain('Sterne zählen');
     expect(el.querySelector('app-module-preview')?.textContent).toContain('Noch nicht vertieft');
@@ -122,12 +122,12 @@ describe('ModuleConstellation', () => {
 
   it('closes on Escape and returns focus to the star', async () => {
     await render();
-    await click('C');
+    await click('D');
     el.querySelector<HTMLAnchorElement>('app-module-preview a')?.focus();
     el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
     await fixture.whenStable();
     expect(fixture.componentInstance.selected()).toBeNull();
-    expect(document.activeElement).toBe(star('C'));
+    expect(document.activeElement).toBe(star('D'));
   });
 
   it('ignores Escape when nothing is selected', async () => {
@@ -160,7 +160,8 @@ describe('ModuleConstellation', () => {
       expect(el.querySelectorAll('.band .layer')).toHaveLength(4);
       expect(el.querySelectorAll('.cloud circle').length).toBeGreaterThan(100);
       expect(star('A')?.style.left).toBe('9%');
-      expect(star('E')?.style.top).toBe('26%');
+      expect(star('F')?.style.top).toBe('26%');
+      expect(star('C')?.style.top).toBe('60%');
     });
 
     it('keeps the label of the selected star visible', async () => {
@@ -181,7 +182,7 @@ describe('ModuleConstellation', () => {
       const line = el.querySelector('.connector line');
       expect(line?.getAttribute('x2')).toBe('570');
 
-      await click('E');
+      await click('F');
       expect(el.querySelector<HTMLElement>('app-module-preview')?.style.left).toBe('570px');
       expect(el.querySelector('.connector line')?.getAttribute('y2')).toBe('589.5');
     });
@@ -196,7 +197,7 @@ describe('ModuleConstellation', () => {
     await render();
     Object.defineProperty(el, 'clientWidth', { configurable: true, value: 320 });
     Object.defineProperty(el, 'clientHeight', { configurable: true, value: 492 });
-    await click('E');
+    await click('C');
     const preview = el.querySelector<HTMLElement>('app-module-preview');
     const left = parseFloat(preview?.style.left ?? 'NaN');
     expect(left + 208).toBeLessThanOrEqual(320 - 16);

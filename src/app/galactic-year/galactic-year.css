@@ -1,0 +1,344 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  background: var(--color-night-950);
+  color: var(--color-ink);
+}
+
+.page {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 8px 16px 40px;
+  box-sizing: border-box;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: var(--color-ink-soft);
+}
+
+h1 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-starlight);
+  outline: none;
+}
+
+/* The picture stays in view while the page scrolls, so turning back is always visible. */
+.stage {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  width: min(100%, 44dvh);
+  margin: 0 auto;
+  padding: 4px 0 8px;
+  background: var(--color-night-950);
+}
+
+.globe {
+  position: absolute;
+  right: 8px;
+  bottom: 16px;
+  width: 28%;
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+section,
+.end {
+  padding: 20px 0;
+  border-top: 1px solid rgb(236 232 221 / 0.1);
+}
+
+h2 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-starlight);
+}
+
+p {
+  margin: 0;
+}
+
+.aside,
+.slider label {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}
+
+.big {
+  font-family: var(--font-serif);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--color-ink-bright);
+  font-variant-numeric: tabular-nums;
+}
+
+.line {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Fixed room for the station's texts, enough for the longest one, so the slider below never moves. */
+.station {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: -4px 0 -6px;
+}
+
+.station p {
+  overflow: hidden;
+}
+
+.event {
+  height: 1.5em;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-starlight);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sentence {
+  height: 2.6em;
+}
+
+.caption {
+  height: 3em;
+}
+
+/* Phones need a third line for the longest sentence, very narrow phones also for the caption. */
+@media (max-width: 479px) {
+  .sentence {
+    height: 3.9em;
+  }
+}
+
+@media (max-width: 359px) {
+  .caption {
+    height: 4.5em;
+  }
+}
+
+.closing {
+  color: var(--color-starlight);
+}
+
+.aha {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+}
+
+
+.time-row .big {
+  white-space: nowrap;
+}
+
+.rounds,
+.completed {
+  font-size: 14px;
+  color: var(--color-starlight);
+  white-space: nowrap;
+}
+
+.completed {
+  font-size: 13px;
+  color: var(--color-ink-muted);
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider input {
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  accent-color: var(--color-starlight);
+}
+
+.ruler {
+  position: relative;
+  height: 34px;
+  margin: 0 8px;
+}
+
+.ruler span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.tick {
+  top: 0;
+  width: 1px;
+  height: 5px;
+  background: rgb(169 174 196 / 0.6);
+}
+
+.major {
+  height: 9px;
+  background: var(--color-ink-muted);
+}
+
+.quarter {
+  height: 3px;
+}
+
+.dot {
+  top: 11px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgb(243 217 164 / 0.55);
+}
+
+.main {
+  width: 7px;
+  height: 7px;
+  background: var(--color-starlight);
+}
+
+.dot.now {
+  box-shadow: 0 0 0 3px rgb(255 244 220 / 0.35);
+  background: #fff4dc;
+}
+
+.label {
+  top: 18px;
+  font-size: 12px;
+  color: var(--color-ink-soft);
+}
+
+.strong {
+  font-weight: 700;
+  color: var(--color-starlight);
+}
+
+.unit {
+  align-self: flex-end;
+  font-size: 11px;
+  color: var(--color-ink-muted);
+}
+
+.links,
+.end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+}
+
+.end > * {
+  flex: 1 1 12rem;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font: 600 15px var(--font-sans);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary {
+  border: 0;
+  background: var(--color-starlight);
+  color: var(--color-night-950);
+}
+
+
+.link {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-ink-soft);
+  font: 500 14px var(--font-sans);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.facts-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.facts-layer app-fact-sheet {
+  pointer-events: auto;
+}
+
+:host([data-layout='tablet']) .page {
+  max-width: 40rem;
+  padding: 24px 40px 48px;
+}
+
+/* Wide screens and tablets held sideways: the parts scroll on the left, the picture stays on the right. */
+:host([data-layout='desktop']) .page {
+  max-width: 90rem;
+  padding: 16px 40px 40px;
+}
+
+:host([data-layout='desktop']) .body {
+  display: grid;
+  grid-template-columns: minmax(20rem, 34rem) minmax(0, 1fr);
+  column-gap: 48px;
+  align-items: start;
+}
+
+:host([data-layout='desktop']) section,
+:host([data-layout='desktop']) .end {
+  grid-column: 1;
+}
+
+:host([data-layout='desktop']) .stage {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  top: 16px;
+  width: min(100%, calc(100dvh - 64px));
+}
+
+:host([data-layout='desktop']) .big {
+  font-size: 44px;
+}
+
+:host([data-layout='desktop']) .line {
+  font-size: 26px;
+}

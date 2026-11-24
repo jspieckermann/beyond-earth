@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { journeyTestProviders } from '../outward-journey/testing';
 import { BirthYear } from './birth-year';
-import { CARD_HEIGHT, CARD_WIDTH, CardPicture, JourneyCard, ShareCard, cardFileName, cardText, wrapLines } from './share-card';
+import { CARD_HEIGHT, CARD_WIDTH, CardKind, CardPicture, JourneyCard, ShareCard, cardFileName, cardText, wrapLines } from './share-card';
 import { ShareCardDialog } from './share-card-dialog';
 
 function fakeCanvas() {
@@ -59,6 +59,7 @@ describe('cardText', () => {
     );
     expect(cardText('reise')).toBe('Reisen mit Lichtgeschwindigkeit');
   });
+
 });
 
 describe('cardFileName', () => {
@@ -189,7 +190,7 @@ describe('ShareCardDialog', () => {
   });
 
   async function render(
-    kinds: ('kronkorken' | 'muenze' | 'alter' | 'reise')[],
+    kinds: CardKind[],
     planet: 'mars' | null = null,
     journey: JourneyCard | null = null,
     picture: CardPicture | null = null,

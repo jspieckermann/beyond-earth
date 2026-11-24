@@ -60,9 +60,9 @@ Beim ersten Start führt eine geführte Hauptreise durch das Erlebnis. Danach si
 
 1. **Ankommen:** Hier bist du. Der Blick auf das Band der Milchstrasse am Nachthimmel.
 2. **Aufbrechen:** Die Reise nach draussen (A), dann die Reise zum nächsten Stern, mit Lichtgeschwindigkeit und darunter (B).
-3. **Staunen:** Wie riesig alles ist, beim Sterne-Zählen (D).
-4. **Verstehen:** Licht als Zeitmaschine (C) und das Unsichtbare (F).
-5. **Heimkehren:** Das galaktische Jahr (E) und unser Platz im Orion-Arm.
+3. **Staunen:** Wie riesig alles ist, beim Sterne-Zählen (E).
+4. **Verstehen:** Licht als Zeitmaschine (D) und das Unsichtbare (F).
+5. **Heimkehren:** Das galaktische Jahr (C): Unser Sonnensystem auf seiner langen Bahn um das Zentrum, Runde um Runde zurück durch die Geschichte der Erde.
 6. **Rausgehen:** Was du heute Nacht selbst sehen kannst.
 
 **Freies Erkunden** beginnt nach der ersten Reise. Jedes Modul ist einzeln zugänglich und kann vertieft werden. Die Hauptreise bleibt jederzeit wiederholbar. Ein wiederkehrender Anlass zur Rückkehr ist die Heute-Nacht-Funktion.
@@ -96,7 +96,7 @@ Orion-Arm, Zentrum und Andromeda sind keine eigenen Stufen mehr, sondern Ziele z
 - **Die Erde bleibt markiert:** Die Erde bleibt bis zum Rand des Universums als kleiner, leuchtender Punkt markiert, auch wenn sie längst unsichtbar wäre. Sie ist der Weg zurück, und sie lässt sich auf jeder Stufe antippen.
 - **Die Leere spüren:** Zwischen dem Sonnensystem und dem nächsten Stern zieht sich der Zoom bewusst lang durch fast nichts.
 - **Antippen und vertiefen:** Planeten, Monde, Sterne, Teile der Milchstrasse, Galaxien und Orte des Universums öffnen beim freien Erkunden eine Nahansicht.
-- **Abzweige:** Die Milchstrasse führt zum Unsichtbaren (F) und zum galaktischen Jahr (E), die Lokale Gruppe zu Licht als Zeitmaschine (C). Jede Nahansicht bietet „Wie lange bräuchte ich dorthin?“ und öffnet damit Reisen mit Lichtgeschwindigkeit (B) mit diesem Ziel.
+- **Abzweige:** Die Milchstrasse führt zum Unsichtbaren (F) und zum galaktischen Jahr (C), die Lokale Gruppe zu Licht als Zeitmaschine (D). Jede Nahansicht bietet „Wie lange bräuchte ich dorthin?“ und öffnet damit Reisen mit Lichtgeschwindigkeit (B) mit diesem Ziel.
 
 ### B) Reisen mit Lichtgeschwindigkeit
 
@@ -108,19 +108,27 @@ Ein Reiseplaner in drei Schritten. Die Nutzer wählen ein **Ziel** aus allen Ort
 
 Details, Rechenregeln und Beispiele stehen im Konzept zu Modul B.
 
-### C) Licht als Zeitmaschine
+### C) Das galaktische Jahr
+
+Unser ganzes Sonnensystem zieht mit rund 230 Kilometern pro Sekunde um das Zentrum der Milchstrasse, in einer Sekunde fast von Hamburg nach Berlin. Für eine Runde, ein galaktisches Jahr, braucht es 230 Millionen Jahre. Als die Sonne zuletzt an ihrer heutigen Stelle war, gingen die ersten Dinosaurier über die Erde.
+
+Das Modul ist eine ruhige Seite mit zwei Abschnitten und einer Grafik:
+
+- **Eine Runde:** was eine Runde ist, wie schnell sie läuft und wie viele Runden die Sonne schon gedreht hat.
+- **Die Grafik:** die Milchstrasse von oben mit der Bahn der Sonne. Ein heller Bogen zeigt den Weg, feine Ringe zeigen, wie viele Runden die Sonne zu der Zeit schon gedreht hatte: heute rund 20, beim Zurückdrehen weniger. Eine kleine Erdkugel zeigt die Erde zur jeweiligen Zeit: Kontinente, Wüsten, Wälder, Eis. Sie wandelt sich beim Zurückdrehen fliessend.
+- **Zurückdrehen:** Mit einem Regler oder direkt in der Grafik dreht man die Sonne bis zu zwanzig Runden zurück, bis zur Entstehung der Erde. Der Regler streckt die ersten fünf Runden, in denen am meisten passiert ist. Er rastet an 24 Stationen der Erdgeschichte ein, vom Ende der Dinosaurier über Pangäa und die Schneeball-Erde bis zum ersten Leben, jede mit einem Satz und einem Bild der Erde.
+
+Details stehen im Konzept zu Modul C.
+
+### D) Licht als Zeitmaschine
 
 Jeder Stern am Himmel ist ein Blick in die Vergangenheit. Licht aus dem galaktischen Zentrum ist losgeflogen, als in Europa Eiszeitjäger lebten.
 
 - **Dein Geburtsstern:** Sterne, die so viele Lichtjahre entfernt sind, wie die Nutzer alt sind. Ihr Licht ist im Geburtsjahr losgeflogen und kommt heute an.
 
-### D) Sterne zählen
+### E) Sterne zählen
 
 Wer jede Sekunde einen Stern zählt, ohne Pause, braucht für die 100 bis 400 Milliarden Sterne der Milchstrasse zwischen 3.000 und 13.000 Jahre. Umgesetzt als ruhiges, meditatives Element.
-
-### E) Das galaktische Jahr
-
-Die Sonne umrundet das Zentrum der Galaxie mit rund 230 km/s und braucht dafür etwa 230 Millionen Jahre. Als sie zuletzt an ihrer heutigen Position war, entstanden die ersten Dinosaurier. Eine Zeitleiste zeigt, was vor einer, zwei oder drei Runden auf der Erde geschah.
 
 ### F) Das Unsichtbare
 

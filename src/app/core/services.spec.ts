@@ -31,7 +31,7 @@ describe('ExplorationProgress', () => {
 
   it('persists explored modules across visits', () => {
     TestBed.inject(ExplorationProgress).markExplored('B');
-    expect(JSON.parse(localStorage.getItem('be.explored.v2') ?? '[]')).toEqual(['B']);
+    expect(JSON.parse(localStorage.getItem('be.explored.v3') ?? '[]')).toEqual(['B']);
 
     TestBed.resetTestingModule();
     const nextVisit = TestBed.inject(ExplorationProgress);
@@ -40,11 +40,29 @@ describe('ExplorationProgress', () => {
   });
 
   it('ignores unknown or malformed stored values', () => {
-    localStorage.setItem('be.explored.v2', '["B","X",3]');
+    localStorage.setItem('be.explored.v3', '["B","X",3]');
     expect([...TestBed.inject(ExplorationProgress).exploredIds()]).toEqual(['B']);
     TestBed.resetTestingModule();
-    localStorage.setItem('be.explored.v2', '{"B":true}');
+    localStorage.setItem('be.explored.v3', '{"B":true}');
     expect(TestBed.inject(ExplorationProgress).exploredIds().size).toBe(0);
+  });
+
+  it('moves "Das galaktische Jahr" to C, "Licht als Zeitmaschine" to D and "Sterne zählen" to E', () => {
+    // Previous letters: C Zeitmaschine, D Sterne zählen, E galaktisches Jahr.
+    localStorage.setItem('be.explored.v2', '["A","C","E"]');
+    const progress = TestBed.inject(ExplorationProgress);
+    expect([...progress.exploredIds()].sort()).toEqual(['A', 'C', 'D']);
+    expect(progress.isExplored('C')).toBe(true);
+    expect(progress.isExplored('E')).toBe(false);
+    expect(localStorage.getItem('be.explored.v2')).toBeNull();
+    expect(JSON.parse(localStorage.getItem('be.explored.v3') ?? '[]').sort()).toEqual(['A', 'C', 'D']);
+  });
+
+  it('carries the first-version letters straight over to the current ones', () => {
+    // First letters: D Zeitmaschine, E Sterne zählen, F galaktisches Jahr.
+    localStorage.setItem('be.explored', '["F","D"]');
+    const progress = TestBed.inject(ExplorationProgress);
+    expect([...progress.exploredIds()].sort()).toEqual(['C', 'D']);
   });
 
   it('carries every old letter over to the new one and drops the Sandkorn-Welt', () => {
@@ -53,7 +71,7 @@ describe('ExplorationProgress', () => {
     const progress = TestBed.inject(ExplorationProgress);
     expect([...progress.exploredIds()].sort()).toEqual(['A', 'B', 'C', 'D', 'E', 'F']);
     expect(localStorage.getItem('be.explored')).toBeNull();
-    expect(JSON.parse(localStorage.getItem('be.explored.v2') ?? '[]').sort()).toEqual(['A', 'B', 'C', 'D', 'E', 'F']);
+    expect(JSON.parse(localStorage.getItem('be.explored.v3') ?? '[]').sort()).toEqual(['A', 'B', 'C', 'D', 'E', 'F']);
   });
 
   it('maps the light-speed module from old C to new B and forgets the old B', () => {

@@ -1,4 +1,4 @@
-/** The six experience modules of the concept, by their letter (A Reise nach draussen, B Lichtgeschwindigkeit, C Zeitmaschine, D Sterne zählen, E galaktisches Jahr, F das Unsichtbare). */
+/** The six experience modules of the concept, by their letter (A Reise nach draussen, B Lichtgeschwindigkeit, C galaktisches Jahr, D Zeitmaschine, E Sterne zählen, F das Unsichtbare). */
 export const MODULE_IDS = ['A', 'B', 'C', 'D', 'E', 'F'] as const;
 export type ModuleId = (typeof MODULE_IDS)[number];
 

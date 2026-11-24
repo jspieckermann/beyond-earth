@@ -7,7 +7,7 @@ describe('ModulePreview', () => {
   async function render(explored: boolean) {
     TestBed.configureTestingModule({ providers: [provideRouter([])] });
     const fixture = TestBed.createComponent(ModulePreview);
-    fixture.componentRef.setInput('module', SKY_MODULES[2]);
+    fixture.componentRef.setInput('module', SKY_MODULES.find((m) => m.slug === 'sterne-zaehlen'));
     fixture.componentRef.setInput('explored', explored);
     fixture.componentRef.setInput('x', 30);
     fixture.componentRef.setInput('y', 200);

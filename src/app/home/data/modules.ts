@@ -26,7 +26,10 @@ export interface SkyModule {
 /** On tablet and desktop the preview always opens here (normalized), in the empty sky below the band. */
 export const WIDE_PREVIEW_ANCHOR = { x: 0.6, y: 0.655 } as const;
 
-/** The six modules along the Milky Way band, in journey order from lower left to upper right (A, B, D, C, F, E). */
+/**
+ * The six modules along the Milky Way band, from lower left to upper right (A, B, C, E, D, F). The places along
+ * the band stay fixed; "Das galaktische Jahr" sits between "Lichtgeschwindigkeit" and "Sterne zählen".
+ */
 export const SKY_MODULES: readonly SkyModule[] = [
   {
     id: 'A',
@@ -51,26 +54,38 @@ export const SKY_MODULES: readonly SkyModule[] = [
     wide: { x: 0.2, y: 0.785 },
   },
   {
-    id: 'D',
-    title: 'Sterne zählen',
-    short: 'Sterne zählen',
-    line: 'Eins. Zwei. Drei. Und dann noch Tausende Jahre lang.',
-    slug: 'sterne-zaehlen',
-    x: 223,
+    id: 'C',
+    title: 'Das galaktische Jahr',
+    short: 'Das galaktische Jahr',
+    line: 'Eine Runde um das Zentrum. Damals: die ersten Dinosaurier.',
+    slug: 'galaktisches-jahr',
+    // A little further left than the other places along the band, so its long label fits on a 320 px phone.
+    x: 210,
     y: 398,
     labelSide: 'right',
     wide: { x: 0.4, y: 0.6 },
   },
   {
-    id: 'C',
-    title: 'Licht als Zeitmaschine',
-    short: 'Zeitmaschine',
-    line: 'Dein Geburtsstern wartet auf dich.',
-    slug: 'zeitmaschine',
+    id: 'E',
+    title: 'Sterne zählen',
+    short: 'Sterne zählen',
+    line: 'Eins. Zwei. Drei. Und dann noch Tausende Jahre lang.',
+    slug: 'sterne-zaehlen',
     x: 238,
     y: 314,
     labelSide: 'right',
     wide: { x: 0.48, y: 0.47 },
+  },
+  {
+    id: 'D',
+    title: 'Licht als Zeitmaschine',
+    short: 'Zeitmaschine',
+    line: 'Dein Geburtsstern wartet auf dich.',
+    slug: 'zeitmaschine',
+    x: 319,
+    y: 290,
+    labelSide: 'left',
+    wide: { x: 0.6, y: 0.405 },
   },
   {
     id: 'F',
@@ -78,17 +93,6 @@ export const SKY_MODULES: readonly SkyModule[] = [
     short: 'Das Unsichtbare',
     line: 'Was hinter dem Staub liegt.',
     slug: 'das-unsichtbare',
-    x: 319,
-    y: 290,
-    labelSide: 'left',
-    wide: { x: 0.6, y: 0.405 },
-  },
-  {
-    id: 'E',
-    title: 'Das galaktische Jahr',
-    short: 'Das galaktische Jahr',
-    line: 'Eine Runde um das Zentrum. Damals: die ersten Dinosaurier.',
-    slug: 'galaktisches-jahr',
     x: 339,
     y: 209,
     labelSide: 'left',

@@ -151,7 +151,7 @@ Gerechnet nach den Regeln oben (Lj = Lichtjahre, J = Jahre).
 ## Zusammenspiel mit anderen Modulen
 
 - **Aus Modul A:** „Wie lange bräuchte ich dorthin?“ in jeder Nahansicht öffnet Modul B mit dem Ziel. Ein „Zurück zu …“ führt wieder an dieselbe Stelle in Modul A.
-- **Zu Licht als Zeitmaschine (C):** Wer ein fernes Ziel gewählt hat, bekommt den Hinweis: *„Das Licht, das du heute von dort siehst, war so lange unterwegs.“*
+- **Zu Licht als Zeitmaschine (D):** Wer ein fernes Ziel gewählt hat, bekommt den Hinweis: *„Das Licht, das du heute von dort siehst, war so lange unterwegs.“*
 
 ## Zwei Fassungen: Hauptreise und freies Erkunden
 

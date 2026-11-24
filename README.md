@@ -2,15 +2,17 @@
 
 ## About the project
 
-Die Milchstrasse erleben is a web app that lets laypeople feel the scale of our galaxy instead of just looking at it, from a zoom out to the edge of the universe to journeys at light speed. Above all, the project evaluates the AI-assisted interplay of vision, rough concept, detailed concept and spec-driven design.
+Die Milchstrasse erleben is a web app that lets laypeople feel the scale of our galaxy instead of just looking at it, from a zoom out to the edge of the universe and journeys at light speed to the history of the Earth told in rounds around the galaxy. Above all, the project evaluates the AI-assisted interplay of vision, rough concept, detailed concept and spec-driven design.
 
 ### Concepts
 
 The app is written in German, and so are its concepts:
 
-- [Konzept: Die Milchstrasse erleben](concepts/Konzept%20Die%20Milchstrasse%20erleben.md): vision and rough concept of the whole app
+- [Vision: Die Milchstrasse erleben](concepts/Vision.md): the initial prompt the concept was built from
+- [Konzept: Die Milchstrasse erleben](concepts/Konzept%20Die%20Milchstrasse%20erleben.md): rough concept of the whole app
 - [Modul A: Die Reise nach draussen](concepts/Modul%20A%20Die%20Reise%20nach%20draussen.md): detailed concept of the zoom from the Earth to the universe
 - [Modul B: Reisen mit Lichtgeschwindigkeit](concepts/Modul%20B%20Reisen%20mit%20Lichtgeschwindigkeit.md): detailed concept of the light-speed travel planner
+- [Modul C: Das galaktische Jahr](concepts/Modul%20C%20Das%20galaktische%20Jahr.md): detailed concept of the Sun's journey around the galactic centre and the Earth of the past
 
 The specifications derived from them live in [openspec/specs](openspec/specs), the archived changes in [openspec/changes/archive](openspec/changes/archive).
 
@@ -65,6 +67,18 @@ A travel planner: choose a place from Modul A and a speed, and see how long the 
 The travel card is drawn on the device and saved under the name of the destination, here `mars.png`:
 
 ![Travel card: "Nach Mars mit 0,0057 % der Lichtgeschwindigkeit: 37 Tage. An Bord vergeht dabei eine Generation."](docs/screenshots/b-travel-card.jpg)
+
+### Modul C: Das galaktische Jahr
+
+The whole Solar System races around the centre of the Milky Way at about 230 km/s; one round, a galactic year, takes 230 million years. A slider turns the Sun back along its orbit, up to twenty rounds, through 24 stations of Earth's history. A small globe shows the Earth of that time. Fine rings show how many rounds the Sun had completed by then: about 20 today, none at its formation.
+
+| Desktop: one round back, Pangaea and the first dinosaurs |
+| --- |
+| ![Modul C on a desktop: one round back, 230 million years ago, with Pangaea on the globe](docs/screenshots/c-dinosaurier-desktop.jpg) |
+
+| One round explained (phone) | Snowball Earth, three rounds back (tablet) | The Sun's formation, twenty rounds back (phone) |
+| --- | --- | --- |
+| ![The part "Eine Runde" on a phone](docs/screenshots/c-runde-phone.jpg) | ![Three rounds back on a tablet: Snowball Earth](docs/screenshots/c-schneeball-tablet.jpg) | ![Twenty rounds back on a phone: the Sun and the Earth form](docs/screenshots/c-entstehung-phone.jpg) |
 
 Sources and licences of the pictures shown in the screenshots are listed in the app under "Bildnachweise".
 

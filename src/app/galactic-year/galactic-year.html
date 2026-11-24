@@ -1,0 +1,108 @@
+<div class="page">
+  <header class="top">
+    <a routerLink="/" class="icon" aria-label="Zurück zum Himmel">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12" />
+        <path d="M18 6L6 18" />
+      </svg>
+    </a>
+    <h1 #heading tabindex="-1">Das galaktische Jahr</h1>
+  </header>
+
+  <div class="body">
+    <!-- Order on phones and tablets: one round, the picture, turning back. Wide screens put the picture on the right. -->
+    <section aria-labelledby="part-runde">
+      <h2 id="part-runde">{{ titles.runde }}</h2>
+      <p class="big">230 Millionen Jahre</p>
+      <p class="line">„Die Sonne zieht mit allen Planeten um das Zentrum der Milchstrasse. Für eine Runde braucht sie 230 Millionen Jahre.“</p>
+      <p class="aha">
+        Eine Runde, ein galaktisches Jahr, ist der Weg unseres ganzen Sonnensystems einmal um das Zentrum der Milchstrasse. Dabei rast es mit rund
+        230 Kilometern pro Sekunde: in einer Sekunde fast von Hamburg nach Berlin, Luftlinie.
+      </p>
+      <p class="aha">
+        Seit ihrer Geburt hat die Sonne rund zwanzig Runden gedreht. Ein Mensch, der 80 wird, erlebt von einer einzigen Runde gut ein Dreimillionstel.
+      </p>
+      <p class="aside">Dabei schwingt die Sonne langsam auf und ab, wie ein Pferd auf einem Karussell.</p>
+      <div class="links">
+        <button #factsButton type="button" class="link" [attr.aria-expanded]="factsOpen() === 'runde'" (click)="factsOpen.set('runde')">
+          Wie genau weiss man das?
+        </button>
+      </div>
+    </section>
+
+    <div class="stage">
+      <app-galaxy-view
+        [rounds]="rounds()"
+        [limit]="stations()[stations().length - 1].rounds"
+        [alt]="pictureAlt()"
+        [sunLabel]="sunLabel()"
+        [large]="layout() === 'desktop'"
+        (dragged)="drag($event)"
+        (released)="dragEnd()"
+      />
+      <app-earth-globe class="globe" [state]="earth()" [label]="globeLabel()" />
+    </div>
+
+    <section aria-labelledby="part-zurueck">
+      <h2 id="part-zurueck">{{ titles.zurueck }}</h2>
+      <div class="time-row">
+        <p class="big">{{ time() }}</p>
+        <p class="rounds">{{ roundsText() }}</p>
+        <p class="completed">{{ completedText() }}</p>
+      </div>
+      <div class="station">
+        <p class="event">{{ shown().title }}</p>
+        <p class="line sentence">„{{ shown().sentence }}“</p>
+        <p class="aside caption">Die Erde damals: {{ shown().caption }}</p>
+      </div>
+      <div class="slider">
+        <label for="time-slider" class="sr-only">Zieh die Sonne zurück auf ihrer Bahn</label>
+        <input
+          id="time-slider"
+          type="range"
+          min="0"
+          [max]="sliderSteps"
+          step="1"
+          [value]="position()"
+          [attr.aria-valuetext]="timeLong()"
+          (input)="slide($any($event.target).value)"
+          (change)="slideEnd($any($event.target).value)"
+          (keydown)="key($event)"
+        />
+        <div class="ruler" aria-hidden="true">
+          @for (t of ruler().ticks; track t.left) {
+            <span class="tick" [class.major]="t.kind === 'major'" [class.quarter]="t.kind === 'quarter'" [style.left]="t.left"></span>
+          }
+          @for (d of dots(); track d.id) {
+            <span class="dot" [class.main]="d.main" [class.now]="d.now" [style.left]="d.left"></span>
+          }
+          @for (l of ruler().labels; track l.text) {
+            <span class="label" [class.strong]="l.strong" [style.left]="l.left">{{ l.text }}</span>
+          }
+        </div>
+        <p class="unit" aria-hidden="true">Runden · 1 Runde = 230 Mio. Jahre</p>
+      </div>
+      <div class="links">
+        <button #factsButton type="button" class="link" [attr.aria-expanded]="factsOpen() === 'zurueck'" (click)="factsOpen.set('zurueck')">
+          Wie genau weiss man das?
+        </button>
+      </div>
+    </section>
+
+    @if (!explore()) {
+      <div class="end">
+        <p class="line closing">„Und all das kannst du sehen. Heute Nacht, über dir.“</p>
+        <button type="button" class="primary" (click)="finish()">Weiter: Rausgehen</button>
+      </div>
+    }
+  </div>
+
+  <p class="sr-only" aria-live="polite">{{ announcement() }}</p>
+</div>
+
+@if (facts(); as content) {
+  <div class="facts-layer">
+    <app-fact-sheet [content]="content" (closed)="closeFacts()" />
+  </div>
+}
+

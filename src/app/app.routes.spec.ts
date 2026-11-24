@@ -4,6 +4,7 @@ import { Router, provideRouter, withComponentInputBinding } from '@angular/route
 import { RouterTestingHarness } from '@angular/router/testing';
 import { appConfig } from './app.config';
 import { routes } from './app.routes';
+import { GalacticYearPage } from './galactic-year/galactic-year-page';
 import { HomePage } from './home/home-page';
 import { LightSpeedPage } from './light-speed-journey/light-speed-page';
 import { OutwardJourneyPage } from './outward-journey/outward-journey-page';
@@ -49,6 +50,12 @@ describe('routes', { timeout: 30_000 }, () => {
     expect(heading()).toBe('Reisen mit Lichtgeschwindigkeit');
     await harness.navigateByUrl('/module/lichtgeschwindigkeit?ziel=sirius&von=alpha-centauri');
     expect((harness.routeNativeElement as HTMLElement).querySelector('.goal-name')?.textContent).toBe('Sirius');
+  });
+
+  it('opens Modul C "Das galaktische Jahr"', async () => {
+    expect(await harness.navigateByUrl('/module/galaktisches-jahr')).toBeInstanceOf(GalacticYearPage);
+    expect(title()).toBe('Das galaktische Jahr · Die Milchstrasse erleben');
+    expect(heading()).toBe('Das galaktische Jahr');
   });
 
   it('titles module placeholders from the catalog', async () => {

@@ -5,7 +5,7 @@ const preview = (page: Page) => page.getByRole('region');
 
 async function seed(page: Page, data: { explored?: string[]; legacyExplored?: string[]; moments?: number }) {
   await page.addInitScript((d) => {
-    if (d.explored) localStorage.setItem('be.explored.v2', JSON.stringify(d.explored));
+    if (d.explored) localStorage.setItem('be.explored.v3', JSON.stringify(d.explored));
     if (d.legacyExplored) localStorage.setItem('be.explored', JSON.stringify(d.legacyExplored));
     if (d.moments !== undefined) localStorage.setItem('be.moments', String(d.moments));
   }, data);
@@ -26,10 +26,10 @@ test.describe('home screen', () => {
     expect(names).toEqual([
       'Die Reise nach draussen',
       'Reisen mit Lichtgeschwindigkeit',
+      'Das galaktische Jahr',
       'Sterne zählen',
       'Licht als Zeitmaschine',
       'Das Unsichtbare',
-      'Das galaktische Jahr',
     ]);
     await expect(page.getByText('Sandkorn-Welt')).toHaveCount(0);
   });
@@ -107,6 +107,16 @@ test.describe('home screen', () => {
     await expect(page.getByRole('heading', { level: 1, name: 'Reisen mit Lichtgeschwindigkeit' })).toBeFocused();
   });
 
+  test('opens Modul C "Das galaktische Jahr" instead of a placeholder', async ({ page }) => {
+    await page.goto('/');
+    await star(page, 'Das galaktische Jahr').click();
+    await preview(page).getByRole('link', { name: 'Eintauchen' }).click();
+    await expect(page).toHaveURL(/\/module\/galaktisches-jahr$/);
+    await expect(page).toHaveTitle('Das galaktische Jahr · Die Milchstrasse erleben');
+    await expect(page.getByText('Bald verfügbar')).toHaveCount(0);
+    await expect(page.getByRole('heading', { level: 1, name: 'Das galaktische Jahr' })).toBeFocused();
+  });
+
   test('opens the Modul A experience instead of a placeholder', async ({ page }) => {
     await page.goto('/');
     await star(page, 'Die Reise nach draussen').click();
@@ -120,9 +130,9 @@ test.describe('home screen', () => {
   test('keeps the preview on screen and off its star at the top-right edge', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 640 });
     await page.goto('/');
-    await star(page, 'Das galaktische Jahr').click();
+    await star(page, 'Das Unsichtbare').click();
     const box = await preview(page).boundingBox();
-    const dot = await star(page, 'Das galaktische Jahr').locator('.dot').boundingBox();
+    const dot = await star(page, 'Das Unsichtbare').locator('.dot').boundingBox();
     expect(box && dot).toBeTruthy();
     if (!box || !dot) return;
     expect(box.x).toBeGreaterThanOrEqual(0);

@@ -2,16 +2,16 @@ import { MODULE_IDS } from '../../core/models';
 import { SKY_HEIGHT, SKY_MODULES, SKY_WIDTH, findModuleBySlug } from './modules';
 
 describe('SKY_MODULES', () => {
-  it('lists the six modules of the concept in journey order A, B, D, C, F, E', () => {
-    expect(SKY_MODULES.map((m) => m.id)).toEqual(['A', 'B', 'D', 'C', 'F', 'E']);
+  it('lists the six modules along the band in the order A, B, C, E, D, F', () => {
+    expect(SKY_MODULES.map((m) => m.id)).toEqual(['A', 'B', 'C', 'E', 'D', 'F']);
     expect([...MODULE_IDS]).toEqual(['A', 'B', 'C', 'D', 'E', 'F']);
     expect(SKY_MODULES.map((m) => m.title)).toEqual([
       'Die Reise nach draussen',
       'Reisen mit Lichtgeschwindigkeit',
+      'Das galaktische Jahr',
       'Sterne zählen',
       'Licht als Zeitmaschine',
       'Das Unsichtbare',
-      'Das galaktische Jahr',
     ]);
   });
 

@@ -5,7 +5,12 @@ import { BirthYear } from './birth-year';
 import { CLOCK } from './clock';
 import { CardKind, CardPicture, DEFAULT_FILE_NAME, JourneyCard, ShareCard, ShareResult, cardFileName, cardText } from './share-card';
 
-const KIND_LABEL: Record<CardKind, string> = { kronkorken: 'Kronkorken', muenze: 'Münze', alter: 'Mein Alter', reise: 'Reise' };
+const KIND_LABEL: Record<CardKind, string> = {
+  kronkorken: 'Kronkorken',
+  muenze: 'Münze',
+  alter: 'Mein Alter',
+  reise: 'Reise',
+};
 
 /** Preview of a picture card with "Teilen" (share sheet) or "Herunterladen". */
 @Component({
@@ -79,7 +84,7 @@ export class ShareCardDialog {
   });
 
   protected readonly alt = computed(() => {
-    const picture = this.kind() === 'reise' ? this.picture() : null;
+    const picture = this.picture();
     const head = picture ? `Bildkarte mit einem Bild von ${picture.name}: ` : 'Bildkarte: ';
     return `${head}${this.text().replaceAll('\n', ' ').replace(/ +/g, ' ')} Die Milchstrasse erleben.`;
   });
@@ -87,7 +92,11 @@ export class ShareCardDialog {
   /** The travel card is named after its destination ("proxima-centauri.png"), the others "milchstrasse.png". */
   protected readonly fileName = computed(() => {
     const journey = this.journey();
-    return this.kind() === 'reise' && journey ? cardFileName(journey.destination) : DEFAULT_FILE_NAME;
+    const kind = this.kind();
+    if (kind === 'reise' && journey) {
+      return cardFileName(journey.destination);
+    }
+    return DEFAULT_FILE_NAME;
   });
 
   private readonly opener = (globalThis.document?.activeElement as HTMLElement | null) ?? null;
@@ -96,7 +105,7 @@ export class ShareCardDialog {
     effect(() => this.kind.set(this.kinds()[0]));
     effect((onCleanup) => {
       const text = this.text();
-      const picture = this.kind() === 'reise' ? this.picture() : null;
+      const picture = this.picture();
       let cancelled = false;
       void this.cards.render(text, picture).then((blob) => {
         if (cancelled) {

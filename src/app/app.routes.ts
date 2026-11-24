@@ -34,6 +34,11 @@ export const routes: Routes = [
     loadComponent: () => import('./light-speed-journey/light-speed-page').then((m) => m.LightSpeedPage),
   },
   {
+    path: 'module/galaktisches-jahr',
+    title: pageTitle('Das galaktische Jahr'),
+    loadComponent: () => import('./galactic-year/galactic-year-page').then((m) => m.GalacticYearPage),
+  },
+  {
     path: 'module/:slug',
     canActivate: [knownModule],
     resolve: { heading: moduleHeading },

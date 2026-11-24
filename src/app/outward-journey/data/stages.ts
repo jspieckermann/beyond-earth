@@ -178,5 +178,5 @@ export const STAGE_OFFSETS = STAGES.map((s) => s.earthOffset);
 
 /** The way-home line shown when arriving back at the Earth. */
 export const HOME_LINE = '„All das. Und mittendrin: wir.“';
-/** Hand-over line to Modul C at the end of the main-journey variant. */
+/** Hand-over line to Modul B at the end of the main-journey variant. */
 export const HANDOVER_LINE = '„Jetzt fliegst du selbst. So schnell, wie es überhaupt geht.“';

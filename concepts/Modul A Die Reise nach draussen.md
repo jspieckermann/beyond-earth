@@ -93,7 +93,7 @@ Kursiv stehen die Texte für die Nutzer.
 
 Weitere Vertiefungen an den Planeten:
 
-- **Dein Alter auf anderen Planeten:** Wer sein Geburtsjahr angibt (wie in Modul C), sieht an jedem Planeten, wie alt er dort wäre. Wer auf der Erde 30 ist, wäre auf dem Mars knapp 16 und auf Jupiter noch keine 3. Das lässt sich als Bild teilen: „Auf dem Mars wäre ich 16.“
+- **Dein Alter auf anderen Planeten:** Wer sein Geburtsjahr angibt (wie in Modul D), sieht an jedem Planeten, wie alt er dort wäre. Wer auf der Erde 30 ist, wäre auf dem Mars knapp 16 und auf Jupiter noch keine 3. Das lässt sich als Bild teilen: „Auf dem Mars wäre ich 16.“
 - **Grosse Monde:** Bei Jupiter und Saturn lassen sich die grossen Monde antippen, etwa Europa mit seinem Ozean unter dem Eis oder Titan mit seinen Methanseen. Zu jedem gibt es einen Satz.
 - **Faktenebene je Planet:** Durchmesser, Tageslänge, Jahreslänge, Temperatur, Lichtlaufzeit.
 
@@ -126,7 +126,7 @@ Weitere Vertiefungen an den Planeten:
 - **Text:** *„Das ist sie. Unsere Galaxie. Und irgendwo darin, viel zu klein, um sie zu sehen: die Erde.“*
 - **Aha:** Wäre die Milchstrasse so gross wie Europa, wäre unser ganzes Sonnensystem bis Neptun etwa ein Kronkorken.
 - **Zusatz:** Die Scheibe ist im Verhältnis so flach wie eine CD.
-- **Abzweige in der Faktenebene:** „Wie lange dauert eine Runde um die Galaxie?“ führt zum galaktischen Jahr (E), „Was verbirgt der Staub?“ zum Unsichtbaren (F).
+- **Abzweige in der Faktenebene:** „Wie lange dauert eine Runde um die Galaxie?“ führt zum galaktischen Jahr (C), „Was verbirgt der Staub?“ zum Unsichtbaren (F).
 - **Faktenebene:** Durchmesser ca. 100.000 Lichtjahre, Scheibe ca. 1.000 Lichtjahre dick, 100 bis 400 Milliarden Sterne. Der nächste Stern läge im Europa-Modell 170 m neben dem Kronkorken. Wichtig: Niemand hat die Milchstrasse je von aussen fotografiert. Das Bild ist eine Rekonstruktion aus Messdaten. Wo genau die Arme verlaufen, ist noch Gegenstand der Forschung.
 - **Antippen:**
   - **Sagittarius A*:** die echte Aufnahme des Event Horizon Telescope. *„Im Herzen unserer Galaxie: etwas, aus dem nicht einmal Licht entkommt.“* Aha: rund 4 Millionen Sonnenmassen, zusammengedrückt auf einen Raum, der in die Bahn des Merkur passen würde.
@@ -139,7 +139,7 @@ Weitere Vertiefungen an den Planeten:
 - **Text:** *„Unsere Nachbarschaft. Und zum ersten Mal ist es hier nicht leer.“*
 - **Aha:** Wäre die Milchstrasse eine Münze, läge Andromeda nur gut einen halben Meter entfernt.
 - **Zusatz:** Wäre die Sonne eine Münze, läge der nächste Stern Hunderte Kilometer weit weg. Sterne stehen einsam, Galaxien fast dicht.
-- **Abzweig:** Licht als Zeitmaschine (C).
+- **Abzweig:** Licht als Zeitmaschine (D).
 - **Faktenebene:** Durchmesser der Lokalen Gruppe ca. 10 Millionen Lichtjahre, über 80 bekannte Mitglieder, die meisten davon Zwerggalaxien. Das Bild ist eine schematische Darstellung, keine Aufnahme.
 - **Galaxien antippen:** Jede benannte Galaxie öffnet eine Nahansicht mit Foto:
 
@@ -191,7 +191,7 @@ In der Hauptreise ist Modul A kurz und straff, beim freien Erkunden darf es tief
 | Fassung | Stufen | Dauer | Faktenebene | Abzweige und Vertiefungen |
 | --- | --- | --- | --- | --- |
 | Hauptreise | alle 7 Stufen, ohne Nahansichten | ca. 4–5 min | zugeklappt, aber erreichbar | keine, der Bogen bleibt geschlossen |
-| Freies Erkunden | alle 7 Stufen; Planeten, Monde, Sonne, Erde, Voyager 1, Nachbarsterne, Teile der Milchstrasse, Galaxien und Orte des Universums antippbar | offen | sichtbar angeboten | zu B (Lichtzeit im Sonnensystem und „Wie lange bräuchte ich dorthin?“ in jeder Nahansicht), E und F (Milchstrasse), C (Lokale Gruppe) |
+| Freies Erkunden | alle 7 Stufen; Planeten, Monde, Sonne, Erde, Voyager 1, Nachbarsterne, Teile der Milchstrasse, Galaxien und Orte des Universums antippbar | offen | sichtbar angeboten | zu B (Lichtzeit im Sonnensystem und „Wie lange bräuchte ich dorthin?“ in jeder Nahansicht), C und F (Milchstrasse), D (Lokale Gruppe) |
 
 Beim freien Erkunden kann man über die Massstabsleiste von Anfang an direkt zu einer Stufe springen. Das Erlebnis der Leere entsteht aber nur beim durchgehenden Zoomen.
 
@@ -223,7 +223,7 @@ Modul A braucht keinen Standort und keine persönlichen Daten. Der persönliche 
 - [ ] Europa-Vergleich: Verwenden alle Sprachfassungen Europa, oder wird der eigene Kontinent eingesetzt? Bei Nordamerika (ca. 5.000 km) wäre das Sonnensystem etwa 5 cm gross.
 - [ ] Wie lange darf die Leere vor den benachbarten Sternen dauern, ohne zu langweilen? Das sollte mit Testpersonen geklärt werden.
 - [ ] Rückweg: Zoomen die Nutzer selbst zurück, oder gibt es den automatischen Rückflug? Ein automatischer Rückflug widerspricht der Regel „nie von allein“. (Umgesetzt: beides, der Rückflug startet nur auf Tipp.)
-- [ ] Alter auf anderen Planeten: Wird das Geburtsjahr schon in Modul A abgefragt, oder erst in Modul C und danach wiederverwendet?
+- [ ] Alter auf anderen Planeten: Wird das Geburtsjahr schon in Modul A abgefragt, oder erst in Modul D und danach wiederverwendet?
 - [ ] Soll die drehende Erde angehalten werden können (WCAG: bewegte Inhalte über 5 Sekunden), etwa mit einem Tipp?
 - [x] ~~Wie wechselt das Bild vom Orion-Arm zum Zentrum, ohne dass die Erde aus dem Blick gerät?~~ Entfallen: Orion-Arm und Zentrum sind keine eigenen Stufen mehr.
 - [x] ~~Erzählstimme: Gilt die Regel „nur der poetische Satz“ für alle Module?~~ Entfallen: Es gibt keine Erzählstimme.

@@ -65,6 +65,7 @@ export const PARAGRAPH = '\n\n';
 /** File name of the default cards. */
 export const DEFAULT_FILE_NAME = 'milchstrasse.png';
 
+
 function journeyText(j: JourneyCard): string {
   const min = j.lowerBound ? 'mindestens ' : '';
   const generations =
