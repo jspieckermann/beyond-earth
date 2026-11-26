@@ -2,7 +2,7 @@
 
 ## About the project
 
-Die Milchstrasse erleben is a web app that lets laypeople feel the scale of our galaxy instead of just looking at it, from a zoom out to the edge of the universe and journeys at light speed to the history of the Earth told in rounds around the galaxy. Above all, the project evaluates the AI-assisted interplay of vision, rough concept, detailed concept and spec-driven design.
+Die Milchstrasse erleben is a web app that lets laypeople feel the scale of our galaxy instead of just looking at it, from a zoom out to the edge of the universe and journeys at light speed to the history of the Earth told in rounds around the galaxy, and then sends them outside: Heute Nacht shows what they can see tonight from their own place with the naked eye. Above all, the project evaluates the AI-assisted interplay of vision, rough concept, detailed concept and spec-driven design.
 
 ### Concepts
 
@@ -13,6 +13,7 @@ The app is written in German, and so are its concepts:
 - [Modul A: Die Reise nach draussen](concepts/Modul%20A%20Die%20Reise%20nach%20draussen.md): detailed concept of the zoom from the Earth to the universe
 - [Modul B: Reisen mit Lichtgeschwindigkeit](concepts/Modul%20B%20Reisen%20mit%20Lichtgeschwindigkeit.md): detailed concept of the light-speed travel planner
 - [Modul C: Das galaktische Jahr](concepts/Modul%20C%20Das%20galaktische%20Jahr.md): detailed concept of the Sun's journey around the galactic centre and the Earth of the past
+- [Heute Nacht](concepts/Heute%20Nacht.md): detailed concept of what can be seen tonight with the naked eye, and how to find it
 
 The specifications derived from them live in [openspec/specs](openspec/specs), the archived changes in [openspec/changes/archive](openspec/changes/archive).
 
@@ -80,7 +81,27 @@ The whole Solar System races around the centre of the Milky Way at about 230 km/
 | --- | --- | --- |
 | ![The part "Eine Runde" on a phone](docs/screenshots/c-runde-phone.jpg) | ![Three rounds back on a tablet: Snowball Earth](docs/screenshots/c-schneeball-tablet.jpg) | ![Twenty rounds back on a phone: the Sun and the Earth form](docs/screenshots/c-entstehung-phone.jpg) |
 
-Sources and licences of the pictures shown in the screenshots are listed in the app under "Bildnachweise".
+### Heute Nacht
+
+What can I see tonight from here with the naked eye, and how do I find it? Everything is on one page: the place and how dark it is there on top, below it the conditions of the night, three moments (Abends, Mitternacht, Morgens) and the objects visible at the chosen moment, from the Moon and the planets to bright stars, constellations and, on good nights, the Milky Way. Each object shows where it stands (compass direction and height in fists), a dark night photo as the eye sees it with the object marked, a sentence on what the eye really sees and three or four steps to find it. Below follows what is not visible tonight and why, and the next good night for the Milky Way. Sun, Moon, planets and stars are calculated on the device with [astronomy-engine](https://github.com/cosinekitty/astronomy); the place list (towns in Germany, Austria and Switzerland and the dark-sky places) ships with the app, so no place ever leaves the device.
+
+| Desktop: Hamburg on 26 November 2026, a nearly full Moon |
+| --- |
+| ![Heute Nacht on a desktop: Hamburg, darkness 2 of 5, the conditions, the three moments and the Moon as first object](docs/screenshots/hn-desktop.jpg) |
+
+| Place, darkness and conditions (phone) | How dark is it there? (phone) | Saturn, marked in a naked-eye photo (phone) |
+| --- | --- | --- |
+| ![Place field with Hamburg, the darkness choice, the conditions and the summary below the moments](docs/screenshots/hn-ort-phone.jpg) | ![The darkness choice open with its five levels](docs/screenshots/hn-dunkelheit-phone.jpg) | ![The card of Saturn expanded: marked photo, eye sentence and steps](docs/screenshots/hn-saturn-phone.jpg) |
+
+| A night for the Milky Way, 9 December 2026 at a dark place (phone) | Night mode for outside (phone) | Settings (phone) |
+| --- | --- | --- |
+| ![The Milky Way as first object on a moonless night at darkness 4](docs/screenshots/hn-milchstrasse-phone.jpg) | ![Heute Nacht in red-on-black night mode](docs/screenshots/hn-nachtmodus-phone.jpg) | ![Settings with the switches Nachtmodus and Vibration, in night mode](docs/screenshots/einstellungen-phone.jpg) |
+
+Night mode turns the whole app red on black so that the phone does not spoil dark-adapted eyes. It is switched, like the vibration of Modul A, only in the settings; their gear sits at the same place on every page. On the home screen, the Heute-Nacht card shows the highlight of the night for the chosen place:
+
+![Home screen with the Heute-Nacht card for Hamburg: 7 Dinge mit blossem Auge, zum Beispiel Saturn im Süden](docs/screenshots/hn-home-desktop.jpg)
+
+Sources and licences of the pictures shown in the screenshots are listed in the app under "Bildnachweise"; for Heute Nacht they are credited below each picture and in its fact sheet „Wie genau weiss man das?“.
 
 ---
 
