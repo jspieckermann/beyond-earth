@@ -46,8 +46,16 @@ export const routes: Routes = [
     loadComponent: loadPlaceholder,
   },
   placeholderRoute('reise', 'Die Reise'),
-  placeholderRoute('heute-nacht', 'Heute Nacht'),
+  {
+    path: 'heute-nacht',
+    title: pageTitle('Heute Nacht'),
+    loadComponent: () => import('./tonight/tonight-page').then((m) => m.TonightPage),
+  },
   placeholderRoute('meine-sterne', 'Meine Sterne'),
-  placeholderRoute('einstellungen', 'Einstellungen'),
+  {
+    path: 'einstellungen',
+    title: pageTitle('Einstellungen'),
+    loadComponent: () => import('./settings/settings-page').then((m) => m.SettingsPage),
+  },
   { path: '**', redirectTo: '' },
 ];

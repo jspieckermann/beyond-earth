@@ -201,7 +201,7 @@ Mit jedem Schritt nach draussen wird es dunkler und weiter. Die Leere vor den be
 
 - **Bild:** Wo es möglich ist, kommen echte Daten zum Einsatz: Texturen von Erde, Mond, Sonne und Planeten nach NASA-Aufnahmen, Sternpositionen aus Gaia und Hipparcos, die Aufnahme des Event Horizon Telescope, Fotos von Andromeda, der Dreiecksgalaxie und den Magellanschen Wolken, Aufnahmen von Chandra, Hubble, James Webb und dem Sloan Digital Sky Survey, die Himmelskarte des Satelliten Planck. Rekonstruktionen, Illustrationen und Simulationen, etwa die Draufsicht auf die Milchstrasse, Laniakea oder das kosmische Netz, sind in der Faktenebene als solche gekennzeichnet. Wo Kugeln grösser als im Massstab gezeichnet sind oder die Erde im Zeitraffer dreht, sagt es die Faktenebene.
 - **Kein Klang:** Das Modul ist still. Es gibt weder Klang noch Erzählstimme. Die Stille trägt die Leere zwischen den Sternen von allein.
-- **Haptik (Mobilgeräte):** ein leichter Impuls beim Einrasten an einer Stufe, sonst nichts. Abschaltbar unter „Weitere Einstellungen“.
+- **Haptik (Mobilgeräte):** ein leichter Impuls beim Einrasten an einer Stufe, sonst nichts. Abschaltbar in den Einstellungen der Anwendung (Schalter „Vibration“), die über das Zahnrad oben rechts auf jeder Seite erreichbar sind. Ein eigenes Einstellungs-Panel hat das Modul nicht mehr.
 
 ## Persönlicher Bezug und Teilen
 

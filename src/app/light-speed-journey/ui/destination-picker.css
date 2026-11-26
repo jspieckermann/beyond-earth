@@ -3,8 +3,8 @@ dialog {
   max-height: min(90vh, 44rem);
   padding: 16px 16px 8px;
   border-radius: 24px;
-  border: 1px solid rgb(236 232 221 / 0.1);
-  background: #0b1124;
+  border: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+  background: var(--color-night-800);
   color: var(--color-ink);
   flex-direction: column;
   overflow: hidden;
@@ -15,7 +15,7 @@ dialog[open] {
 }
 
 dialog::backdrop {
-  background: rgb(2 3 10 / 0.75);
+  background: color-mix(in srgb, var(--color-night-950) 75%, transparent);
 }
 
 .head {
@@ -56,8 +56,8 @@ h2 {
   min-height: 44px;
   padding: 0 12px;
   border-radius: 12px;
-  border: 1px solid rgb(236 232 221 / 0.28);
-  background: rgb(6 10 24 / 0.7);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 28%, transparent);
+  background: color-mix(in srgb, var(--color-night-900) 70%, transparent);
   color: var(--color-ink-bright);
   font: 500 16px var(--font-sans);
 }
@@ -107,7 +107,7 @@ li button {
 
 li button:hover,
 li button[aria-current='true'] {
-  background: rgb(243 217 164 / 0.12);
+  background: color-mix(in srgb, var(--color-starlight) 12%, transparent);
 }
 
 .distance {

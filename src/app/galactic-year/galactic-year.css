@@ -68,7 +68,7 @@ section {
 section,
 .end {
   padding: 20px 0;
-  border-top: 1px solid rgb(236 232 221 / 0.1);
+  border-top: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
 }
 
 h2 {
@@ -204,7 +204,7 @@ p {
   top: 0;
   width: 1px;
   height: 5px;
-  background: rgb(169 174 196 / 0.6);
+  background: color-mix(in srgb, var(--color-ink-muted) 60%, transparent);
 }
 
 .major {
@@ -221,7 +221,7 @@ p {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: rgb(243 217 164 / 0.55);
+  background: color-mix(in srgb, var(--color-starlight) 55%, transparent);
 }
 
 .main {
@@ -231,8 +231,8 @@ p {
 }
 
 .dot.now {
-  box-shadow: 0 0 0 3px rgb(255 244 220 / 0.35);
-  background: #fff4dc;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-star-explored) 35%, transparent);
+  background: var(--color-star-explored);
 }
 
 .label {

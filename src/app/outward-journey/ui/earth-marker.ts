@@ -44,17 +44,17 @@ export const MARKER_FROM_Z = 2.2;
     }
   `,
   styles: `
-    :host { position: absolute; display: flex; align-items: center; gap: 6px; transform: translate(-5px, -50%); pointer-events: none; color: #dbe9ff; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; background: #8fc2ff; box-shadow: 0 0 0 4px rgb(143 194 255 / 0.25), 0 0 0 11px rgb(143 194 255 / 0.08), 0 0 16px 6px rgb(143 194 255 / 0.5); animation: pulse 3.2s ease-in-out infinite; }
+    :host { position: absolute; display: flex; align-items: center; gap: 6px; transform: translate(-5px, -50%); pointer-events: none; color: var(--color-ink-bright); }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--color-earth); box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-earth) 25%, transparent), 0 0 0 11px color-mix(in srgb, var(--color-earth) 8%, transparent), 0 0 16px 6px color-mix(in srgb, var(--color-earth) 50%, transparent); animation: pulse 3.2s ease-in-out infinite; }
     .label { font-size: 12px; font-weight: 600; text-shadow: 0 0 8px #000; }
     /* The target starts at the dot and covers the label, so the Sun just left of the Earth stays selectable. */
     .earth { display: flex; align-items: center; gap: 6px; min-height: 24px; padding: 0 6px 0 0; margin: 0 -6px 0 0; border: 0; border-radius: 12px; background: none; color: inherit; font: inherit; cursor: pointer; pointer-events: auto; }
-    .earth:focus-visible { outline: 2px solid #f3d9a4; outline-offset: 2px; }
+    .earth:focus-visible { outline: 2px solid var(--color-starlight); outline-offset: 2px; }
     .arrow { flex: none; }
     :host(.flash) .dot { animation: flash 0.8s ease-in-out 2; }
     :host(.calm) .dot { animation: none; }
-    @keyframes pulse { 50% { box-shadow: 0 0 0 6px rgb(143 194 255 / 0.18), 0 0 0 14px rgb(143 194 255 / 0.05), 0 0 20px 8px rgb(143 194 255 / 0.55); } }
-    @keyframes flash { 50% { transform: scale(1.8); background: #fff; } }
+    @keyframes pulse { 50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-earth) 18%, transparent), 0 0 0 14px color-mix(in srgb, var(--color-earth) 5%, transparent), 0 0 20px 8px color-mix(in srgb, var(--color-earth) 55%, transparent); } }
+    @keyframes flash { 50% { transform: scale(1.8); background: var(--color-ink-bright); } }
   `,
 })
 export class EarthMarker {

@@ -2,7 +2,7 @@
   display: block;
   min-height: 100dvh;
   background:
-    radial-gradient(ellipse at 70% -10%, rgb(60 70 130 / 0.35), transparent 60%),
+    radial-gradient(ellipse at 70% -10%, color-mix(in srgb, var(--color-glow) 35%, transparent), transparent 60%),
     var(--color-night-950);
   color: var(--color-ink);
 }
@@ -63,9 +63,9 @@ h1 {
 
 .step {
   padding: 16px;
-  border-radius: 20px;
+  border-radius: var(--radius-box);
   background: var(--color-surface);
-  border: 1px solid rgb(236 232 221 / 0.08);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 8%, transparent);
   min-width: 0;
 }
 
@@ -118,7 +118,7 @@ button.goal {
   align-self: center;
   padding: 10px 14px;
   border-radius: 999px;
-  border: 1px solid rgb(236 232 221 / 0.28);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 28%, transparent);
   font-size: 14px;
   font-weight: 500;
   color: var(--color-ink);

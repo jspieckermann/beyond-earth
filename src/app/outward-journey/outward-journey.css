@@ -4,7 +4,7 @@
   height: 100dvh;
   min-height: 480px;
   overflow: hidden;
-  background: #02030a;
+  background: var(--color-night-950);
   color: var(--color-ink);
   user-select: none;
 }
@@ -19,15 +19,15 @@
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(to top, rgb(2 3 8 / 0.92) 0, rgb(2 3 8 / 0.55) 24%, transparent 44%),
-    linear-gradient(rgb(2 3 8 / 0.6), transparent 14%);
+    linear-gradient(to top, color-mix(in srgb, var(--color-night-950) 92%, transparent) 0, color-mix(in srgb, var(--color-night-950) 55%, transparent) 24%, transparent 44%),
+    linear-gradient(color-mix(in srgb, var(--color-night-950) 60%, transparent), transparent 14%);
 }
 
 :host([data-layout='desktop']) .veil,
 :host([data-layout='tablet']) .veil {
   background:
-    radial-gradient(ellipse 55% 60% at 0% 100%, rgb(2 3 8 / 0.9), rgb(2 3 8 / 0.45) 55%, transparent 80%),
-    linear-gradient(rgb(2 3 8 / 0.55), transparent 14%);
+    radial-gradient(ellipse 55% 60% at 0% 100%, color-mix(in srgb, var(--color-night-950) 90%, transparent), color-mix(in srgb, var(--color-night-950) 45%, transparent) 55%, transparent 80%),
+    linear-gradient(color-mix(in srgb, var(--color-night-950) 55%, transparent), transparent 14%);
 }
 
 .top {
@@ -48,6 +48,11 @@
   right: 24px;
 }
 
+.gear-space {
+  flex: none;
+  width: 44px;
+}
+
 h1 {
   margin: 0;
   font: 400 12px var(--font-sans);
@@ -63,5 +68,5 @@ h1 {
   display: grid;
   place-items: center;
   color: var(--color-ink-soft);
-  background: rgb(2 3 10 / 0.35);
+  background: color-mix(in srgb, var(--color-night-950) 35%, transparent);
 }

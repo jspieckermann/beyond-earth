@@ -138,9 +138,9 @@ Staub verdeckt einen grossen Teil unserer Galaxie. Ein Umschalten zwischen sicht
 
 Die Begeisterung soll nicht in der App enden, sondern unter dem echten Himmel weitergehen.
 
-- **Heute-Nacht-Funktion:** Wann und wo ist das Band der Milchstrasse sichtbar? Wie dunkel ist der Himmel am eigenen Ort?
-- **Sternwarten und Beobachtungsabende** in der Nähe
-- **Kleine Missionen für draussen**, zum Beispiel: „Finde das Sternbild Schütze. Dahinter liegt das Zentrum unserer Galaxie.“
+- **Heute-Nacht-Funktion:** Was kann ich heute Nacht von hier aus mit blossem Auge sehen, und wie finde ich es? Auf einer Seite: Oben wählen die Nutzer ihren Ort aus einer mitgelieferten Liste (Deutschland, Österreich, Schweiz und die Sternenparks) oder per Standort und schätzen ein, wie dunkel es dort ist. Darunter zeigt sofort eine Liste, was zur gewählten Zeit sichtbar ist: Mond, Planeten, helle Sterne und Sternbilder, die Milchstrasse. Zu jedem Objekt gibt es eine Anleitung mit Himmelsrichtung und Höhe in Fäusten, ein dunkles Nachtfoto, wie man es mit blossem Auge sieht, mit der Stelle markiert. Was heute nicht zu sehen ist, steht mit Grund darunter, für die Milchstrasse dazu die nächste gute Nacht. Alles wird auf dem Gerät berechnet. Details im Konzept „Heute Nacht“.
+- **Nachtmodus:** Draussen färbt er die ganze Anwendung dunkelrot auf Schwarz, ohne Weiss und Blau, damit das Handy die an die Dunkelheit gewöhnten Augen nicht blendet. Er bleibt an, bis man ihn wieder ausschaltet, auch in den Modulen.
+- **Sternwarten und Beobachtungsabende** in der Nähe (später, zusammen mit Partnern)
 
 ## Frei verfügbar: Konsequenzen
 
@@ -149,6 +149,7 @@ Die Anwendung ist frei verfügbar. Deshalb zählen eine niedrige Einstiegshürde
 - **Keine Hürden:** kein Konto, keine Anmeldung, sofort loslegen
 - **Standort nur freiwillig:** Die Heute-Nacht-Funktion fragt nach dem Ort. Alternativ wählen die Nutzer einen Ort von Hand.
 - **Verbreitung durch Teilen:** Besondere Momente lassen sich als schönes Bild teilen, etwa „Mein Geburtsstern“ oder „Nach Proxima Centauri mit 1 % der Lichtgeschwindigkeit: 424 Jahre. An Bord vergehen dabei 17 Generationen.“.
+- **Wenige Einstellungen, ein Ort dafür:** Das Zahnrad steht auf jeder Seite an derselben Stelle oben rechts und führt zu den Einstellungen. Dort gibt es nur zwei Schalter: „Nachtmodus“ und „Vibration“ (der kurze Impuls in der Reise nach draussen). Die Module haben keine eigenen Einstellungen. „Zurück“ führt auf die Seite, von der man kam.
 - **Mehrsprachigkeit** von Anfang an mitdenken
 - **Partner:** Sternwarten und Planetarien als natürliche Verbündete. Sie profitieren von der Brücke in die reale Welt und geben der Anwendung Glaubwürdigkeit.
 
@@ -169,3 +170,4 @@ Die Anwendung ist frei verfügbar. Deshalb zählen eine niedrige Einstiegshürde
 - [ ] Dauer der geführten Hauptreise festlegen
 - [x] Rolle der Erzählstimme klären: gar nicht. Die Anwendung hat keinen Ton.
 - [ ] Fachliche Prüfung aller Zahlen durch eine Astronomin oder einen Astronomen
+- [ ] Heute Nacht: Fotos mit blossem Auge, Karte der Lichtverschmutzung, dunklere Orte in der Nähe, Sternwarten, Wetter und andere Regionen (siehe Konzept „Heute Nacht“)

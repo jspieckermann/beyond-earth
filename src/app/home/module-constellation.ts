@@ -54,7 +54,7 @@ interface StarView {
     @if (wide()) {
       @let band = bandView();
       <div
-        class="band"
+        class="band picture"
         aria-hidden="true"
         [style.--cx]="band.cx + 'px'"
         [style.--cy]="band.cy + 'px'"

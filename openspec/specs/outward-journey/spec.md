@@ -323,12 +323,15 @@ The module SHALL NOT play any sound and SHALL NOT read any text aloud. It SHALL 
 - **THEN** no audio is played and no speech is produced
 
 ### Requirement: Haptics
-On devices that support vibration, the module SHALL give one short pulse when the view snaps into a stage, and no other vibration. Vibration SHALL be switchable off in a small settings panel ("Weitere Einstellungen"), and the choice SHALL persist on the device. The panel SHALL hold only this setting.
+On devices that support vibration, the module SHALL give one short pulse when the view snaps into a stage, and no other vibration. Vibration SHALL be switchable off only on the app's settings page („Einstellungen“, switch „Vibration“), and the choice SHALL persist on the device. The module SHALL NOT have its own settings panel; its header leaves room for the app-wide settings gear.
 
 #### Scenario: Pulse on snap
 - **WHEN** the view snaps into a stage on a device with vibration on
 - **THEN** exactly one short pulse is triggered
 
+#### Scenario: Vibration off in the settings
+- **WHEN** the user has switched „Vibration“ off in the settings and the view snaps into a stage
+- **THEN** no pulse is triggered
 ### Requirement: Real imagery and honesty
 The module SHALL use real imagery or data where it exists: Solar System Scope textures based on NASA imagery for the Earth (day and night), Moon, Sun and planets, star positions from a Gaia/Hipparcos-based catalogue, the Event Horizon Telescope image of Sagittarius A*, photos of Andromeda, the Triangulum galaxy and the Magellanic Clouds, Chandra/Hubble, Webb and Sloan survey images for the places of the universe, and the Planck map of the cosmic microwave background. Reconstructions, illustrations and simulations (Voyager 1, the Milky Way and the Orion arm from outside, the Local Group, Laniakea, the cosmic web) SHALL be marked as such in their fact sheet. Pictures drawn larger than to scale (Erde und Mond, Sonnensystem) and the time-lapse of the turning Earth SHALL be explained in the facts. Every picture SHALL name its source in its fact sheet, and a "Bildnachweise" list SHALL be reachable from the module.
 

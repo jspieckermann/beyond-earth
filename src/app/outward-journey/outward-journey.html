@@ -1,6 +1,6 @@
 <!-- While a planet is open up close, everything behind it is inert: the journey waits there. -->
 <div class="behind" [attr.inert]="planet() ? '' : null">
-  <app-journey-scene />
+  <app-journey-scene class="picture" />
   <div class="veil" aria-hidden="true"></div>
   <app-earth-marker />
   <app-distance-readout />
@@ -13,7 +13,8 @@
       </svg>
     </a>
     <h1 #heading tabindex="-1">Die Reise nach draussen</h1>
-    <app-journey-controls />
+    <!-- Room for the app-wide settings gear, which sits in this corner on every page. -->
+    <span class="gear-space" aria-hidden="true"></span>
   </header>
 
   <app-scale-bar />

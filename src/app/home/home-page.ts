@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, afterNextRender, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CLOCK } from '../core/clock';
 import { LayoutMode } from '../core/layout-mode';
@@ -60,6 +60,11 @@ export class HomePage {
   protected readonly selected = signal<ModuleId | null>(null);
   protected readonly greeting = '„Heute Nacht zieht das Band über dich hinweg.“';
   protected readonly today = computed(() => DATE_FORMAT.format(this.clock()));
+
+  constructor() {
+    // Tonight's calculation loads only after the home screen is on screen.
+    afterNextRender(() => void this.tonight.refresh());
+  }
 
   /** A click on the sky (anything that is not a control or the preview) closes the preview. */
   protected clearOnEmptySky(event: MouseEvent): void {

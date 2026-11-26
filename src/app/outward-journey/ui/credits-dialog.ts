@@ -26,8 +26,8 @@ import { JourneyUi } from '../journey-ui';
     </dialog>
   `,
   styles: `
-    dialog { width: min(34rem, calc(100vw - 32px)); max-height: 80vh; padding: 16px 20px; border-radius: 20px; border: 1px solid rgb(236 232 221 / 0.1); background: #0b1124; color: var(--color-ink); }
-    dialog::backdrop { background: rgb(2 3 10 / 0.7); }
+    dialog { width: min(34rem, calc(100vw - 32px)); max-height: 80vh; padding: 16px 20px; border-radius: 20px; border: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent); background: var(--color-night-800); color: var(--color-ink); }
+    dialog::backdrop { background: color-mix(in srgb, var(--color-night-950) 70%, transparent); }
     .head { display: flex; justify-content: space-between; align-items: center; }
     h2 { margin: 0; font-family: var(--font-serif); font-size: 26px; color: var(--color-ink-bright); }
     button { width: 44px; height: 44px; border: 0; border-radius: 999px; background: transparent; color: var(--color-ink-soft); display: grid; place-items: center; cursor: pointer; }

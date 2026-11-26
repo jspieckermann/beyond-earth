@@ -3,13 +3,13 @@ dialog {
   max-height: 90vh;
   padding: 16px 20px 18px;
   border-radius: 24px;
-  border: 1px solid rgb(236 232 221 / 0.1);
-  background: #0b1124;
+  border: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+  background: var(--color-night-800);
   color: var(--color-ink);
 }
 
 dialog::backdrop {
-  background: rgb(2 3 10 / 0.75);
+  background: color-mix(in srgb, var(--color-night-950) 75%, transparent);
 }
 
 .head {
@@ -47,7 +47,7 @@ h2 {
   flex: 1;
   min-height: 44px;
   border-radius: 999px;
-  border: 1px solid rgb(236 232 221 / 0.25);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 25%, transparent);
   background: transparent;
   color: var(--color-ink-soft);
   font: 500 14px var(--font-sans);
@@ -98,7 +98,7 @@ h2 {
 .actions button {
   min-height: 48px;
   border-radius: 999px;
-  border: 1px solid rgb(236 232 221 / 0.25);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 25%, transparent);
   background: transparent;
   color: var(--color-starlight);
   font: 600 15px var(--font-sans);
@@ -108,7 +108,7 @@ h2 {
 .actions button.primary {
   border: 0;
   background: var(--color-starlight);
-  color: #141826;
+  color: var(--color-night-900);
 }
 
 .actions button:disabled {

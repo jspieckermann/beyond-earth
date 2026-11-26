@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { JourneySettings } from '../../core/journey-settings';
 import { ZoomState } from '../engine/zoom-state';
 import { JourneyUi } from '../journey-ui';
 import { JourneyScene } from '../scene/journey-scene';
@@ -10,12 +9,11 @@ import { SceneGeometry } from '../scene/scene-geometry';
 import { JourneyTestOptions, journeyTestProviders } from '../testing';
 import { DistanceReadout } from './distance-readout';
 import { EarthMarker } from './earth-marker';
-import { JourneyControls } from './journey-controls';
 import { ScaleBar } from './scale-bar';
 import { StageText } from './stage-text';
 
 @Component({
-  imports: [JourneyScene, StageText, ScaleBar, EarthMarker, DistanceReadout, JourneyControls],
+  imports: [JourneyScene, StageText, ScaleBar, EarthMarker, DistanceReadout],
   providers: [ZoomState, SceneGeometry, JourneyUi],
   template: `
     <app-journey-scene />
@@ -23,7 +21,6 @@ import { StageText } from './stage-text';
     <app-distance-readout />
     <app-scale-bar />
     <app-stage-text />
-    <app-journey-controls />
   `,
 })
 class Host {
@@ -276,16 +273,10 @@ describe('journey overlay', { timeout: 30_000 }, () => {
     }
   });
 
-  it('offers only the vibration setting, and no sound controls', async () => {
+  it('has no sound controls and no own settings panel', async () => {
     await render();
-    const settings = TestBed.inject(JourneySettings);
     expect(el.querySelector('button[aria-label="Ton"]')).toBeNull();
-    el.querySelector<HTMLButtonElement>('button[aria-label="Weitere Einstellungen"]')?.click();
-    fixture.detectChanges();
-    const inputs = el.querySelectorAll<HTMLInputElement>('#journey-settings input');
-    expect(inputs).toHaveLength(1);
-    inputs[0].dispatchEvent(new Event('change'));
-    expect(settings.vibration()).toBe(false);
+    expect(el.querySelector('button[aria-label="Weitere Einstellungen"]')).toBeNull();
     expect(el.textContent).not.toContain('Erzählstimme');
   });
 });

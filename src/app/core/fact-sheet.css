@@ -17,9 +17,9 @@
 .sheet {
   padding: 10px 22px 20px;
   border-radius: 26px;
-  background: rgb(10 14 30 / 0.86);
+  background: color-mix(in srgb, var(--color-night-800) 86%, transparent);
   backdrop-filter: blur(20px);
-  border: 1px solid rgb(236 232 221 / 0.08);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 8%, transparent);
   max-height: 70vh;
   overflow: auto;
 }
@@ -29,7 +29,7 @@
   height: 4px;
   margin: 0 auto 10px;
   border-radius: 999px;
-  background: rgb(236 232 221 / 0.3);
+  background: color-mix(in srgb, var(--color-ink) 30%, transparent);
 }
 
 .head {
@@ -82,7 +82,7 @@ li {
   line-height: 1.5;
   color: var(--color-ink-soft);
   padding-bottom: 10px;
-  border-bottom: 1px solid rgb(236 232 221 / 0.08);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 8%, transparent);
 }
 
 .branch {

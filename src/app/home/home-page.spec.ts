@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { CLOCK } from '../core/clock';
+import { NightMode } from '../core/night-mode';
 import { DESKTOP_QUERY, MATCH_MEDIA, TABLET_QUERY } from '../core/layout-mode';
 import { SavedMoments } from '../core/saved-moments';
 import { TonightService } from '../core/tonight';
@@ -25,6 +26,7 @@ describe('HomePage', () => {
   afterEach(() => {
     el.remove();
     localStorage.clear();
+    document.documentElement.classList.remove('night');
   });
 
   it('shows the date in German long form', async () => {
@@ -57,13 +59,8 @@ describe('HomePage', () => {
   it('passes saved moments and tonight info to the sections', async () => {
     await render();
     TestBed.inject(SavedMoments).setCount(2);
-    TestBed.inject(TonightService).update({
-      location: 'Hamburg',
-      visibleFrom: '19:40',
-      darkness: 2,
-      moon: 'Kein Mond',
-      mission: 'Finde den Schwan.',
-    });
+    TestBed.inject(TonightService).choosePlace({ name: 'Hamburg', lat: 53.55, lon: 9.99, tz: 'Europe/Berlin', source: 'list' });
+    TestBed.inject(TonightService).setDarkness(2);
     await fixture.whenStable();
     expect(el.querySelector('app-home-actions')?.textContent).toContain('Meine Sterne');
     expect(el.querySelector('app-tonight-card')?.textContent).toContain('Hamburg');
@@ -129,6 +126,24 @@ describe('HomePage', () => {
       expect(focusables[1]).toBe('Die Reise nach draussen');
       expect(focusables.at(-1)).toBe('Die');
     });
+  });
+
+  it('has no night-mode control: night mode is switched only in the settings', async () => {
+    await render();
+    TestBed.inject(NightMode).set(true);
+    await fixture.whenStable();
+    const focusables = [...el.querySelectorAll('a, button')].map((e) => e.getAttribute('aria-label') ?? e.textContent?.trim());
+    expect(focusables.slice(0, 2)).toEqual(['Einstellungen', 'Die Reise nach draussen']);
+    expect(el.textContent).not.toContain('Nachtmodus');
+  });
+
+  it('loads tonight for the card after the first render', async () => {
+    await render();
+    TestBed.inject(TonightService).choosePlace({ name: 'Hamburg', lat: 53.55, lon: 9.99, tz: 'Europe/Berlin', source: 'list' });
+    TestBed.inject(TonightService).setDarkness(4);
+    await TestBed.inject(TonightService).refresh();
+    await fixture.whenStable();
+    expect(el.querySelector('app-tonight-card .title')?.textContent).not.toBe('…');
   });
 
   it('contains no audio or video elements', async () => {

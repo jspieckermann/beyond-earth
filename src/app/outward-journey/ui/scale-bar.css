@@ -31,7 +31,7 @@ nav::before {
   position: absolute;
   inset: -8px -8px -8px 10px;
   border-radius: 16px;
-  background: linear-gradient(to left, rgb(2 3 10 / 0.72), rgb(2 3 10 / 0.45) 70%, transparent);
+  background: linear-gradient(to left, color-mix(in srgb, var(--color-night-950) 72%, transparent), color-mix(in srgb, var(--color-night-950) 45%, transparent) 70%, transparent);
   pointer-events: none;
 }
 
@@ -41,7 +41,7 @@ nav::before {
   top: 22px;
   bottom: 22px;
   width: 1px;
-  background: rgb(236 232 221 / 0.25);
+  background: color-mix(in srgb, var(--color-ink) 25%, transparent);
 }
 
 .stops {
@@ -67,7 +67,7 @@ nav::before {
   background: transparent;
   cursor: pointer;
   font: 500 11px var(--font-sans);
-  color: rgb(236 232 221 / 0.8);
+  color: color-mix(in srgb, var(--color-ink) 80%, transparent);
   text-shadow: 0 0 3px #000, 0 0 8px #000;
   transition: color 0.3s ease;
 }
@@ -81,7 +81,7 @@ nav::before {
 }
 
 .stops button.dim {
-  color: rgb(236 232 221 / 0.7);
+  color: color-mix(in srgb, var(--color-ink) 70%, transparent);
 }
 
 .stops button.on {
@@ -99,7 +99,7 @@ nav::before {
   height: 2px;
   margin-top: -1px;
   background: var(--color-starlight);
-  box-shadow: 0 0 10px rgb(243 217 164 / 0.9);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-starlight) 90%, transparent);
   pointer-events: none;
 }
 
@@ -142,7 +142,7 @@ nav::before {
   width: 14px;
   height: 1px;
   margin-right: 15px;
-  background: rgb(236 232 221 / 0.6);
+  background: color-mix(in srgb, var(--color-ink) 60%, transparent);
 }
 
 .ticks li.on {
@@ -174,8 +174,8 @@ nav::before {
   padding: 0 10px;
   border: 0;
   border-radius: 999px;
-  background: rgb(2 3 10 / 0.45);
-  color: rgb(236 232 221 / 0.85);
+  background: color-mix(in srgb, var(--color-night-950) 45%, transparent);
+  color: color-mix(in srgb, var(--color-ink) 85%, transparent);
   font: 500 11px var(--font-sans);
   cursor: pointer;
 }
@@ -189,8 +189,8 @@ nav::before {
   padding: 6px;
   list-style: none;
   border-radius: 16px;
-  background: rgb(10 14 30 / 0.94);
-  border: 1px solid rgb(236 232 221 / 0.1);
+  background: color-mix(in srgb, var(--color-night-800) 94%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
 }
 
 .list button {
@@ -209,7 +209,7 @@ nav::before {
 
 .list button.on {
   color: var(--color-starlight);
-  background: rgb(243 217 164 / 0.12);
+  background: color-mix(in srgb, var(--color-starlight) 12%, transparent);
 }
 
 .slider:focus-within {

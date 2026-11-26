@@ -27,7 +27,6 @@ import { DistanceReadout } from './ui/distance-readout';
 import { EarthMarker } from './ui/earth-marker';
 import { FactSheet, FactSheetContent } from '../core/fact-sheet';
 import { CREDITS, CREDIT_KIND_LABEL, CreditId } from './data/credits';
-import { JourneyControls } from './ui/journey-controls';
 import { JourneyEnd } from './ui/journey-end';
 import { ScaleBar } from './ui/scale-bar';
 import { StageText } from './ui/stage-text';
@@ -55,7 +54,6 @@ function sourcesOf(ids: readonly CreditId[]): FactSheetContent['sources'] {
     StageText,
     FactSheet,
     JourneyEnd,
-    JourneyControls,
     CreditsDialog,
     PlanetCloseup,
     ShareCardDialog,

@@ -24,8 +24,8 @@ import { JourneyUi } from '../journey-ui';
     :host { position: absolute; left: 22px; right: 160px; top: 116px; display: block; pointer-events: none; }
     :host-context([data-layout='desktop']), :host-context([data-layout='tablet']) { left: 56px; right: auto; top: 140px; }
     nav { display: flex; flex-wrap: wrap; gap: 8px; pointer-events: auto; animation: appear 0.8s ease 1s both; }
-    button { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid rgb(236 232 221 / 0.3); background: rgb(2 3 10 / 0.5); color: var(--color-ink); font: 500 14px var(--font-sans); cursor: pointer; }
-    button.primary { border-color: rgb(243 217 164 / 0.7); color: var(--color-starlight); }
+    button { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--color-ink) 30%, transparent); background: color-mix(in srgb, var(--color-night-950) 50%, transparent); color: var(--color-ink); font: 500 14px var(--font-sans); cursor: pointer; }
+    button.primary { border-color: color-mix(in srgb, var(--color-starlight) 70%, transparent); color: var(--color-starlight); }
     .handover { width: 100%; margin: 0 0 6px; font-family: var(--font-serif); font-style: italic; font-size: 22px; color: var(--color-ink-bright); }
     @keyframes appear { from { opacity: 0; } }
     @media (prefers-reduced-motion: reduce) { nav { animation: none; } }

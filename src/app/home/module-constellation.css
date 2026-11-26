@@ -48,19 +48,19 @@
   height: 4px;
   border-radius: 50%;
   background: var(--color-star-faint);
-  box-shadow: 0 0 6px 1px rgb(243 217 164 / 0.3);
+  box-shadow: 0 0 6px 1px color-mix(in srgb, var(--color-starlight) 30%, transparent);
   transition: width 0.3s, height 0.3s, box-shadow 0.3s;
 }
 .explored .dot,
 .selected .dot {
   background: var(--color-star-explored);
-  box-shadow: 0 0 16px 3px rgb(243 217 164 / 0.7);
+  box-shadow: 0 0 16px 3px color-mix(in srgb, var(--color-starlight) 70%, transparent);
 }
 .explored .dot { width: 7px; height: 7px; }
 .selected .dot { width: 9px; height: 9px; }
 :host(.wide) .dot { width: 5px; height: 5px; }
-:host(.wide) .explored .dot { width: 8px; height: 8px; box-shadow: 0 0 20px 4px rgb(243 217 164 / 0.7); }
-:host(.wide) .selected .dot { width: 11px; height: 11px; box-shadow: 0 0 20px 4px rgb(243 217 164 / 0.7); }
+:host(.wide) .explored .dot { width: 8px; height: 8px; box-shadow: 0 0 20px 4px color-mix(in srgb, var(--color-starlight) 70%, transparent); }
+:host(.wide) .selected .dot { width: 11px; height: 11px; box-shadow: 0 0 20px 4px color-mix(in srgb, var(--color-starlight) 70%, transparent); }
 
 .star.selected .cell::after {
   content: '';
@@ -68,7 +68,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1px solid rgb(243 217 164 / 0.65);
+  border: 1px solid color-mix(in srgb, var(--color-starlight) 65%, transparent);
 }
 :host(.wide) .star.selected .cell::after { width: 36px; height: 36px; }
 
@@ -90,12 +90,12 @@
   letter-spacing: 0.04em;
   white-space: nowrap;
   color: var(--color-ink-dim);
-  text-shadow: 0 0 6px #03050c, 0 0 2px #03050c;
+  text-shadow: 0 0 6px var(--color-night-950), 0 0 2px var(--color-night-950);
   pointer-events: auto;
   transition: color 0.2s;
 }
 .star.left .label { margin: 0 var(--gap) 0 0; }
-.label.explored { color: #d8d3c4; }
+.label.explored { color: var(--color-ink); }
 .label.selected { color: var(--color-starlight); }
 .star:hover .label:not(.selected) { color: var(--color-ink); }
 .label[hidden] { display: none; }
@@ -137,7 +137,7 @@
 .dust {
   --w: calc(var(--len) * 1.17);
   --h: calc(18px * var(--t));
-  background: radial-gradient(ellipse at 45% 50%, rgb(3 5 12 / 0.75) 0%, rgb(3 5 12 / 0.35) 55%, transparent 80%);
+  background: radial-gradient(ellipse at 45% 50%, color-mix(in srgb, var(--color-night-950) 75%, transparent) 0%, color-mix(in srgb, var(--color-night-950) 35%, transparent) 55%, transparent 80%);
   filter: blur(6px);
 }
 .cloud { position: absolute; left: 0; top: 0; overflow: visible; }

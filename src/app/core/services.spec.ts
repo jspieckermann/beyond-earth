@@ -3,7 +3,6 @@ import { ExplorationProgress } from './exploration-progress';
 import { BROWSER_STORAGE } from './local-store';
 import { isModuleId } from './models';
 import { SavedMoments } from './saved-moments';
-import { TonightService } from './tonight';
 
 function blockedStorage(): Storage {
   const fail = () => {
@@ -123,17 +122,5 @@ describe('SavedMoments', () => {
   it('defaults to zero when storage is unavailable', () => {
     TestBed.configureTestingModule({ providers: [{ provide: BROWSER_STORAGE, useValue: blockedStorage() }] });
     expect(TestBed.inject(SavedMoments).count()).toBe(0);
-  });
-});
-
-describe('TonightService', () => {
-  it('knows no place by default', () => {
-    expect(TestBed.inject(TonightService).info()).toBeNull();
-  });
-
-  it('exposes updated info', () => {
-    const tonight = TestBed.inject(TonightService);
-    tonight.update({ location: 'Hamburg', visibleFrom: '19:40', darkness: 2, moon: 'Kein Mond', mission: 'M' });
-    expect(tonight.info()?.location).toBe('Hamburg');
   });
 });

@@ -8,7 +8,7 @@ import { createStarField } from './data/star-field';
  */
 @Component({
   selector: 'app-sky-backdrop',
-  host: { 'aria-hidden': 'true' },
+  host: { 'aria-hidden': 'true', class: 'picture' },
   template: `
     <svg class="field" width="100%" height="100%">
       <defs>

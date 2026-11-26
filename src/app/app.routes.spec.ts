@@ -9,6 +9,8 @@ import { HomePage } from './home/home-page';
 import { LightSpeedPage } from './light-speed-journey/light-speed-page';
 import { OutwardJourneyPage } from './outward-journey/outward-journey-page';
 import { PlaceholderPage } from './placeholder/placeholder-page';
+import { SettingsPage } from './settings/settings-page';
+import { TonightPage } from './tonight/tonight-page';
 
 describe('routes', { timeout: 30_000 }, () => {
   let harness: RouterTestingHarness;
@@ -28,9 +30,7 @@ describe('routes', { timeout: 30_000 }, () => {
 
   for (const [path, name] of [
     ['/reise', 'Die Reise'],
-    ['/heute-nacht', 'Heute Nacht'],
     ['/meine-sterne', 'Meine Sterne'],
-    ['/einstellungen', 'Einstellungen'],
   ]) {
     it(`shows a placeholder for ${path}`, async () => {
       expect(await harness.navigateByUrl(path)).toBeInstanceOf(PlaceholderPage);
@@ -38,6 +38,18 @@ describe('routes', { timeout: 30_000 }, () => {
       expect(title()).toBe(`${name} · Die Milchstrasse erleben`);
     });
   }
+
+  it('opens the settings', async () => {
+    expect(await harness.navigateByUrl('/einstellungen')).toBeInstanceOf(SettingsPage);
+    expect(title()).toBe('Einstellungen · Die Milchstrasse erleben');
+    expect(heading()).toBe('Einstellungen');
+  });
+
+  it('opens Heute Nacht', async () => {
+    expect(await harness.navigateByUrl('/heute-nacht')).toBeInstanceOf(TonightPage);
+    expect(title()).toBe('Heute Nacht · Die Milchstrasse erleben');
+    expect(heading()).toBe('Heute Nacht');
+  });
 
   it('opens the outward journey for Modul A', async () => {
     expect(await harness.navigateByUrl('/module/reise-nach-draussen')).toBeInstanceOf(OutwardJourneyPage);

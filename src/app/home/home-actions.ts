@@ -33,8 +33,8 @@ import { RouterLink } from '@angular/router';
     .action {
       min-height: 48px;
       border-radius: 24px;
-      border: 1px solid rgb(255 255 255 / 0.16);
-      background: rgb(255 255 255 / 0.04);
+      border: 1px solid color-mix(in srgb, var(--color-ink) 16%, transparent);
+      background: color-mix(in srgb, var(--color-ink) 4%, transparent);
       color: var(--color-ink);
       font-size: 14px;
       font-weight: 500;
@@ -45,14 +45,14 @@ import { RouterLink } from '@angular/router';
       white-space: nowrap;
       text-decoration: none;
     }
-    .action:hover { border-color: rgb(243 217 164 / 0.45); }
+    .action:hover { border-color: color-mix(in srgb, var(--color-starlight) 45%, transparent); }
     .badge {
       min-width: 20px;
       height: 20px;
       padding: 0 6px;
       box-sizing: border-box;
       border-radius: 10px;
-      background: rgb(243 217 164 / 0.16);
+      background: color-mix(in srgb, var(--color-starlight) 16%, transparent);
       color: var(--color-starlight);
       font-size: 11px;
       font-weight: 600;

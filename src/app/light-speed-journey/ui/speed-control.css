@@ -43,13 +43,13 @@
 .slider::-webkit-slider-runnable-track {
   height: 4px;
   border-radius: 999px;
-  background: linear-gradient(to right, var(--color-starlight) var(--centre), rgb(236 232 221 / 0.35) var(--centre));
+  background: linear-gradient(to right, var(--color-starlight) var(--centre), color-mix(in srgb, var(--color-ink) 35%, transparent) var(--centre));
 }
 
 .slider::-moz-range-track {
   height: 4px;
   border-radius: 999px;
-  background: rgb(236 232 221 / 0.35);
+  background: color-mix(in srgb, var(--color-ink) 35%, transparent);
 }
 
 .slider::-moz-range-progress {
@@ -66,7 +66,7 @@
   border-radius: 50%;
   border: 3px solid var(--color-night-950);
   background: var(--color-starlight);
-  box-shadow: 0 0 0 1px var(--color-starlight), 0 0 12px rgb(243 217 164 / 0.5);
+  box-shadow: 0 0 0 1px var(--color-starlight), 0 0 12px color-mix(in srgb, var(--color-starlight) 50%, transparent);
 }
 
 .slider::-moz-range-thumb {
@@ -76,7 +76,7 @@
   border-radius: 50%;
   border: 3px solid var(--color-night-950);
   background: var(--color-starlight);
-  box-shadow: 0 0 0 1px var(--color-starlight), 0 0 12px rgb(243 217 164 / 0.5);
+  box-shadow: 0 0 0 1px var(--color-starlight), 0 0 12px color-mix(in srgb, var(--color-starlight) 50%, transparent);
 }
 
 .slider:focus-visible {
@@ -134,8 +134,8 @@
   min-height: 44px;
   padding: 0 12px;
   border-radius: 12px;
-  border: 1px solid rgb(236 232 221 / 0.28);
-  background: rgb(6 10 24 / 0.7);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 28%, transparent);
+  background: color-mix(in srgb, var(--color-night-900) 70%, transparent);
   color: var(--color-ink-bright);
   font: 500 16px var(--font-sans);
 }
@@ -151,8 +151,8 @@
   min-width: 44px;
   padding: 6px 14px;
   border-radius: 999px;
-  border: 1px solid rgb(236 232 221 / 0.22);
-  background: rgb(20 26 52 / 0.6);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 22%, transparent);
+  background: color-mix(in srgb, var(--color-night-800) 60%, transparent);
   color: var(--color-ink);
   font: 500 14px var(--font-sans);
   display: inline-flex;

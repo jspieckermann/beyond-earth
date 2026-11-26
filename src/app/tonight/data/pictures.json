@@ -1,0 +1,126 @@
+{
+  "eye-mond": {
+    "width": 750,
+    "height": 640,
+    "bytes": 66694
+  },
+  "eye-saturn": {
+    "width": 960,
+    "height": 763,
+    "bytes": 2270
+  },
+  "eye-plejaden": {
+    "width": 960,
+    "height": 640,
+    "bytes": 38372
+  },
+  "eye-kassiopeia": {
+    "width": 960,
+    "height": 987,
+    "bytes": 185868
+  },
+  "eye-sommerdreieck": {
+    "width": 960,
+    "height": 1240,
+    "bytes": 21630
+  },
+  "eye-orion": {
+    "width": 960,
+    "height": 641,
+    "bytes": 208276
+  },
+  "eye-jupiter-mars": {
+    "width": 960,
+    "height": 596,
+    "bytes": 2984
+  },
+  "eye-venus": {
+    "width": 960,
+    "height": 640,
+    "bytes": 83482
+  },
+  "eye-wagen": {
+    "width": 960,
+    "height": 640,
+    "bytes": 59958
+  },
+  "eye-arktur": {
+    "width": 960,
+    "height": 960,
+    "bytes": 228028
+  },
+  "eye-sirius": {
+    "width": 960,
+    "height": 638,
+    "bytes": 10992
+  },
+  "eye-andromeda": {
+    "width": 960,
+    "height": 540,
+    "bytes": 24812
+  },
+  "eye-skorpion": {
+    "width": 960,
+    "height": 960,
+    "bytes": 335756
+  },
+  "eye-milchstrasse": {
+    "width": 960,
+    "height": 640,
+    "bytes": 98096
+  },
+  "close-mond": {
+    "width": 960,
+    "height": 912,
+    "bytes": 0,
+    "thumbBytes": 1874
+  },
+  "close-saturn": {
+    "width": 960,
+    "height": 465,
+    "bytes": 0,
+    "thumbBytes": 782
+  },
+  "close-plejaden": {
+    "width": 960,
+    "height": 692,
+    "bytes": 0,
+    "thumbBytes": 1724
+  },
+  "close-jupiter": {
+    "width": 940,
+    "height": 940,
+    "bytes": 0,
+    "thumbBytes": 1540
+  },
+  "close-mars": {
+    "width": 960,
+    "height": 960,
+    "bytes": 0,
+    "thumbBytes": 1036
+  },
+  "close-orion": {
+    "width": 960,
+    "height": 1480,
+    "bytes": 0,
+    "thumbBytes": 2032
+  },
+  "close-venus": {
+    "width": 480,
+    "height": 480,
+    "bytes": 0,
+    "thumbBytes": 582
+  },
+  "close-milchstrasse": {
+    "width": 960,
+    "height": 291,
+    "bytes": 0,
+    "thumbBytes": 1468
+  },
+  "close-andromeda": {
+    "width": 960,
+    "height": 631,
+    "bytes": 0,
+    "thumbBytes": 2424
+  }
+}

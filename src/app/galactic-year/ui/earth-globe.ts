@@ -27,7 +27,7 @@ export function capPath(depth: number, north: boolean): string {
 @Component({
   selector: 'app-earth-globe',
   template: `
-    <svg viewBox="0 0 100 100" role="img" [attr.aria-label]="label()">
+    <svg class="picture" viewBox="0 0 100 100" role="img" [attr.aria-label]="label()">
       <defs>
         <radialGradient [attr.id]="id('depth')" cx="42%" cy="40%" r="62%">
           <stop offset="0" stop-color="#ffffff" stop-opacity="0.14" />

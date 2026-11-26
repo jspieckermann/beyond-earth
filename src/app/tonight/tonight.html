@@ -1,0 +1,101 @@
+<div class="page">
+  <header class="top">
+    @if (free()) {
+      <a routerLink="/" class="icon" aria-label="Zurück zum Himmel">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12" />
+          <path d="M18 6L6 18" />
+        </svg>
+      </a>
+    }
+    <h1>Heute Nacht</h1>
+  </header>
+
+  @if (!free()) {
+    <p class="closing">„Und all das kannst du sehen. Heute Nacht, über dir.“</p>
+  }
+
+  @if (skipped()) {
+    <p class="summary">„Such dir heute Nacht einen dunklen Platz, weg von Strassenlaternen, und schau nach oben.“</p>
+  } @else {
+    <section class="stack place" aria-labelledby="h-place">
+      <h2 id="h-place" #heading tabindex="-1" class="question">Wo stehst du heute Nacht?</h2>
+      <app-place-picker [selected]="place()" [skippable]="!free() && !place()" (picked)="picked($event)" (skipped)="skipped.set(true)" />
+      @if (place()) {
+        <app-darkness-choice [value]="darkness()" [hint]="darknessHint()" (valueChange)="setDarkness($event)" />
+      }
+    </section>
+
+    @if (place()) {
+      <section class="stack sky" aria-label="Was du heute Nacht siehst">
+        @if (conditions(); as c) {
+          <app-conditions [conditions]="c" />
+        }
+
+        @if (free()) {
+          <div class="part">
+            <h3 id="h-moment">Wann schaust du?</h3>
+            <div class="moments" role="group" aria-labelledby="h-moment">
+              @for (m of moments(); track m.id) {
+                <button type="button" class="pill" [attr.aria-pressed]="m.id === momentId()" (click)="momentId.set(m.id)">{{ m.name }} · {{ m.clock }}</button>
+              }
+            </div>
+          </div>
+        }
+        <p class="summary" aria-live="polite">{{ summary() }}</p>
+
+        @if (shown().length) {
+          <div class="part">
+            <h3 id="h-visible">Mit dem Auge zu sehen</h3>
+            <ul class="objects" aria-labelledby="h-visible">
+              @for (v of shown(); track v.id; let first = $first) {
+                <li><app-object-card [view]="v" [open]="openIds().has(v.id)" [priority]="first" (toggled)="toggle(v.id)" /></li>
+              }
+            </ul>
+          </div>
+        }
+
+        @if (free()) {
+          @if (list()?.hidden?.length) {
+            <div class="part">
+              <h3 id="h-hidden">Heute nicht zu sehen</h3>
+              <app-hidden-list [items]="list()!.hidden" aria-labelledby="h-hidden" />
+            </div>
+          }
+
+          @if (milkyWay(); as note) {
+            <p class="note"><strong>Nächste gute Nacht für die Milchstrasse:</strong>&#32;{{ note }}</p>
+          }
+
+          <div class="part tips">
+            <h3 id="h-tips">Bevor du rausgehst</h3>
+            <ul>
+              <li><strong>Gib deinen Augen 20 Minuten.</strong>&#32;<span class="soft">Jeder Blick aufs helle Handy setzt die Zeit zurück.</span></li>
+              @if (!nightMode.on()) {
+                <li><strong>Nachtmodus:</strong>&#32;<span class="soft">In den&#32;<a routerLink="/einstellungen">Einstellungen</a>&#32;färbst du die Anwendung rot, damit sie draussen nicht blendet.</span></li>
+              }
+              <li><strong>Eine Faust</strong>&#32;<span class="soft">am ausgestreckten Arm sind etwa 10°. Vom Horizont bis über deinen Kopf sind es neun Fäuste.</span></li>
+              @if (moonUp()) {
+                <li><strong>Stell dich so, dass der Mond hinter dir steht</strong>&#32;<span class="soft">oder hinter einem Haus. Dann siehst du mehr.</span></li>
+              }
+            </ul>
+            <button #factsButton type="button" class="link" [attr.aria-expanded]="factsOpen()" (click)="factsOpen.set(true)">Wie genau weiss man das?</button>
+          </div>
+        }
+      </section>
+    }
+  }
+
+  @if (!free()) {
+    <div class="journey-end">
+      <p class="closing">„Die Reise endet hier. Die Milchstrasse nicht.“</p>
+      <button type="button" class="pill solid" (click)="finish()">Zurück zum Himmel</button>
+    </div>
+  }
+</div>
+
+@if (factsOpen()) {
+  <div class="facts-layer">
+    <app-fact-sheet [content]="facts" (closed)="closeFacts()" />
+  </div>
+}

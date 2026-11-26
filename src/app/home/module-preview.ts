@@ -45,7 +45,7 @@ import { WIDE_PREVIEW_SIZE } from './data/wide-sky';
       padding: 14px 16px 12px;
       border-radius: 16px;
       background: var(--color-popover);
-      border: 1px solid rgb(243 217 164 / 0.22);
+      border: 1px solid color-mix(in srgb, var(--color-starlight) 22%, transparent);
       backdrop-filter: blur(10px);
       pointer-events: auto;
     }

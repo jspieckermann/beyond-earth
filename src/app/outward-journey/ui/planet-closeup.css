@@ -10,9 +10,9 @@
   inset: 0;
   overflow: auto;
   background:
-    radial-gradient(circle at 12% 14%, rgb(236 232 221 / 0.5) 0 1px, transparent 2px),
-    radial-gradient(circle at 84% 10%, rgb(236 232 221 / 0.4) 0 1px, transparent 2px),
-    #02030a;
+    radial-gradient(circle at 12% 14%, color-mix(in srgb, var(--color-ink) 50%, transparent) 0 1px, transparent 2px),
+    radial-gradient(circle at 84% 10%, color-mix(in srgb, var(--color-ink) 40%, transparent) 0 1px, transparent 2px),
+    var(--color-night-950);
   animation: zoom-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
@@ -28,7 +28,7 @@
   padding: 0 14px 0 8px;
   border-radius: 999px;
   border: 0;
-  background: rgb(14 19 40 / 0.6);
+  background: color-mix(in srgb, var(--color-night-800) 60%, transparent);
   color: var(--color-ink);
   display: inline-flex;
   align-items: center;
@@ -82,7 +82,7 @@ canvas {
   top: 120px;
   height: 60px;
   border-radius: 50%;
-  border: 10px solid rgb(230 214 170 / 0.45);
+  border: 10px solid color-mix(in srgb, var(--color-starlight) 45%, transparent);
   transform: rotate(-12deg);
   pointer-events: none;
 }
@@ -147,7 +147,7 @@ h2 {
   min-height: 44px;
   padding: 0 14px;
   border-radius: 999px;
-  border: 1px solid rgb(236 232 221 / 0.25);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 25%, transparent);
   background: transparent;
   color: var(--color-ink);
   font: 500 13px var(--font-sans);

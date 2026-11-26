@@ -45,7 +45,7 @@
 }
 
 .arc {
-  stroke: #fff4dc;
+  stroke: var(--color-star-explored);
   stroke-width: 2.4;
   stroke-linecap: round;
 }
@@ -64,10 +64,10 @@
   margin: -7px 0 0 -7px;
   box-sizing: border-box;
   border-radius: 50%;
-  border: 1.5px solid #fff4dc;
-  background: radial-gradient(circle, #fff4dc 0 3px, transparent 3.5px);
+  border: 1.5px solid var(--color-star-explored);
+  background: radial-gradient(circle, var(--color-star-explored) 0 3px, transparent 3.5px);
   box-shadow:
-    0 0 0 5px rgb(243 217 164 / 0.22),
+    0 0 0 5px color-mix(in srgb, var(--color-starlight) 22%, transparent),
     0 0 10px rgb(0 0 0 / 0.8);
 }
 
@@ -76,7 +76,7 @@
   margin: 12px 0 0 12px;
   padding: 2px 8px;
   border-radius: 999px;
-  background: rgb(3 5 12 / 0.78);
+  background: color-mix(in srgb, var(--color-night-950) 78%, transparent);
   color: var(--color-ink-bright);
   font-size: 12px;
   font-weight: 500;
